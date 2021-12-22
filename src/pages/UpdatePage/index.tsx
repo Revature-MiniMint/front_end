@@ -1,6 +1,10 @@
+import UpdateForm from '../../components/UpdateForm';
+
 const UpdatePage = () => {
     return (
-        <div></div>
+        <div>
+            <UpdateForm/>
+        </div>
     );
 }
 
