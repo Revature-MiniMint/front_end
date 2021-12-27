@@ -3,26 +3,16 @@ import axios from 'axios';
 
 const UpdateForm = () => {
     const [state, setState] = useState({
-        id: 0,
-        username: "",
-        password: "",
-        email: "",
-        name: "",
-        alias: "",
-        dob: "",
-        gender: "",
-        bio: "",
-        profilepic: ""
-        // id: 1,
-        // username: "user",
-        // password: "password",
-        // email: "email@gmail.com",
-        // name: "Name",
-        // alias: "A",
-        // dob: "2021-12-23",
-        // gender: "male",
-        // bio: "",
-        // profilepic: ""
+        id: 1,
+        username: "user",
+        password: "password",
+        email: "email@gmail.com",
+        name: "Name",
+        alias: "A",
+        dob: "2021-12-23",
+        gender: "male",
+        bio: "My bio",
+        profilepic: new Blob()
     });
     useEffect(() => {
         axios.get("http://localhost:9007/profiles/1")
@@ -52,9 +42,13 @@ const UpdateForm = () => {
     function onChangeHandler(event) {
         const target = event.target;
         if (target.name === "profilepic") {
-            setState({
-                ...state,
-                [target.name]: URL.createObjectURL(target.files[0])
+            let file = target.files[0];
+            file.arrayBuffer().then((arrayBuffer) => {
+                let blob = new Blob([new Uint8Array(arrayBuffer)], {type: file.type });
+                setState({
+                    ...state,
+                    [target.name]: blob
+                })
             });
         } else {
             setState({
@@ -83,10 +77,11 @@ const UpdateForm = () => {
             <div className="row">
                 <div className="col">
                     <div className="form-group mb-3">
-                        {/* enctype="multipart/form-data" */}
+                        <div>
+                            <img src={URL.createObjectURL(state.profilepic)} alt=""/>
+                        </div>
                         <label className="form-label" htmlFor="profilepic">Profile Image</label>
                         <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler}/>
-                        <img src={state.profilepic} alt=""/>
                     </div>
                     <div className="form-group mb-3">
                         <label className="form-label" htmlFor="bio">Bio</label>
