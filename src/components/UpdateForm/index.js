@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 
 const UpdateForm = () => {
     const [state, setState] = useState({
-        username: "",
-        password: "",
-        email: "",
-        fullname: "",
-        alias: "",
+        username: "user",
+        password: "password",
+        email: "email@gmail.com",
+        fullname: "Name",
+        alias: "A",
         dob: "2021-12-23",
         gender: "male",
         bio: "",
-        profilePic: ""
+        profilePic: null
     });
     // axios.get("url")
     // .then(response => {
@@ -37,10 +37,17 @@ const UpdateForm = () => {
     }
     function onChangeHandler(event) {
         const target = event.target;
-        setState({
-            ...state,
-            [target.name]: target.value
-        });
+        if (target.name === "profilePic") {
+            setState({
+                ...state,
+                [target.name]: URL.createObjectURL(target.files[0])
+            });
+        } else {
+            setState({
+                ...state,
+                [target.name]: target.value
+            });
+        }
     }
     function onSubmitHandler(event) {
         event.preventDefault();
@@ -63,6 +70,14 @@ const UpdateForm = () => {
     return (
         <div className='container'>
         <form onSubmit={onSubmitHandler}>
+
+            <div className="form-group mb-3">
+                {/* enctype="multipart/form-data" */}
+                <label className="form-label" htmlFor="profilePic">Profile Image</label>
+                <input className="form-control" type="file" id="profilePic" name="profilePic" accept=".jpeg,.png" onChange={onChangeHandler}/>
+                <img src={state.profilePic} alt=""/>
+                </div>
+
             <div className="form-group mb-3">
                 <label className="form-label" htmlFor="fullname">First Name, Last Name</label>
                 <input className="form-control" type="text" id="fullname" name="fullname" value={state.fullname} required onInvalid={onInvalidHandler} onChange={onChangeHandler}/>
