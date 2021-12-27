@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
-// import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const UpdateForm = () => {
     const [state, setState] = useState({
-        username: "user",
-        password: "password",
-        email: "email@gmail.com",
-        fullname: "Name",
-        alias: "A",
-        dob: "2021-12-23",
-        gender: "male",
+        id: 0,
+        username: "",
+        password: "",
+        email: "",
+        name: "",
+        alias: "",
+        dob: "",
+        gender: "",
         bio: "",
-        profilePic: null
+        profilepic: ""
+        // id: 1,
+        // username: "user",
+        // password: "password",
+        // email: "email@gmail.com",
+        // name: "Name",
+        // alias: "A",
+        // dob: "2021-12-23",
+        // gender: "male",
+        // bio: "",
+        // profilepic: ""
     });
-    // axios.get("url")
-    // .then(response => {
-    //     setState(response);
-    // })
-    // .catch(error => {
-    //     console.error(error);
-    // })
+    useEffect(() => {
+        axios.get("http://localhost:9007/profiles/1")
+        .then(response => {
+            console.log(response.data);
+            setState(response.data);
+        })
+        .catch(error => {
+            console.error(error);
+        })
+    }, []);
     let gender_male_input = (
         <input className="form-check-input" type="radio" id="gender_male" name="gender" value="male" onChange={onChangeHandler}/>
     );
@@ -37,7 +51,7 @@ const UpdateForm = () => {
     }
     function onChangeHandler(event) {
         const target = event.target;
-        if (target.name === "profilePic") {
+        if (target.name === "profilepic") {
             setState({
                 ...state,
                 [target.name]: URL.createObjectURL(target.files[0])
@@ -52,20 +66,16 @@ const UpdateForm = () => {
     function onSubmitHandler(event) {
         event.preventDefault();
         console.log(state);
-        // axios.post("url", state)
-        // .then(response => {
-        //     console.log(response);
-        // })
-        // .catch(error => {
-        //     console.error(error);
-        // })
+        axios.put("http://localhost:9007/profiles/" + state.id, state)
+        .then(response => {
+            console.log(response);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }
     function onInvalidHandler(event) {
-        if(event.target.name === "fullname") {
-            event.target.setCustomValidity("Please fill out your full name.");
-        } else {
-            event.target.setCustomValidity("Please fill out your " + event.target.name + ".");
-        }
+        event.target.setCustomValidity("Please fill out your " + event.target.name + ".");
     }
     return (
         <div className='container'>
@@ -74,9 +84,9 @@ const UpdateForm = () => {
                 <div className="col">
                     <div className="form-group mb-3">
                         {/* enctype="multipart/form-data" */}
-                        <label className="form-label" htmlFor="profilePic">Profile Image</label>
-                        <input className="form-control" type="file" id="profilePic" name="profilePic" accept=".jpeg,.png" onChange={onChangeHandler}/>
-                        <img src={state.profilePic} alt=""/>
+                        <label className="form-label" htmlFor="profilepic">Profile Image</label>
+                        <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler}/>
+                        <img src={state.profilepic} alt=""/>
                     </div>
                     <div className="form-group mb-3">
                         <label className="form-label" htmlFor="bio">Bio</label>
@@ -85,8 +95,8 @@ const UpdateForm = () => {
                 </div>
                 <div className="col">
                     <div className="form-group mb-3">
-                        <label className="form-label" htmlFor="fullname">First Name, Last Name</label>
-                        <input className="form-control" type="text" id="fullname" name="fullname" value={state.fullname} required onInvalid={onInvalidHandler} onChange={onChangeHandler}/>
+                        <label className="form-label" htmlFor="name">First Name, Last Name</label>
+                        <input className="form-control" type="text" id="name" name="name" value={state.name} required onInvalid={onInvalidHandler} onChange={onChangeHandler}/>
                     </div>
                     <div className="form-group mb-3">
                         <label className="form-label" htmlFor="alias">Alias</label>
