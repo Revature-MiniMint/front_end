@@ -68,6 +68,16 @@
   height: 50px;
 }
 
+.dropdown-menu {
+  min-width: 8rem !important;
+}
+
+.dropdown-item:hover {
+  background-color: #BADABF !important;
+  color: white !important;
+  opacity: 0.8;
+}
+
 /*Navbar Icons*/
 .svg-inline--fa {
   color: #202020;

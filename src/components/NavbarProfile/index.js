@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const NavbarProfile = () => {
 
     return (
-        <Navbar expand="lg" variant="light" className="border">
+        <Navbar expand="lg" variant="light" className="border-bottom">
             <Container>
                 <Navbar.Brand href="#home"> <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} width="40" height="40" alt="logo" /> MiniMint</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -17,7 +17,7 @@ const NavbarProfile = () => {
                         <NavDropdown title={
                             <div className="profile-header">
                                 <img src={process.env.PUBLIC_URL + '/img/profile.jpg'} width="20" height="20" alt="profile" />
-                                <p>Name</p>
+                                <p>Name &#9660;</p>
                             </div>} id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#">Your Profile</NavDropdown.Item>
                             <NavDropdown.Item href="#">Settings</NavDropdown.Item>
