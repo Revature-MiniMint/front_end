@@ -6,7 +6,7 @@ const ProfilePic = () => {
   const [userInfo, setUserInfo] = React.useState(null);
   
     useEffect(() => {
-      axios.get("http://localhost:9007/profiles/1").then((response) => {
+      axios.get("http://localhost:9007/profiles/4").then((response) => {
         setUserInfo(response.data);
       });
     }, []);

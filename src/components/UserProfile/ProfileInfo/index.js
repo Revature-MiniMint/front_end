@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 const ProfileInfo = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state);
-  const [userInfo, setUserInfo] = React.useState(null);
 
   const info = (x) => {
     dispatch({ type: "change", payload: x });
@@ -15,7 +14,7 @@ const ProfileInfo = () => {
 
   useEffect(() => {
     console.log('flag')
-    axios.get("http://localhost:9007/profiles/1").then((response) => {
+    axios.get("http://localhost:9007/profiles/4").then((response) => {
       info(response.data);
     });
     
@@ -47,7 +46,7 @@ const ProfileInfo = () => {
         <br />
         <div className="row">
           <div>
-            <textarea
+            <p
               maxLength={250}
               style={{
                 height: "200px",
@@ -60,7 +59,7 @@ const ProfileInfo = () => {
               }}
             >
               {profile.bio}
-            </textarea>
+            </p>
           </div>
           <button
             type="button"

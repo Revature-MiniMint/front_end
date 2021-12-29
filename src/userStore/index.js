@@ -1,6 +1,6 @@
 import { createStore } from "redux";
 
-const initialState ={id:0, username: " ", password: " ", email: " ", name: " ", alias: " ", dob: " ", gender: " "}
+const initialState ={id:0, username: " ", bio: " ", password: " ", email: " ", name: " ", alias: " ", dob: " ", gender: " "}
 
 const counterModify = (state = initialState, action) => {
     if (action.type === "change") {
