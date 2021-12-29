@@ -3,15 +3,15 @@ import axios from "axios";
 import Profile from "../../../pages/profile";
 
 const ProfilePic = () => {
-    // const [pic, setPic] = React.useState(null);
+  const [userInfo, setUserInfo] = React.useState(null);
   
-    // useEffect(() => {
-    //   axios.get(/*DatabaseUrl/Picture*/).then((response) => {
-    //     setPic(response.data);
-    //   });
-    // }, []);
+    useEffect(() => {
+      axios.get("http://localhost:9007/profiles/1").then((response) => {
+        setUserInfo(response.data);
+      });
+    }, []);
   
-    // if (!pic) return null;
+    if (!userInfo) return null;
 
   return (
     <div className="container" style={{ fontWeight: "bold" }}>
@@ -33,8 +33,8 @@ const ProfilePic = () => {
           <p>Alias</p>
           <p style={{fontWeight: "normal", color:"gray"}}>
             <span>@</span>
-            {/* {profile.userName} */}
-            UserName</p>
+            {userInfo.username}
+            </p>
         </div>
       </div>
     </div>

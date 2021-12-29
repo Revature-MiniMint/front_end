@@ -15,6 +15,7 @@ function App() {
       {/* <PrivacyPage /> */}
     </div>
   );
+
 }
 
 export default App;
