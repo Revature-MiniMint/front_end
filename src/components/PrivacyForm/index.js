@@ -39,7 +39,7 @@ const PrivacyForm = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container short-content">
             <div className="row">
                 <br />
                 <div className="privacy-form">

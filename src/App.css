@@ -136,9 +136,13 @@
   font-size: 15px;
 }
 
+/*applied to componenet pages when content too short */
+.short-content {
+  min-height: 380px;
+}
+
 /*Footer*/
 footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;
