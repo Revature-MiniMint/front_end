@@ -5,7 +5,7 @@ import ProfilePosts from "../../components/UserProfile/ProfilePosts";
 
 const Profile = () => {
   return (
-    <div className="container" style={{ textAlign: "center", marginTop: '200px'}}>
+    <div className="container" style={{ textAlign: "center", marginTop: '10px'}}>
       <div className="col">
         <div className="row">
           <div className="col" align="center">

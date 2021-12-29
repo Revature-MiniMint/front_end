@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { faBirthdayCake, faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
 import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ProfileInfo = () => {
   // const [userInfo, setUserInfo] = React.useState(null);
@@ -26,11 +28,11 @@ const ProfileInfo = () => {
         <div className="row">
           <div className="col">
             {/* <p>{userInfo.dateOfBirth}</p> */}
-            <p>Dec 25, 1998</p>
+            <p><FontAwesomeIcon icon={faBirthdayCake} size="sm" /> Dec 25, 1998</p>
           </div>
           <div className="col">
             {/* <p>{userInfo.gender}</p> */}
-            <p>Male</p>
+            <p><FontAwesomeIcon icon={faMars} size="sm" /><FontAwesomeIcon icon={faVenus} size="sm" />  Male</p>
           </div>
         </div>
         <br />
@@ -57,15 +59,16 @@ const ProfileInfo = () => {
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </textarea>
           </div>
-          {/* <button
-            type="button"
-            class="btn btn-danger"
-            style={{ marginBottom: "100px" }}
-          >
-           <Contact label="Contact"
+          <button
+            class="contact-btn btn"
+            // style={{ marginBottom: "100px" }}
+            >
+           {/* <Contact label="Contact"
           //  mailto={userInfo.email} 
-           />
-          </button> */}
+
+           /> */}
+           <a href="mailto: abc@test.com" target="_blank"> Contact</a>
+          </button>
         </div>
       </div>
     </div>
