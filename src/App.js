@@ -2,12 +2,13 @@
 // import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
+import UpdatePicture from './components/UpdatePicture';
 import UpdatePage from './pages/UpdatePage';
 
 function App() {
   return (
     <div className="App">
-      <UpdatePage/>
+      <UpdatePicture/>
     </div>
   )
 }
