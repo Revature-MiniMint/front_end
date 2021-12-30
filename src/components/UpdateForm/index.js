@@ -1,29 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch, useSelector } from "react-redux";
 
 const UpdateForm = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state);
+    const premade = {
+        id: user.id, //id: 1,
+        username: user.username, //username: "user",
+        password: user.password, //password: "password",
+        email: user.email, //email: "email@gmail.com",
+        name: user.name, //name: "Name",
+        alias: user.alias, //alias: "A",
+        dob: user.dob, //dob: "2021-12-23",
+        gender: user.gender, //gender: "male",
+        bio: user.bio, //bio: "My bio",
+        profilepic: user.profilepic //profilepic: new Blob()
+    }
     const [state, setState] = useState({
-        id: 1,
-        username: "user",
-        password: "password",
-        email: "email@gmail.com",
-        name: "Name",
-        alias: "A",
-        dob: "2021-12-23",
-        gender: "male",
-        bio: "My bio",
-        profilepic: new Blob()
+        ...premade
+        // id: 0,
+        // username: "",
+        // password: "",
+        // email: "",
+        // name: "",
+        // alias: "",
+        // dob: "",
+        // gender: "",
+        // bio: "",
+        // profilepic: new Blob()
     });
-    useEffect(() => {
-        axios.get("http://localhost:9007/profiles/1")
-        .then(response => {
-            console.log(response.data);
-            setState(response.data);
-        })
-        .catch(error => {
-            console.error(error);
-        })
-    }, []);
+    // useEffect(() => {
+    //     axios.get("http://localhost:9007/profiles/" + state.id)
+    //     .then(response => {
+    //         console.log(response.data);
+    //         setState(response.data);
+    //     })
+    //     .catch(error => {console.error(error);})
+    //     axios.get("https://minimint.s3.us-east-1.amazonaws.com/" + state.id)
+    //     .then(response => {
+    //         console.log(response.data)
+    //         setState({
+    //             ...state,
+    //             profilepic: response.data.image
+    //         })
+    //     })
+    // }, [state]);
     let gender_male_input = (
         <input className="form-check-input" type="radio" id="gender_male" name="gender" value="male" onChange={onChangeHandler}/>
     );
@@ -60,13 +82,25 @@ const UpdateForm = () => {
     function onSubmitHandler(event) {
         event.preventDefault();
         console.log(state);
-        axios.put("http://localhost:9007/profiles/" + state.id, state)
-        .then(response => {
-            console.log(response);
-        })
-        .catch(error => {
-            console.error(error);
-        })
+        // const {profilepic, ...profile} = state;
+        // axios.put("http://localhost:9007/profiles/" + state.id, profile)
+        // .then(response => {
+        //     console.log(response);
+        //     dispatch({ type: "updateProfileInfo", payload: profile }); //needs updating
+        // })
+        // .catch(error => {console.error(error);})
+        // var formData = new FormData();
+        // formData.append("image", state.profilepic);
+        // axios.post("http://localhost:9007/profiles/" + state.id + "/profile_pic", formData, {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     }
+        // })
+        // .then(response => {
+        //     console.log(response);
+        //     dispatch({ type: "updateProfilePic", payload: profile });
+        // })
+        // .catch(error => {console.error(error);})
     }
     function onInvalidHandler(event) {
         event.target.setCustomValidity("Please fill out your " + event.target.name + ".");
@@ -77,8 +111,13 @@ const UpdateForm = () => {
             <div className="row">
                 <div className="col">
                     <div className="form-group mb-3">
-                        <div>
-                            <img src={URL.createObjectURL(state.profilepic)} alt=""/>
+                        <div className='text-center'>
+                            <img id="image" src={URL.createObjectURL(state.profilepic)} alt="" style={{
+                                objectFit: 'fill',
+                                width: '300px',
+                                height: '300px',
+                                borderRadius: '50%',
+                            }}/>
                         </div>
                         <label className="form-label" htmlFor="profilepic">Profile Image</label>
                         <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler}/>
@@ -90,7 +129,7 @@ const UpdateForm = () => {
                 </div>
                 <div className="col">
                     <div className="form-group mb-3">
-                        <label className="form-label" htmlFor="name">First Name, Last Name</label>
+                        <label className="form-label" htmlFor="name">Full Name</label>
                         <input className="form-control" type="text" id="name" name="name" value={state.name} required onInvalid={onInvalidHandler} onChange={onChangeHandler}/>
                     </div>
                     <div className="form-group mb-3">
