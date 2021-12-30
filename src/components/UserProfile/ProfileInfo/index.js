@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
+import { faBirthdayCake, faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
 import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 
 const ProfileInfo = () => {
@@ -33,15 +35,18 @@ const ProfileInfo = () => {
             <p>
               {profile.name}
               {profile.id}
+              Mark Watson
             </p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>{profile.dob}</p>
+            {/* <p>{userInfo.dateOfBirth}</p> */}
+            <p><FontAwesomeIcon icon={faBirthdayCake} size="sm" /> Dec 25, 1998</p>
           </div>
           <div className="col">
-            <p>{profile.gender}</p>
+            {/* <p>{userInfo.gender}</p> */}
+            <p><FontAwesomeIcon icon={faMars} size="sm" /><FontAwesomeIcon icon={faVenus} size="sm" />  Male</p>
           </div>
         </div>
         <br />
@@ -59,16 +64,19 @@ const ProfileInfo = () => {
                 fontSize: "18px",
               }}
             >
-              {profile.bio}
+              {/* {profile.bio} */}
+              Hello I'm Mark
             </textarea>
           </div>
           <button
-            type="button"
-            class="btn btn-danger"
-            style={{ marginBottom: "100px" }}
-            mailto={profile.email}
-          >
-            Contact
+            class="contact-btn btn"
+            // style={{ marginBottom: "100px" }}
+            >
+           {/* <Contact label="Contact"
+          //  mailto={userInfo.email} 
+
+           /> */}
+           <a href="mailto: abc@test.com" target="_blank"> Contact</a>
           </button>
         </div>
       </div>

@@ -68,6 +68,16 @@
   height: 50px;
 }
 
+.dropdown-menu {
+  min-width: 8rem !important;
+}
+
+.dropdown-item:hover {
+  background-color: #BADABF !important;
+  color: white !important;
+  opacity: 0.8;
+}
+
 /*Navbar Icons*/
 .svg-inline--fa {
   color: #202020;
@@ -76,7 +86,7 @@
   margin: 5px 2px;
 }
 
-.svg-inline--fa:hover {
+.nav-link .svg-inline--fa:hover {
   color: #BADABF;
 }
 
@@ -126,9 +136,13 @@
   font-size: 15px;
 }
 
+/*applied to componenet pages when content too short */
+.short-content {
+  min-height: 380px;
+}
+
 /*Footer*/
 footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;

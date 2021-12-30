@@ -7,3 +7,21 @@ span {
 p {
     font-size: 25px;
 }
+
+.contact-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-btn a:hover {
+    color: white;
+}
+
+.btn.contact-btn {
+    background-color: #C21515;
+}
+
+.btn.contact-btn:hover {
+    background-color: #BADABF;
+    color: white;
+}

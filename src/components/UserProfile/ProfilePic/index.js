@@ -26,12 +26,12 @@ const ProfilePic = () => {
               verticalAlign: "middle",
               marginBottom: "20px"
           }}>
-            <img src={userInfo.profilepic} alt="" class="avatar" />
+            <img src={process.env.PUBLIC_URL + '/img/profile.jpg'} alt="" class="avatar" width="250" height="250" />
           </div>
         </div>
         <div className="row">
-          <p>{userInfo.alias}</p>
-          <p>
+          <p>Alias</p>
+          <p style={{fontWeight: "normal", color:"gray"}}>
             <span>@</span>
             {userInfo.username}
             </p>
