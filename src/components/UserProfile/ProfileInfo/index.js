@@ -1,28 +1,40 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import { userInfo } from "../../../profileSlice";
 
 const ProfileInfo = () => {
-  const dispatch = useDispatch();
-  const profile = useSelector((state) => state);
 
-  const info = (x) => {
-    dispatch({ type: "change", payload: x });
-  };
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('flag')
     axios.get("http://localhost:9007/profiles/4").then((response) => {
-      info(response.data);
+      dispatch(userInfo(response.data));
     });
-    
   }, []);
 
-  console.log(profile)
+  const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const profile = {
+    ...info, ...user
+  }
 
   if (!profile) return null;
+
+  function checking(x) {
+    if (
+      x == null
+    ) { 
+      return (
+        <img width="50px" src="https://spng.pngfind.com/pngs/s/80-803349_png-file-svg-mint-candy-clipart-black-and.png" />
+      )
+    } else {
+      return(x)
+    }
+  }
+
 
   return (
     <div className="container" style={{ textAlign: "left" }}>
@@ -30,24 +42,23 @@ const ProfileInfo = () => {
         <div className="row">
           <div className="col">
             <p>
-              {profile.name}
-              {profile.id}
+              {checking(profile.name)}
+              {checking(profile.userId)}
             </p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>{profile.dob}</p>
+            <p>{checking(profile.dob)}</p>
           </div>
           <div className="col">
-            <p>{profile.gender}</p>
+            <p>{checking(profile.gender)}</p>
           </div>
         </div>
         <br />
         <div className="row">
           <div>
             <p
-              maxLength={250}
               style={{
                 height: "200px",
                 width: "100%",
@@ -58,14 +69,14 @@ const ProfileInfo = () => {
                 fontSize: "18px",
               }}
             >
-              {profile.bio}
+              {checking(profile.bio)}
             </p>
           </div>
           <button
             type="button"
-            class="btn btn-danger"
+            className="btn btn-danger"
             style={{ marginBottom: "100px" }}
-            mailto={profile.email}
+            mailto={checking(profile.userEmail)}
           >
             Contact
           </button>

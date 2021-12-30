@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import axios from "axios";
-import Profile from "../../../pages/profile";
+import Profile from "../../../pages/ProfilePage";
 
 const ProfilePic = () => {
   const [userInfo, setUserInfo] = React.useState(null);
@@ -16,7 +16,7 @@ const ProfilePic = () => {
   return (
     <div className="container" style={{ fontWeight: "bold" }}>
       <div className="col">
-        <div clasName="row">
+        <div className="row">
           <div style={{
               border: "1px solid #C4C4C4",
               borderRadius: "50%",
@@ -26,7 +26,7 @@ const ProfilePic = () => {
               verticalAlign: "middle",
               marginBottom: "20px"
           }}>
-            <img src={userInfo.profilepic} alt="" class="avatar" />
+            <img src={userInfo.profilepic} alt="" className="avatar" />
           </div>
         </div>
         <div className="row">

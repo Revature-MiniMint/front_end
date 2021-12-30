@@ -1,6 +1,6 @@
 import './App.css';
 // import LoginForm from './components/LoginForm';
-import Profile from './pages/profile';
+import Profile from './pages/ProfilePage';
 
 function App() {
   return (
