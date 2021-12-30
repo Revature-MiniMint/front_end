@@ -35,7 +35,6 @@ const ProfileInfo = () => {
     }
   }
 
-
   return (
     <div className="container" style={{ textAlign: "left" }}>
       <div className="col">
