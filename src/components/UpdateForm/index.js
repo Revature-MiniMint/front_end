@@ -31,7 +31,7 @@ const UpdateForm = () => {
         // profilepic: new Blob()
     });
     // useEffect(() => {
-    //     axios.get("http://localhost:9007/profiles/" + state.id)
+    //     axios.get("http://localhost:10011/profiles/" + state.id)
     //     .then(response => {
     //         console.log(response.data);
     //         setState(response.data);
@@ -83,7 +83,7 @@ const UpdateForm = () => {
         event.preventDefault();
         console.log(state);
         // const {profilepic, ...profile} = state;
-        // axios.put("http://localhost:9007/profiles/" + state.id, profile)
+        // axios.put("http://localhost:10011/profiles/" + state.id, profile)
         // .then(response => {
         //     console.log(response);
         //     dispatch({ type: "updateProfileInfo", payload: profile }); //needs updating
@@ -91,7 +91,7 @@ const UpdateForm = () => {
         // .catch(error => {console.error(error);})
         // var formData = new FormData();
         // formData.append("image", state.profilepic);
-        // axios.post("http://localhost:9007/profiles/" + state.id + "/profile_pic", formData, {
+        // axios.post("http://localhost:10011/profiles/" + state.id + "/profile_pic", formData, {
         //     headers: {
         //         'Content-Type': 'multipart/form-data'
         //     }
