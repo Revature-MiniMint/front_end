@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +9,7 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:9007/profiles/4").then((response) => {
+    axios.get("http://localhost:9007/profiles/1").then((response) => {
       dispatch(userInfo(response.data));
     });
   }, []);
@@ -28,7 +27,7 @@ const ProfileInfo = () => {
       x == null
     ) { 
       return (
-        <img width="50px" src="https://spng.pngfind.com/pngs/s/80-803349_png-file-svg-mint-candy-clipart-black-and.png" />
+        <img width="50px" src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png" />
       )
     } else {
       return(x)

@@ -14,10 +14,6 @@ export const profileSlice = createSlice({
   initialState: initialStateValue,
   reducers: {
     userInfo: (state, action) => {
-      state.id = action.payload.id;
-      state.username = action.payload.username;
-      state.password = action.payload.password;
-      state.email = action.payload.email;
       state.name = action.payload.name;
       state.alias = action.payload.alias;
       state.dob = action.payload.dob;
