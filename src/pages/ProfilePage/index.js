@@ -3,7 +3,7 @@ import ProfilePic from "../../components/UserProfile/ProfilePic";
 import ProfileInfo from "../../components/UserProfile/ProfileInfo";
 import ProfilePosts from "../../components/UserProfile/ProfilePosts";
 
-const Profile = () => {
+const ProfilePage = () => {
 
   return (
     <div className="container" style={{ textAlign: "center", marginTop: '10px'}}>
@@ -23,4 +23,4 @@ const Profile = () => {
     </div>
   );
 };
-export default Profile;
+export default ProfilePage;

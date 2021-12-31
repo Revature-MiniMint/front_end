@@ -1,15 +1,34 @@
 import './App.css';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import PostPage from './pages/PostPage';
+import PrivacyPage from './pages/PrivacyPage';
+import SettingsMenu from './components/SettingsMenu';
 import CreatePostPage from './pages/CreatePostPage';
 import FeedPage from './pages/FeedPage';
+import ProfilePage from './pages/ProfilePage';
+import UpdatePage from './pages/UpdatePage';
+import UpdatePicture from './components/UpdatePicture';
 
 
 function App() {
   return (
     <div className="container">
-      <PostPage />
+      {/* <PostPage />
       <CreatePostPage />
-      <FeedPage />
+      <FeedPage /> */}
+      <div>
+        <Router>
+          <div>
+              <Routes>
+                <Route path='/PrivacyPage' element={<PrivacyPage />} />
+                <Route path='/ProfilePage' element={<ProfilePage />} />
+                <Route path='/UpdatePage' element={<UpdatePage />} />
+                <Route path='/UpdatePicture' element={<UpdatePicture />} />
+              </Routes>
+          </div>
+        </Router>
+        {/* <SettingsMenu /> */}
+      </div>
     </div>
   );
 }
