@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { faBirthdayCake, faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
+import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
 
