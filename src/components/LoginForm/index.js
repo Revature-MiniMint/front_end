@@ -67,7 +67,7 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container-login">
       <div className="containerLeft">
         <div className="text-left">
           <h1>MiniMint</h1>

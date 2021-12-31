@@ -78,6 +78,10 @@
   opacity: 0.8;
 }
 
+.profile-header p {
+  color: #202020;
+}
+
 /*Navbar Icons*/
 .svg-inline--fa {
   color: #202020;
