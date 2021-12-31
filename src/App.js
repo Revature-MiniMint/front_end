@@ -8,7 +8,7 @@ import FeedPage from './pages/FeedPage';
 import ProfilePage from './pages/ProfilePage';
 import UpdatePage from './pages/UpdatePage';
 import UpdatePicture from './components/UpdatePicture';
-
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Router>
           <div>
               <Routes>
+                <Route path='/' element={<LoginPage />} />
                 <Route path='/PrivacyPage' element={<PrivacyPage />} />
                 <Route path='/ProfilePage' element={<ProfilePage />} />
                 <Route path='/UpdatePage' element={<UpdatePage />} />

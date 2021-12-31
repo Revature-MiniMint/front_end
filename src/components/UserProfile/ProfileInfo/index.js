@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { faBirthdayCake, faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
-import Contact from "./Contact";
 import "../style.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
