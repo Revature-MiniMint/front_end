@@ -5,7 +5,7 @@ Some pages contain axios calls to the backend. The backend was built using the j
 framwork spring. 
 
 **Technologies used**
-This section is built on React and reqiures imports such as:
+This section was built on React and reqiures imports such as:
 
 @reduxjs/toolkit react-redux
 
