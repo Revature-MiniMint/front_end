@@ -58,7 +58,7 @@ This will lead to the user selecting one of the options
 
 ### Posts
 
-Main page createpostpage
+Main page CreatePostPage
 
 (show page)
 
