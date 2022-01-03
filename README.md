@@ -28,7 +28,7 @@ by other users and reacted to.
 3. npm start
 
 ## Page Walkthrough 
--Login page
+- Login page
 (insert a pic of the login page)
 (insert a pic of the register page)
 
@@ -36,7 +36,7 @@ Enter in your username and password to login or
 enter in the appropiate information into the
 register page.
 
--Profile 
+- Profile 
 This contains a list of options to alter a users profile
 (show a picture of profile page)
 
@@ -49,7 +49,7 @@ This will lead to the user selecting one of the options
 3. Privacy Tab
 (finshed image)
 
--Posts
+- Posts
 
 main page createpostpage
 (show page)
