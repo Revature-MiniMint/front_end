@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
-import "./index.css";
+import "./login.css";
 import logo from "../../image/Logo3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
@@ -70,57 +70,60 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="container-login">
-      <div className="containerLeft">
-        <div className="text-left">
-          <h1>MiniMint</h1>
-          <h2>
-            Some Mints a day
-            <br />
-            Helps keep the bored away.
-          </h2>
-        </div>
-      </div>
+    <div>
+      <section>
+        <div className="container">
+          <div className='row'>
+            <div className="col-1"></div>
+            <div className="login-info col-5">
+              <div>
+                <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
+                <h1 className="brand-name">
+                  MiniMint
+                </h1>
+                <br />
+                <div className="brand-motto">
+                  <h2>
+                    Some Mints a day<br></br>
+                    Helps keep the bored away.
+                  </h2>
+                </div>
+              </div>
+            </div>
 
-      <div className="containerRight">
-        <form className="form" onSubmit={onSubmitHandler}>
-          <img className="logo" src={logo} />
-          <div className="form-group">
-            <label className="form-label">Username</label>
-            <input
-              type="text"
-              placeholder="Enter Your Username"
-              name="username"
-              value={user.username}
-              onChange={onChangeHandler}
-              required
-            />{" "}
-            <br></br>
+            <div className="col-5">
+              <br></br>
+              <form className="login-form" onSubmit={onSubmitHandler}>
+
+                <div className="mb-3">
+                  <p className="form-label1">Login</p>
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label">Username</label>
+                  <input type="text" className="form-control" name="username" placeholder="Enter Your Username" value={user.username} onChange={onChangeHandler} required />
+                  {" "}
+                  {/* <br></br> */}
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Password</label>
+                  <input type="password" className="form-control" name="userPassword" placeholder="Password" value={user.userPassword} onChange={onChangeHandler} required />
+                  <br></br>
+                  <div className="messages">{displayMessage()}</div>
+                </div>
+
+                <button className="btn col-12" type="submit">Log In</button>
+                <hr></hr>
+                <p>Not yet registered?</p>
+
+                <button type="submit" className="btn btn-regis" onClick={onClickHandler}>Create an Account</button>
+
+              </form>
+            </div>
+            <div className="col-1"></div>
           </div>
-          <br />
-          <div className="form-group">
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              name="userPassword"
-              value={user.userPassword}
-              onChange={onChangeHandler}
-              required
-            />
-            <br />
-            <br />
-            <div className="messages">{displayMessage()}</div>
-            <button className="btn-login" type="submit">
-              Log In
-            </button>
-          </div>
-          <hr />
-          <button className="btn-register" onClick={onClickHandler}>
-            Create an Account
-          </button>
-        </form>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };
