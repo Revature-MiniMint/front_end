@@ -93,7 +93,6 @@ const ProfileInfo = () => {
           <button
             type="button"
             className="btn contact-btn"
-            style={{ marginBottom: "100px" }}
             mailto={checking(profile.userEmail)}
           >
             Contact
