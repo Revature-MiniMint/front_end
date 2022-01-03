@@ -6,8 +6,9 @@ import ProfilePosts from "../../components/UserProfile/ProfilePosts";
 const ProfilePage = () => {
 
   return (
-    <div className="container" style={{ textAlign: "center", marginTop: '10px'}}>
-      <div className="col">
+    <div className="container">
+      <br />
+      <div className="profile">
         <div className="row">
           <div className="col" align="center">
             <ProfilePic />
@@ -16,9 +17,9 @@ const ProfilePage = () => {
             <ProfileInfo />
           </div>
         </div>
-        <div className="row">
-          <ProfilePosts />
-        </div>
+      </div>
+      <div className="row">
+        <ProfilePosts />
       </div>
     </div>
   );

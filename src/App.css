@@ -90,7 +90,7 @@
   margin: 5px 2px;
 }
 
-.svg-inline--fa:hover {
+.nav-link .svg-inline--fa:hover {
   color: #BADABF;
 }
 
@@ -207,4 +207,49 @@ footer p {
 .settings-menu a:hover{
   color: #BADABF;
 
+}
+
+/*Profile*/
+.profile {
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+}
+
+/*Profile Pic Display*/
+.profile-pic {
+  padding: 20px;
+}
+
+.profile-alias {
+  color: #202020;
+  font-size: 20px;
+}
+
+.profile-username {
+  color: #C4C4C4;
+  font-size: 20px;
+}
+
+/*Profile Info */
+.profile-info {
+  padding: 10px;
+}
+.profile-info p{
+  color: #202020;
+}
+
+.profile-info-name p {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.profile-info-gen p{
+  font-size: 20px;
+  text-align: left;
+  padding: 2px;
+}
+
+.profile-info-gen .svg-inline--fa {
+  padding-top: 5px;
 }
