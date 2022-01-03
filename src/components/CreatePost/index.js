@@ -11,7 +11,7 @@ const CreatePost = () => {
 
     /* The state of the form. */
     const [postDescription, setPostDescription] = useState("");
-    const[postTitle, setPostTitle] = useState("");
+    const [postTitle, setPostTitle] = useState("");
     const [postUser, setPostUser] = useState(0);
 
     useEffect(() => {
