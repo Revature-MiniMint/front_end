@@ -10,8 +10,8 @@ by other users and reacted to.
 - Redux and ReduxToolkit
 - Routes
 - Bootstrap
-- Node.js
 - fortawesome
+### Node.js
 ## Getting Started
 1. git clone https://github.com/Revature-MiniMint/front_end.git
 2. npm install
