@@ -10,6 +10,7 @@ import UpdatePage from "./pages/UpdatePage";
 import UpdatePicture from "./components/UpdatePicture";
 import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
+import ProfilePicPage from "./pages/ProfilePicPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/ProfilePage" element={<ProfilePage />} />
           <Route path="/UpdatePage" element={<UpdatePage />} />
           <Route path="/UpdatePicture" element={<UpdatePicture />} />
+          <Route path="/ProfilePicPage" element={<ProfilePicPage />} />
         </Routes>
       </Router>
       {/* <SettingsMenu /> */}

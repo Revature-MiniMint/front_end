@@ -94,7 +94,8 @@
   color: #BADABF;
 }
 
-/*Privacy Form*/
+/*Privacy Form & Updaet Form*/
+/*Privacy Info */
 .privacy-form {
   width: 350px;
   height: auto;
@@ -110,23 +111,29 @@
   float: right !important;
 }
 
-.privacy-form .btn {
+.privacy-form .btn,
+.update-form .btn,
+.pic-form .btn {
   background-color: #C21515;
   color: white;
   font-size: 18px;
 }
 
-.privacy-form button:hover {
+.privacy-form button:hover,
+.update-form button:hover,
+.pic-form button:hover  {
   background-color: #BADABF;
   color: white;
 }
 
-.privacy-form .form-check-input:checked {
+.privacy-form .form-check-input:checked,
+.update-form .form-check-input:checked {
   background-color: #C21515 !important;
   border-color: #880F0F;
 }
 
-.privacy-form .form-check-input:focus{
+.privacy-form .form-check-input:focus,
+.update-form .form-check-input:focus{
   border-color: #C4C4C4 !important;
   box-shadow: 0 1px 1px #C4C4C4 !important;
   outline: none;
@@ -136,8 +143,42 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23C4C4C4'/%3e%3c/svg%3e") !important;
 }
 
-.privacy-form p {
+.privacy-form p,
+.update-form p,
+.pic-form p {
   font-size: 15px;
+  color: #202020;
+  text-align: left;
+}
+
+/*Update Profile Info */
+.update-form {
+  border: 1px solid #dee2e6;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus,
+input[type="file"]:focus,
+select:focus,
+.form-check-input:focus{
+  border-color: rgba(194, 21, 21,0.8);
+  box-shadow: 0 1px 1px rgba(194, 21, 21, 0.075) inset, 0 0 8px rgba(194, 21, 21, 0.6);
+  outline: 0 none;
+}
+
+/*Profile Pic */
+.pic-form {
+  width: 350px;
+  height: auto;
+  padding: 15px;
+  margin: 5px;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
 }
 
 /*applied to componenet pages when content too short */
@@ -154,6 +195,7 @@ footer {
 
 footer p {
   font-size: 15px;
+  color: #202020;
 }
 
 /*Settings menu*/

@@ -1,9 +1,9 @@
 import React from 'react';
 import Footer from '../../components/Footer';
 import SettingsMenu from '../../components/SettingsMenu';
-import UpdateForm from '../../components/UpdateForm';
+import UpdatePicture from '../../components/UpdatePicture';
 
-const UpdatePage = () => {
+const ProfilePicPage = () => {
     return (
         <>
             <div className="row">
@@ -12,13 +12,13 @@ const UpdatePage = () => {
                     <SettingsMenu />
                 </div>
                 <div className="col-6">
-                    <UpdateForm />
+                    <UpdatePicture />
                 </div>
-                <div className="col-2"></div>
+                <div className='col-2'></div>
             </div>
             <Footer />
         </>
     );
 }
 
-export default UpdatePage;
+export default ProfilePicPage;
