@@ -1,0 +1,66 @@
+.brand-name h1{
+    color: #202020;
+    text-align: center;
+}
+
+.brand-motto h2 {
+    color: #880F0F;
+}
+
+.login-form .mb-3 p {
+    /* display: table-cell; */
+  text-align: center;
+  vertical-align: middle;
+  font-size: xx-large;
+  font-weight:600;
+  color: #202020;
+}
+
+.login-form .form-label {
+    color: #202020;
+}
+
+.login-info{
+    padding-top: 40px;
+    text-align: center;
+}
+
+.login-form{
+    float: right;
+    padding: 15px;
+    /* box-shadow: 5px 8px 8px #BADABF; */
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    width: 430px;
+    overflow: auto;
+    color: #C21515;
+}
+
+.card{
+    display: block;
+    box-shadow: 5px 8px 8px #BADABF;
+    border-radius: 8px;
+    width: 405px;
+    overflow: auto;
+}
+
+.btn-regis{
+    width: 100%;
+    background-color: #202020 !important;
+    border: none !important;
+    color: white;
+}
+.btn-regis:hover{
+    background-color:#BADABF !important;
+    color: white !important;
+}
+
+.login-form .btn:hover{
+    background-color: #BADABF !important;
+    color: white;
+}
+
+.login-form .btn {
+    background-color: #C21515;
+    color: white;
+}
