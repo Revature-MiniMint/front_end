@@ -37,7 +37,7 @@ The front end holds the various pages for the MiniMint Project. These pages allo
 
 Enter in your username and password to login or enter in the appropiate information into the register page.
 
-- Profile 
+### Profile 
 
 This contains a list of options to alter a users profile
 (show a picture of profile page)
@@ -56,7 +56,7 @@ This will lead to the user selecting one of the options
 
 (finshed image)
 
-- Posts
+### Posts
 
 Main page createpostpage
 
