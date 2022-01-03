@@ -56,7 +56,7 @@ This will lead to the user selecting one of the options
 
 - Posts
 
-main page createpostpage
+### Main page createpostpage
 (show page)
 Allows a user to make a post
 
