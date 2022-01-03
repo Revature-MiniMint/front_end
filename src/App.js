@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
 import ProfilePicPage from "./pages/ProfilePicPage";
 import RegisterPage from "./pages/RegisterPage";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   return (
