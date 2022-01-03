@@ -16,8 +16,8 @@ import RegisterPage from "./pages/RegisterPage";
 function App() {
   return (
     <div>
-      <NavbarProfile />
       <Router>
+        <NavbarProfile />
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
