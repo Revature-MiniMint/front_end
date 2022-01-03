@@ -3,7 +3,7 @@ import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./index.css";
 import logo from "../../image/Logo3.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const LoginForm = () => {
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));
-        navigate('/FeedPage');
+        navigate('/ProfilePage');
       })
       .catch((error) => {
         console.error(error);
