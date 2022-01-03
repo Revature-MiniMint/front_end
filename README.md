@@ -14,6 +14,7 @@ by other users and reacted to.
 ### Node.js
 ## Getting Started
 1. git clone https://github.com/Revature-MiniMint/front_end.git
+
 2. install all needed technologies
 - npm install
 
