@@ -126,32 +126,23 @@ const Register = () => {
   return (
     <div>
       <section>
-        <div className='row align-items-center'>
-          <div className='col'>
-            <div className="logob">
-              <img className='logo' src={logo} alt="mint" style={{ paddingTop: '50px' }}></img>
-              {/* <br></br> */}
-
-              <h1 style={{ float: 'left', paddingLeft: '200px', marginTop: '40px' }}>
-                MiniMint
-              </h1>
-
-              {/* <br></br> */}
-
-              <div className="textbox">
-
-                <h2 style={{ color: '#C21515', paddingTop: '15px', paddingLeft: '200px' }}>
+        <div className='container'>
+        <div className='row'>
+            <div className="login-info col-6">
+              <div>
+                <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
+                <h1 className="brand-name">
+                  MiniMint
+                </h1>
+                <br />
+                <div className="brand-motto">
+                  <h2>
                   Join the awesome Batch<br></br>
-
                   of Minty social media.
-                </h2>
+                  </h2>
+                </div>
               </div>
-
             </div>
-
-
-          </div>
-
           <div className='col'>
 
             <Form className='reg-form' noValidate validated={validated} onSubmit={registerHandler} >
@@ -230,7 +221,7 @@ const Register = () => {
           {/* <div className='col'>
                 
             </div> */}
-
+        </div>
         </div >
       </section>
     </div>
