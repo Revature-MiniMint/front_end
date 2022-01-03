@@ -11,11 +11,12 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:9007/profiles/1").then((response) => {
+    axios.get("http://localhost:10011/profiles/" + profile.userId).then((response) => {
       dispatch(userInfo(response.data));
     });
   }, []);
 
+  const state = useSelector((state) => state);
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {
@@ -23,6 +24,9 @@ const ProfileInfo = () => {
   }
 
   if (!profile) return null;
+
+  console.log(profile)
+  console.log(state)
 
   function checking(x) {
     if (

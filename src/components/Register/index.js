@@ -3,9 +3,11 @@ import axios from "axios";
 import { Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
   const initialState = {
     username: "",
@@ -53,6 +55,14 @@ const Register = () => {
     }
   };
 
+  function redirect() {
+    navigate('/');
+
+    return (
+      <p>Account created successfully</p>
+    )
+  };
+
   const displayMessage = () => {
     if (errorMsg !== "") {
       return (
@@ -67,6 +77,7 @@ const Register = () => {
       );
     } else if (submitted) {
       // show success message if true
+      // redirect()
       return (
         <Alert
           variant="success"
@@ -74,7 +85,8 @@ const Register = () => {
             display: submitted ? "" : "none",
           }}
         >
-          You have successfully registered!
+          You have successfully registered! You will be automatically redirected to log in.
+          
         </Alert>
       );
     }
@@ -156,6 +168,9 @@ const Register = () => {
           <div className="messages">{displayMessage()}</div>
           <Button onClick={checkFieldsHandler} type="submit">
             Register
+          </Button>
+          <Button onClick={redirect}>
+            Return to Login
           </Button>
         </Form>
       </Card.Body>
