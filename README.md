@@ -14,16 +14,18 @@ by other users and reacted to.
 ### Node.js
 ## Getting Started
 - git clone https://github.com/Revature-MiniMint/front_end.git
-- npm install
+-install all needed technologies
+1.  npm install
 
-1. npm i bootstrap
-2. npm i axios
+2. npm i bootstrap
 
-3. npm i react-router-dom
+3. npm i axios
 
-4. npm install @reduxjs/toolkit react-redux
+4. npm i react-router-dom
 
-5. npm i font-awesome
+5. npm install @reduxjs/toolkit react-redux
+
+6. npm i font-awesome
 
 - npm start
 
