@@ -11,7 +11,7 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get("http://localhost:9007/profiles/1").then((response) => {
+    axios.get("http://localhost:10011/profiles/1").then((response) => {
       dispatch(userInfo(response.data));
     });
   }, []);

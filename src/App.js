@@ -11,6 +11,7 @@ import UpdatePicture from "./components/UpdatePicture";
 import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
 import ProfilePicPage from "./pages/ProfilePicPage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/Register" element={<RegisterPage />} />
           <Route path="/PostPage" element={<PostPage />} />
           <Route path="/CreatePostPage" element={<CreatePostPage />} />
           <Route path="/FeedPage" element={<FeedPage />} />
