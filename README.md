@@ -55,7 +55,6 @@ This will lead to the user selecting one of the options
 (finshed image)
 
 - Posts
-
 ### Main page createpostpage
 (show page)
 Allows a user to make a post
