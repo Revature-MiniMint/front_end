@@ -11,7 +11,11 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
     axios.get("http://localhost:10011/profiles/1").then((response) => {
+=======
+    axios.get("http://localhost:10011/profiles/4").then((response) => {
+>>>>>>> origin/Brenda
       dispatch(userInfo(response.data));
     });
   }, []);
@@ -38,21 +42,32 @@ const ProfileInfo = () => {
 
   return (
     <div className="container" style={{ textAlign: "left" }}>
-      <div className="col">
+      <div className="col profile-info">
         <div className="row">
-          <div className="col">
+          <div className="col profile-info-name">
             <p>
-              {checking(profile.name)}
-              {checking(profile.userId)}
+              {/* {checking(profile.name)}
+              {checking(profile.userId)} */}
+              Mark Watson
             </p>
           </div>
         </div>
-        <div className="row">
+        <div className="row profile-info-gen">
           <div className="col">
-            <p>{checking(profile.dob)}</p>
+            <p>
+              {/* {checking(profile.dob)} */}
+              <FontAwesomeIcon icon={faBirthdayCake} size="lg" />
+              &nbsp; 12/12/1999
+            </p>
           </div>
           <div className="col">
-            <p>{checking(profile.gender)}</p>
+            <p>
+              <FontAwesomeIcon icon={faMars} size="lg" />
+              <FontAwesomeIcon icon={faVenus} size="lg" />
+              {/* {checking(profile.gender)} */}
+              &nbsp;
+              Male
+              </p>
           </div>
         </div>
         <br />
@@ -69,12 +84,14 @@ const ProfileInfo = () => {
                 fontSize: "18px",
               }}
             >
-              {checking(profile.bio)}
+              {/* {checking(profile.bio)} */}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
             </p>
           </div>
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn contact-btn"
             style={{ marginBottom: "100px" }}
             mailto={checking(profile.userEmail)}
           >

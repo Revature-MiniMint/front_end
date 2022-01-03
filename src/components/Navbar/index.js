@@ -8,7 +8,7 @@ const NavbarProfile = () => {
     return (
         <Navbar expand="lg" variant="light" className="border-bottom">
             <Container>
-                <Navbar.Brand href="#home"> <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} width="40" height="40" alt="logo" /> MiniMint</Navbar.Brand>
+                <Navbar.Brand href="/FeedPage"> <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} width="40" height="40" alt="logo" /> MiniMint</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="d-flex align-items-center justify-content-center ms-auto">

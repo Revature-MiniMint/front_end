@@ -42,6 +42,8 @@ const FeedItem = (props) => {
 
   useEffect(() => {
 
+    axios.post("")
+
     setReactions(props.data.reactionList);
 
     // when post is rendered, count how many of each reactions:
