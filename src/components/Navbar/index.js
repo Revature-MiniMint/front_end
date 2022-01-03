@@ -21,7 +21,7 @@ const NavbarProfile = () => {
                             </div>} id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/ProfilePage">Your Profile</NavDropdown.Item>
                             <NavDropdown.Item href="/PrivacyPage">Settings</NavDropdown.Item>
-                            <NavDropdown.Item href="#">Logout</NavDropdown.Item>
+                            <NavDropdown.Item href="/">Logout</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                 </Navbar.Collapse>
