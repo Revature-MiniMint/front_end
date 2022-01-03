@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios';
 import "./style.css";
 import ReactButton from "../../../ReactButton";
 import LikeDislike from "../../../Like_Dislike";
+import {Link} from "react-router-dom";
 
 const FeedItem = (props) => {
   // time since the post was made:
@@ -38,11 +41,36 @@ const FeedItem = (props) => {
     setReactionsCount(tempReactionCount);
     setReactions(updatedReactions);
   }
-  
+
+  //User information, set top private by default
+  const [userInfo, setUserInfo] = useState({
+    alias : "Private"
+  })
+
+  const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const profile = {
+    ...info, ...user
+  }
+
+  //Used to pass a single digit through to the backend
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
 
   useEffect(() => {
 
-    axios.post("")
+    //Obtain data of commenter, will not display private info of another user
+    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId + 1, {headers:headers})
+      .then(response => {
+        console.log(response)
+        setUserInfo(response.data)
+      })
+      .catch((error) => {
+        console.error(error); //Print error to console
+    })
+
 
     setReactions(props.data.reactionList);
 
@@ -96,7 +124,7 @@ const FeedItem = (props) => {
               />
             </div>
             <div className="col-sm-3">
-              <div>{"user id: " + props.data.userId}</div>
+              <div>{userInfo.alias}</div>
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>
@@ -117,11 +145,13 @@ const FeedItem = (props) => {
               </div>
               {/* TODO: Route this to post item component: */}
               <div className="col-sm-3">
+                <Link to = {`/PostPage/${props.data.id}`}>
                 <button
                   className="btn btn-secondary btn-lg btn-block"
                 >
                   View Full Post
                 </button>
+                </Link>
               </div>
               <LikeDislike data={props.data} />
             </div>

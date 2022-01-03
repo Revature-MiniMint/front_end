@@ -11,11 +11,7 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-<<<<<<< HEAD
     axios.get("http://localhost:10011/profiles/1").then((response) => {
-=======
-    axios.get("http://localhost:10011/profiles/4").then((response) => {
->>>>>>> origin/Brenda
       dispatch(userInfo(response.data));
     });
   }, []);

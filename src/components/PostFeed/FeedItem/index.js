@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios';
 import "./style.css";
 import ReactButton from "../../ReactButton";
 import LikeDislike from "../../Like_Dislike";
@@ -38,9 +40,34 @@ const FeedItem = (props) => {
     setReactionsCount(tempReactionCount);
     setReactions(updatedReactions);
   }
-  
+
+  const [userInfo, setUserInfo] = useState({
+    alias : "Private"
+  })
+
+  const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const profile = {
+    ...info, ...user
+  }
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
 
   useEffect(() => {
+
+    //Obtain data of commenter, will not display private info of another user
+    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId + 1, {headers:headers})
+      .then(response => {
+        console.log(response)
+        setUserInfo(response.data)
+      })
+      .catch((error) => {
+        console.error(error); //Print error to console
+    })
+
 
     setReactions(props.data.reactionList);
 
@@ -94,7 +121,7 @@ const FeedItem = (props) => {
               />
             </div>
             <div className="col-sm-3">
-              <div>{"user id: " + props.data.userId}</div>
+              <div>{userInfo.alias}</div>
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>
@@ -114,6 +141,7 @@ const FeedItem = (props) => {
                 </div>
               </div>
               {/* TODO: Route this to post item component: */}
+              <Link to = {`/PostPage/${props.data.id}`}>
               <div className="col-sm-3">
                 <button
                   className="btn btn-secondary btn-lg btn-block"
@@ -121,6 +149,7 @@ const FeedItem = (props) => {
                   View Full Post
                 </button>
               </div>
+              </Link>
               <LikeDislike data={props.data} />
             </div>
             <br />
