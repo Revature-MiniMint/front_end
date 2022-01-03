@@ -16,14 +16,14 @@ by other users and reacted to.
 1. git clone https://github.com/Revature-MiniMint/front_end.git
 2. npm install
 
--npm i bootstrap
--npm i axios
+- npm i bootstrap
+- npm i axios
 
--npm i react-router-dom
+- npm i react-router-dom
 
--npm install @reduxjs/toolkit react-redux
+- npm install @reduxjs/toolkit react-redux
 
--npm i font-awesome
+- npm i font-awesome
 
 3. npm start
 
