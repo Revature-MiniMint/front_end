@@ -31,7 +31,7 @@ by other users and reacted to.
 
 -npm i font-awesome
 
- 3.npm start
+3. npm start
 
 ## Page Walkthrough 
 -Login page
