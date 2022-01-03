@@ -43,10 +43,15 @@ This contains a list of options to alter a users profile
 This will lead to the user selecting one of the options
 
 1. Profile Information page 
+
 (finshed image)
+
 2. Profile Image 
+
 (finshed image)
+
 3. Privacy Tab
+
 (finshed image)
 
 - Posts
