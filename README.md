@@ -28,7 +28,8 @@ The front end holds the various pages for the MiniMint Project. These pages allo
 3. npm start
 
 ## Page Walkthrough 
-- Login page
+
+### Login page
 
 (insert a pic of the login page)
 
