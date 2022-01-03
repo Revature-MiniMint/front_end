@@ -1,5 +1,5 @@
 # Front End Documentation
-The front end holds the various pages for the MiniMint Project.
+  - The front end holds the various pages for the MiniMint Project.
 These pages allow the user to login, register, post, and view 
 their profile. The posts a user makes can be liked, commented on
 by other users and reacted to.
