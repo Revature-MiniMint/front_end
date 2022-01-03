@@ -6,18 +6,12 @@ by other users and reacted to.
 
 ## Technologies Used
 ### React
--Axios
-
--Redux and ReduxToolkit
-
--Routes
-
--Bootstrap
-
--Node.js
-
--fortawesome
-
+- Axios
+- Redux and ReduxToolkit
+- Routes
+- Bootstrap
+- Node.js
+- fortawesome
 ## Getting Started
 1. git clone https://github.com/Revature-MiniMint/front_end.git
 2. npm install
