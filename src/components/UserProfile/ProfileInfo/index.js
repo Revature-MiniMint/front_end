@@ -15,16 +15,12 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-<<<<<<< HEAD
   useEffect(() => {
     axios.get("http://localhost:10011/profiles/1").then((response) => {
       dispatch(userInfo(response.data));
     });
   }, []);
 
-=======
-  const state = useSelector((state) => state);
->>>>>>> origin/HEAD
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {

@@ -12,10 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
 import ProfilePicPage from "./pages/ProfilePicPage";
 import RegisterPage from "./pages/RegisterPage";
-<<<<<<< HEAD
-=======
 import CreatePost from "./components/CreatePost";
->>>>>>> origin/HEAD
 
 function App() {
   return (
@@ -25,11 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
-<<<<<<< HEAD
           <Route path="/PostPage/:id" element={<PostPage />} />
-=======
-          <Route path="/PostPage" element={<PostPage />} />
->>>>>>> origin/HEAD
           <Route path="/CreatePostPage" element={<CreatePostPage />} />
           <Route path="/FeedPage" element={<FeedPage />} />
           <Route path="/PrivacyPage" element={<PrivacyPage />} />
