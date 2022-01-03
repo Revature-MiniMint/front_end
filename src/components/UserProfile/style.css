@@ -19,6 +19,7 @@ p {
 
 .btn.contact-btn {
     background-color: #C21515;
+    color: white;
 }
 
 .btn.contact-btn:hover {
