@@ -37,7 +37,7 @@ by other users and reacted to.
 
 (insert a pic of the register page)
 
-*Enter in your username and password to login or 
+* Enter in your username and password to login or 
 enter in the appropiate information into the
 register page.
 
