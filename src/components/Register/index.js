@@ -55,14 +55,6 @@ const Register = () => {
     }
   };
 
-  function redirect() {
-    navigate('/');
-
-    return (
-      <p>Account created successfully</p>
-    )
-  };
-
   const displayMessage = () => {
     if (errorMsg !== "") {
       return (
