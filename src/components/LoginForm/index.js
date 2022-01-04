@@ -5,6 +5,7 @@ import "./login.css";
 import logo from "../../image/Logo3.png";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
+import { flagStatus } from "../../profileSlice";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -12,7 +13,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const [errorMsg, setErrorMsg] = useState("");
-
+  const flag = useSelector((state) => state.profile.flag);
   const initialState = {
     username: "",
     userPassword: "",
@@ -52,6 +53,7 @@ const LoginForm = () => {
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));
+        dispatch(flagStatus(""));
         navigate('/ProfilePage');
       })
       .catch((error) => {
@@ -112,6 +114,7 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
+                <h1>{flag}</h1>
                 <hr />
                 <p>Don't have an account?</p>
 

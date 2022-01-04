@@ -9,6 +9,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
+import { flagStatus } from "../../../profileSlice";
 import { useNavigate } from "react-router";
 
 const ProfileInfo = () => {
@@ -30,16 +31,22 @@ const ProfileInfo = () => {
         dispatch(userInfo(response.data));
       });
     if (profile.userId !== 0) {
+
       if (profile.alias == "") navigate("/UpdatePage");
-    } else {
-      navigate("/");
+
     }
+
+    else {
+      navigate("/");
+      dispatch(flagStatus("Please login before proceeding to profile"));
+    }
+
   }, []);
 
   if (!profile) return null;
 
-  console.log(profile);
-  console.log(state);
+  // console.log(profile);
+  // console.log(state);
 
   function checking(x) {
     if (x == null) {
