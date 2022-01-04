@@ -16,6 +16,13 @@ const Register = () => {
     userPassword: "",
   };
 
+  var profile = {
+    username: "",
+    email: "",
+    password: "",
+    alias: "",
+  };
+
   const [user, setUser] = useState(initialState);
 
   const dispatch = useDispatch();
@@ -56,14 +63,6 @@ const Register = () => {
     }
   };
 
-  function redirect() {
-    navigate('/');
-
-    return (
-      <p>Account created successfully</p>
-    )
-  };
-
   const displayMessage = () => {
     if (errorMsg !== "") {
       return (
@@ -86,8 +85,8 @@ const Register = () => {
             display: submitted ? "" : "none",
           }}
         >
-          You have successfully registered! You will be automatically redirected to log in.
-
+          You have successfully registered! You will be automatically redirected
+          to log in.
         </Alert>
       );
     }
@@ -106,6 +105,19 @@ const Register = () => {
           clearState();
           setSubmitted(true);
           dispatch(loginUser(response.data));
+          profile = {
+            username: user.username,
+            email: user.userEmail,
+            password: user.userPassword,
+            alias: user.username,
+          };
+          console.log(profile);
+          axios
+            .post("http://localhost:10011/profiles/", profile)
+            .then((response) => {
+              console.log(response.data);
+              dispatch(userInfo(response.data))
+            });
         })
         .catch((error) => {
           console.error(error);
@@ -127,10 +139,11 @@ const Register = () => {
       <div className="row">
         <div className="login-info col-6">
           <div>
-            <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
-            <h1 className="brand-name">
-              MiniMint
-            </h1>
+            <img
+              src={process.env.PUBLIC_URL + "/img/MiniMintLogo2.png"}
+              alt="MiniMint Logo"
+            ></img>
+            <h1 className="brand-name">MiniMint</h1>
             <br />
             <div className="brand-motto">
               <h2>
@@ -194,9 +207,11 @@ const Register = () => {
                     Register
                   </Button>
                 </div>
-              <br />
+                <br />
                 <div className="register-return">
-                  <p>Already Registered? <a href="/">Login</a></p>
+                  <p>
+                    Already Registered? <a href="/">Login</a>
+                  </p>
                 </div>
               </Form>
             </Card.Body>

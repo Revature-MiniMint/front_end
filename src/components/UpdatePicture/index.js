@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { imgErrorHandler } from '../../imgErrorHandler';
 
 const UpdatePicture = () => {
-    // const dispatch = useDispatch();
-    const user = { userId: 2 };
-    // const user = useSelector((state) => state.user);
-    const [image, setImage] = useState("https://minimint.s3.us-east-1.amazonaws.com/" + user.userId);
+    const user = useSelector((state) => state.user);
+    var image = "https://minimint.s3.us-east-1.amazonaws.com/" + user.userId;
     function onChangeHandler(event) {
         let file = event.target.files[0];
         file.arrayBuffer().then((arrayBuffer) => {
             let blob = new Blob([new Uint8Array(arrayBuffer)], { type: file.type });
-            setImage(URL.createObjectURL(blob));
+            image = (URL.createObjectURL(blob));
         });
     }
     function onSubmitHandler(event) {
@@ -27,16 +26,13 @@ const UpdatePicture = () => {
         })
             .then(response => {
                 console.log(response);
-                setImage(response.data)
+                document.getElementById("image").src += "?" + new Date().getTime();
+                console.log(document.getElementById("image").src)
             })
             .catch(error => { console.error(error); })
     }
     function onLoadHandler(event) {
         console.log("image get success");
-    }
-    function onErrorHandler(event) {
-        console.log("image get fail");
-        document.getElementById("image").setAttribute("src", "https://minimint.s3.us-east-1.amazonaws.com/2")
     }
     return (
         <div className='container short-content'>
@@ -53,7 +49,7 @@ const UpdatePicture = () => {
                                     width: '300px',
                                     height: '300px',
                                     borderRadius: '50%',
-                                }} onLoad={onLoadHandler} onError={onErrorHandler} />
+                                }} onError={imgErrorHandler} />
                             </div>
                             <label className="form-label" htmlFor="profilepic">Profile Image</label>
                             <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler} />

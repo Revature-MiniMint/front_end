@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./post.css";
 import profile from "./profile.jpg";
 import axios from "axios";
-import { URL_PREFIX } from "../../url_constants";
+import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
+import { imgErrorHandler } from "../../imgErrorHandler";
 
 const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;;
 
@@ -49,7 +50,7 @@ const CreatePost = () => {
                         <div className="col-md-8">
                             <div className="post-card card">
                                 <div className="card-header">
-                                    <img src={profile}></img>
+                                    <img src={PROFILE_PIC_URL_PREFIX + postUser} onError={imgErrorHandler}></img>
                                     <h3 className="card-title">{postUser} Posts </h3>
                                     <span className="date" id='date-time'>{Date()}</span>
                                 </div>

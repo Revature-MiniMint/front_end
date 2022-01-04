@@ -20,10 +20,13 @@ export const profileSlice = createSlice({
       state.gender = action.payload.gender;
       state.bio = action.payload.bio;
       state.profilepic = action.payload.profilepic;
+    },flagStatus: (state, action) => {
+      state.flag = action.payload;
     },
   },
 });
 
 export const { userInfo } = profileSlice.actions;
+export const { flagStatus } = profileSlice.actions;
 
 export default profileSlice.reducer;
