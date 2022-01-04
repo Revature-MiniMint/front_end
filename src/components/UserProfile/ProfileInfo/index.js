@@ -41,8 +41,7 @@ const ProfileInfo = () => {
   if (!profile) return null;
 
   console.log(profile);
-  console.log(state);
-
+  
   function checking(x) {
     if (x == null) {
       return (
