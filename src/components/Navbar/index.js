@@ -17,7 +17,7 @@ const NavbarProfile = () => {
   const profile = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
 
-  const [image, setImage] = useState("https://minimint.s3.us-east-1.amazonaws.com/" + user.userId);
+  var image = "https://minimint.s3.us-east-1.amazonaws.com/" + user.userId;
 
   function pfpCheck() {
       if (user.userId == 0) {
@@ -32,7 +32,7 @@ const NavbarProfile = () => {
       } else {
           return (
             <img
-            src={setImage}
+            src={image}
             width="20"
             height="20"
             alt="profile"
