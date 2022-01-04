@@ -29,8 +29,11 @@ const ProfileInfo = () => {
       .then((response) => {
         dispatch(userInfo(response.data));
       });
-    if (profile.alias == "")
-      navigate("/UpdatePage");
+    if (profile.userId !== 0) {
+      if (profile.alias == "") navigate("/UpdatePage");
+    } else {
+      navigate("/");
+    }
   }, []);
 
   if (!profile) return null;
