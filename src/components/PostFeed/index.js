@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import FeedItem from './FeedItem';
 import { URL_PREFIX } from '../../url_constants';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
@@ -28,7 +30,7 @@ const PostFeed = () => {
     /*
      * Sorts the current post array, oldest posts first.
      */
-    const sortByTimeOldFirst = () => { 
+    const sortByTimeOldFirst = () => {
 
         let sortedPosts = [...posts]; //Make a shallow copy
         sortedPosts.sort((post1, post2) => {
@@ -48,7 +50,7 @@ const PostFeed = () => {
     /*
      * Sorts the current post array, newest posts first.
      */
-    const sortByTimeNewFirst = () => { 
+    const sortByTimeNewFirst = () => {
 
         let sortedPosts = [...posts]; //Make a shallow copy
         sortedPosts.sort((post1, post2) => {
@@ -106,24 +108,24 @@ const PostFeed = () => {
     /*
      * Filters from all posts, displaying the posts created X days ago and later.
      */
-    const filterByTimeAgo = (numDays) => { 
+    const filterByTimeAgo = (numDays) => {
         //Set up the date using today
         let pastDate = new Date(Date.now() - (numDays * 24 * 60 * 60 * 1000)); //Go from ms to days
         //Check days prior
         axios.get(`${URL_PREFIX}/postfeed/datesearch/after/${pastDate.toISOString()}`) //Get all the post occurring after this date.
-        .then((resp) => {
-            setPosts(resp.data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            .then((resp) => {
+                setPosts(resp.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     /*
      * Updates the state holding the search bar's contents
      */
     const searchChangeHandler = (event) => { //For posts search bar
-        const {  value } = event.target;
+        const { value } = event.target;
         setSearchText(value);
     }
 
@@ -202,12 +204,12 @@ const PostFeed = () => {
     ///////////////////////////
     return (
         <>
-            <form className="text-center mb-4" onSubmit={searchSubmitHandler}>
+            <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
                 <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
-                <button type="submit">Go!</button>
+                <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
             </form>
-            <form className="text-center mb-4" onSubmit={dateSubmitHandler}>
+            <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
                 <label className='form-label'>Filter your previous orders</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
@@ -237,9 +239,10 @@ const PostFeed = () => {
 
                 </div>
                 <input className="w-75 text-center" step="any" type="datetime-local" onChange={dateChangeHandler} defaultValue={today.toISOString().split('.')[0]} name="filter_date" />
-                <button type="submit">Go!</button>
+                <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
 
             </form>
+            <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>
             <button onClick={sortByMostUpmints}>Most Upminted</button>
@@ -248,6 +251,7 @@ const PostFeed = () => {
             <button onClick={() => filterByTimeAgo(7)}>Last Week</button>
             <button onClick={() => filterByTimeAgo(20)}>Last Month</button>
             <button onClick={() => filterByTimeAgo(365)}>Last Year</button>
+            </div>
             <div className="container d-flex justify-content-center">
                 {posts.length === 0 ?
 
@@ -258,7 +262,7 @@ const PostFeed = () => {
                         <ul>
                         {
                             posts.map(post => {
-                                return <li key = {post.id}> <FeedItem data={post} /></li>
+                                return <li style={{ listStyleType: "none"}} key = {post.id}> <FeedItem data={post} /></li>
                             })
                         }
                         </ul>

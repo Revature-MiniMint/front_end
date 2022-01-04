@@ -1,12 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
 import { URL_PREFIX } from "../../../../../url_constants";
+import { useSelector } from "react-redux";
 
 
 /* This component is a form to add a reply to a comment:
    Each comment component has a reply form associated with it.
 */
 const AddReply = (props) => {
+    // get profile information from the redux:
+    const info = useSelector((state) => state.profile);
+    const user = useSelector((state) => state.user);
+    const profile = {
+      ...info,
+      ...user,
+    };
 
     // reply value of input field:
     const [reply, setReply] = useState("");
@@ -23,8 +31,8 @@ const AddReply = (props) => {
         if (reply === "") {
             return;
         }
-        // TODO: GET THIS NAME FROM THE USER
-        var author = "Replier"
+        // get author's alias from redux store
+        var author = profile.alias;
         var replyObject = {
             description: reply,
             date: Date.now(),

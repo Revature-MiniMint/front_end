@@ -1,0 +1,64 @@
+.register-text{
+    text-align: center;
+    vertical-align: middle;
+    font-size: xx-large;
+    font-weight:600;
+}
+
+.logo{
+    float: right;
+    margin-top: -70px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+.logob{
+    float: right;
+    margin-top: 20px;
+    margin-right: 180px;
+}
+
+.reg-form{
+    float:left;
+    background-color: white;
+    margin-top: 20px;
+    margin-right: 65px;
+    padding: 30px;
+    box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    width: 430px;
+    height: auto;  
+}
+
+.textbox{
+    color: #C21515;
+    float: left;
+    padding-top: 10px;
+    margin-bottom: 0px;
+     
+}
+
+.reg-formb{
+   
+    color:#202020 ; 
+    box-shadow: 5px 5px 5px  #C4C4C4;
+    border-radius: 8px;
+    border: 1px;
+    float: left;
+}
+.regis{
+    width: 100%; 
+    margin-top: -12.125; 
+    margin-right: 160px; 
+    background-color: #C21515 !important; 
+    border: none !important;   
+    border-radius: 8px !important;
+}
+
+
+
+.register-link a{
+    color: #202020;
+    font-weight: bold;
+    text-decoration: none;
+}

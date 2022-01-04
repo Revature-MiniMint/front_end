@@ -11,15 +11,18 @@ import UpdatePicture from "./components/UpdatePicture";
 import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
 import ProfilePicPage from "./pages/ProfilePicPage";
+import RegisterPage from "./pages/RegisterPage";
+import CreatePost from "./components/CreatePost";
 
 function App() {
   return (
     <div>
-      <NavbarProfile />
       <Router>
+        <NavbarProfile />
         <Routes>
           <Route path="/" element={<LoginPage />} />
-          <Route path="/PostPage" element={<PostPage />} />
+          <Route path="/Register" element={<RegisterPage />} />
+          <Route path="/post/:id" element={<PostPage />} />
           <Route path="/CreatePostPage" element={<CreatePostPage />} />
           <Route path="/FeedPage" element={<FeedPage />} />
           <Route path="/PrivacyPage" element={<PrivacyPage />} />

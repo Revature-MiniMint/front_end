@@ -98,7 +98,7 @@ const PostItem = (props) => {
 
   let prettyDate = new Date(props.data.creationDate);
   return (
-    <div>
+    <div className="container post-item">
       <div className="card rounded">
         <div className="card-header">
           <div className="row">
@@ -112,7 +112,7 @@ const PostItem = (props) => {
                 onError={imgErrorHandler}
               />
             </div>
-            <div className="col-sm-3">
+            <div className="col-sm-3 post-item-header">
               <div>{"user id: " + props.data.userId}</div>
               <div className="text-secondary">{timeSince}</div>
               <p>
@@ -126,16 +126,16 @@ const PostItem = (props) => {
             </div>
           </div>
         </div>
-        <div className="card-body">
+        <div className="card-body post-item-body">
           <div className="jumbotron bg-light border">
-            <h1 className="display-5">{props.data.title}</h1>
+            <h1 className="display-6">{props.data.title}</h1>
             <hr className="my-4" />
             <div className="border content-box">
               <p>{props.data.description}</p>
             </div>
             <br />
             <div className="row">
-              <div className="col-sm-3">
+              <div className="col-sm-6 reactions">
                 <div>
                   {props.data.id && (
                     <ReactButton
@@ -146,8 +146,9 @@ const PostItem = (props) => {
                   )}
                 </div>
               </div>
-
-              {props.data.id && <LikeDislike data={props.data} />}
+              <div className="col-sm-6 like-dislike">
+                {props.data.id && <LikeDislike data={props.data} />}
+              </div>
             </div>
             <br />
           </div>

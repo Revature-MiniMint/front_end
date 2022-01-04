@@ -16,8 +16,8 @@ const ProfilePic = () => {
 
   return (
     <div className="container" style={{ fontWeight: "bold" }}>
-      <div className="col">
-        <div className="row">
+      <div className="profile-pic">
+        <div className="row justify-content-center">
           <div
             style={{
               border: "1px solid #C4C4C4",
@@ -26,8 +26,9 @@ const ProfilePic = () => {
               height: "250px",
               overflow: "hidden",
               verticalAlign: "middle",
-              marginBottom: "20px",
+              marginBottom: "20px"
             }}
+            className="center"
           >
             <img
               //change to reference userId
@@ -39,10 +40,14 @@ const ProfilePic = () => {
           </div>
         </div>
         <div className="row">
-          <p>{profile.alias}</p>
-          <p>
+          <p className="profile-alias">
+            {/* {profile.alias} */}
+            Mark
+            </p>
+          <p className="profile-username">
             <span>@</span>
-            {profile.username}
+            {/* {profile.username} */}
+            Mark 123
           </p>
         </div>
       </div>

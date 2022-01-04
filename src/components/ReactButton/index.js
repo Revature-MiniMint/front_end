@@ -68,7 +68,7 @@ const ReactButton = (props) => {
       }
     return(
         <div>
-            <button onClick={() => {setShowReactions(!showReactions)}}>React</button>
+            <button className='react-btn' onClick={() => {setShowReactions(!showReactions)}}>React</button>
             {showReactions ? <><button onClick={updateReaction} value="THUMBSUP">&#x1F44D; {props.counts.THUMBSUP}</button>
             <button className = 'btn btn-primary' onClick={updateReaction} value="THUMBSDOWN">&#x1F44E; {props.counts.THUMBSDOWN}</button>
             <button onClick={updateReaction} value="LAUGH">&#x1F923; {props.counts.LAUGH}</button>

@@ -3,9 +3,11 @@ import axios from "axios";
 import { Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
+import { useNavigate } from "react-router";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
   const initialState = {
     username: "",
@@ -53,6 +55,14 @@ const Register = () => {
     }
   };
 
+  function redirect() {
+    navigate('/');
+
+    return (
+      <p>Account created successfully</p>
+    )
+  };
+
   const displayMessage = () => {
     if (errorMsg !== "") {
       return (
@@ -67,6 +77,7 @@ const Register = () => {
       );
     } else if (submitted) {
       // show success message if true
+      // redirect()
       return (
         <Alert
           variant="success"
@@ -74,7 +85,8 @@ const Register = () => {
             display: submitted ? "" : "none",
           }}
         >
-          You have successfully registered!
+          You have successfully registered! You will be automatically redirected to log in.
+
         </Alert>
       );
     }
@@ -110,56 +122,87 @@ const Register = () => {
   console.log("errorMsg = " + errorMsg);
 
   return (
-    <Card>
-      <Card.Title>Registration Form</Card.Title>
-      <Card.Body style={{ textAlign: "left" }}>
-        <Form noValidate validated={validated} onSubmit={registerHandler}>
-          <Form.Group className="mb-3">
-            <Form.Label>Username </Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="username"
-              onChange={onChangeHandler}
-              name="username"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please provide a username.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Email </Form.Label>
-            <Form.Control
-              type="email"
-              placeholder="example@mail.com"
-              onChange={onChangeHandler}
-              name="userEmail"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please provide a valid email.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Password </Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="password"
-              onChange={onChangeHandler}
-              name="userPassword"
-              required
-            />
-            <Form.Control.Feedback type="invalid">
-              Please provide a password.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <div className="messages">{displayMessage()}</div>
-          <Button onClick={checkFieldsHandler} type="submit">
-            Register
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div className="container">
+      <div className="row">
+        <div className="login-info col-6">
+          <div>
+            <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
+            <h1 className="brand-name">
+              MiniMint
+            </h1>
+            <br />
+            <div className="brand-motto">
+              <h2>
+                Join the awesome Batch<br></br>
+                of Minty social media.
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div className="col-6">
+          <Card className="register-form">
+            <div className="register-header">
+              <Card.Title>Register</Card.Title>
+              <h5>It's quick and easy</h5>
+              <hr></hr>
+            </div>
+            <Card.Body style={{ textAlign: "left" }}>
+              <Form noValidate validated={validated} onSubmit={registerHandler}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Username </Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="username"
+                    onChange={onChangeHandler}
+                    name="username"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a username.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email </Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="example@mail.com"
+                    onChange={onChangeHandler}
+                    name="userEmail"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid email.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Password </Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    onChange={onChangeHandler}
+                    name="userPassword"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a password.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <div className="messages">{displayMessage()}</div>
+                <div className="register-btn">
+                  <Button onClick={checkFieldsHandler} type="submit">
+                    Register
+                  </Button>
+                </div>
+              <br />
+                <div className="register-return">
+                  <p>Already Registered? <a href="/">Login</a></p>
+                </div>
+              </Form>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Register;
