@@ -42,7 +42,6 @@ const FeedItem = (props) => {
     setReactions(updatedReactions);
   }
 
-<<<<<<< HEAD
   const [userInfo, setUserInfo] = useState({
     alias : "Private"
   })
@@ -57,8 +56,6 @@ const FeedItem = (props) => {
     'Content-Type': 'application/json',
     'Authorization': 'JWT fefege...'
   }
-=======
->>>>>>> master
 
   useEffect(() => {
 
@@ -124,13 +121,8 @@ const FeedItem = (props) => {
                 height="60px"
               />
             </div>
-<<<<<<< HEAD
             <div className="col-sm-3">
               <div>{userInfo.alias}</div>
-=======
-            <div className="col-sm-3 post-item-header">
-              <div>{"user id: " + props.data.userId}</div>
->>>>>>> master
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>
@@ -150,11 +142,6 @@ const FeedItem = (props) => {
                 </div>
               </div>
               {/* TODO: Route this to post item component: */}
-<<<<<<< HEAD
-              <Link to = {`/PostPage/${props.data.id}`}>
-              <div className="col-sm-3">
-                <button
-=======
               <div className="col-sm-5 like-dislike">
                 <LikeDislike data={props.data} />
               </div>
@@ -162,17 +149,11 @@ const FeedItem = (props) => {
             <div className="row">
               <div className="col-12 view-post">
                 <Link to={`/post/${props.data.id}`}
->>>>>>> master
                   className="btn btn-secondary btn-lg btn-block"
                 >
                   View Full Post
                 </Link>
               </div>
-<<<<<<< HEAD
-              </Link>
-              <LikeDislike data={props.data} />
-=======
->>>>>>> master
             </div>
             <br />
           </div>
