@@ -217,7 +217,7 @@ const Register = () => {
               </Form.Group>
               <hr></hr>
               <Form.Group>
-                <Form className='mb-3'>
+                <Form className='mb-3 register-link'>
                   <a href="/" className="stretched-link">Already Registered?</a>
                 </Form>
               </Form.Group>

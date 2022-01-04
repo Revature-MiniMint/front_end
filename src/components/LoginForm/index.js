@@ -3,7 +3,7 @@ import axios from "axios";
 import { Alert } from "react-bootstrap";
 import "./login.css";
 import logo from "../../image/Logo3.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router-dom";
 
@@ -52,7 +52,7 @@ const LoginForm = () => {
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));
-        navigate('/FeedPage');
+        navigate('/ProfilePage');
       })
       .catch((error) => {
         console.error(error);
@@ -74,20 +74,14 @@ const LoginForm = () => {
       <section>
         <div className="container">
           <div className='row'>
-            <div className="col-md-6">
-
-              <div className="logo-login">
-                <img className='logo' src={logo} alt="mint"></img>
-              </div>
-              <br></br>
-              <div className="text-area">
-                <div className="brand-name">
-                  <h1>
-                    MiniMint
-                  </h1>
-                </div>
-                <br></br>
-
+            <div className="col-1"></div>
+            <div className="login-info col-5">
+              <div>
+                <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
+                <h1 className="brand-name">
+                  MiniMint
+                </h1>
+                <br />
                 <div className="brand-motto">
                   <h2>
                     Some Mints a day<br></br>
@@ -97,14 +91,14 @@ const LoginForm = () => {
               </div>
             </div>
 
-            <div className="col-md-6">
+            <div className="col-5">
               <br></br>
               <form className="login-form" onSubmit={onSubmitHandler}>
 
-              <div className="mb-3">
+                <div className="mb-3">
                   <p className="form-label1">Login</p>
-                  </div>
-                 
+                </div>
+
                 <div className="mb-3">
                   <label className="form-label">Username</label>
                   <input type="text" className="form-control" name="username" placeholder="Enter Your Username" value={user.username} onChange={onChangeHandler} required />
@@ -118,14 +112,15 @@ const LoginForm = () => {
                   <div className="messages">{displayMessage()}</div>
                 </div>
 
-                <button type="submit" className="btn btn-login">Log In</button>
+                <button className="btn col-12" type="submit">Log In</button>
                 <hr></hr>
                 <p>Not yet registered?</p>
 
-                <button type="submit" className="btn btn-regis " onClick={onClickHandler}>Create an Account</button>
+                <button type="submit" className="btn btn-regis" onClick={onClickHandler}>Create an Account</button>
 
               </form>
             </div>
+            <div className="col-1"></div>
           </div>
         </div>
       </section>

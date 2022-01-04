@@ -1,53 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
+import { userInfo } from "../../profileSlice";
 
 const UpdateForm = () => {
     const dispatch = useDispatch();
+
     const user = useSelector((state) => state.user);
     const profile = useSelector((state) => state.profile);
-    // const premade = {
-    //     id: 1,
-    //     username: "user",
-    //     password: "password",
-    //     email: "email@gmail.com",
-    //     name: "Name",
-    //     alias: "A",
-    //     dob: "2021-12-23",
-    //     gender: "male",
-    //     bio: "My bio",
-    //     profilepic: new Blob()
-    // }
     const [state, setState] = useState({
         ...user,
         ...profile
-        // id: 0,
-        // username: "",
-        // password: "",
-        // email: "",
-        // name: "",
-        // alias: "",
-        // dob: "",
-        // gender: "",
-        // bio: "",
-        // profilepic: new Blob()
     });
+ 
     useEffect(() => {
-        axios.get("http://localhost:10011/profiles/" + state.id)
+        if (!profile.id) {
+        axios.get("http://localhost:10011/profiles/" + user.userId)
             .then(response => {
                 console.log(response.data);
                 setState(response.data);
             })
             .catch(error => { console.error(error); })
-        axios.get("https://minimint.s3.us-east-1.amazonaws.com/" + state.id)
-            .then(response => {
-                console.log(response.data)
-                setState({
-                    ...state,
-                    profilepic: response.data.image
-                })
-            })
-    }, [state]);
+        }
+    }, []);
+
     let gender_male_input = (
         <input className="form-check-input" type="radio" id="gender_male" name="gender" value="male" onChange={onChangeHandler} />
     );
@@ -89,10 +65,10 @@ const UpdateForm = () => {
         event.preventDefault();
         console.log(state);
         const { profilepic, ...profileinfo } = state;
-        axios.put("http://localhost:10011/profiles/" + state.id, profileinfo)
+        axios.put("http://localhost:10011/profiles/" + user.userId, profileinfo)
             .then(response => {
                 console.log(response);
-                dispatch({ type: "userInfo", payload: state }); //needs updating
+                dispatch(userInfo(response.data));
             })
             .catch(error => { console.error(error); })
         // var formData = new FormData();
@@ -107,9 +83,11 @@ const UpdateForm = () => {
         //     dispatch({ type: "userInfo", payload: state });
         // })
         // .catch(error => {console.error(error);})
+        console.log(state)
     }
     function onInvalidHandler(event) {
-        event.target.setCustomValidity("Please fill out your " + event.target.name + ".");
+        // TODO:
+        // event.target.setCustomValidity("Please fill out your " + event.target.name + ".");
     }
     return (
         <div className='container'>
@@ -143,10 +121,7 @@ const UpdateForm = () => {
                             <label className="form-label" htmlFor="alias">Alias</label>
                             <input className="form-control" type="text" id="alias" name="alias" value={state.alias} required onInvalid={onInvalidHandler} onChange={onChangeHandler} />
                         </div>
-                        <div className="form-group mb-3">
-                            <label className="form-label" htmlFor="email">Email</label>
-                            <input className="form-control" type="email" id="email" name="email" value={state.email} required onInvalid={onInvalidHandler} onChange={onChangeHandler} />
-                        </div>
+                
                         <div className="form-group mb-3">
                             <label className="form-label" htmlFor="dob">Date of Birth</label>
                             <input className="form-control" type="date" id="dob" name="dob" value={state.dob} onChange={onChangeHandler} />
@@ -160,10 +135,6 @@ const UpdateForm = () => {
                             <label className="form-label" htmlFor="gender_female">Female</label>
                         </div>
                         <br />
-                        <div className="form-group mb-3">
-                            <label className="form-label" htmlFor="username">Username</label>
-                            <input className="form-control" type="text" id="username" name="username" value={state.username} required onInvalid={onInvalidHandler} onChange={onChangeHandler} />
-                        </div>
                         <div className="form-group mb-3">
                             <label className="form-label" htmlFor="password">Password</label>
                             <input className="form-control" type="password" id="password" name="password" value={state.password} required onInvalid={onInvalidHandler} onChange={onChangeHandler} />

@@ -18,6 +18,7 @@
     float: right;
     margin-top: -70px;
     margin-right: 0px;
+    text-align: center;
 }
 
 .logob{
@@ -80,7 +81,7 @@
 
 
 
-a{
+.register-link a{
     color: #202020;
     font-weight: bold;
 }
