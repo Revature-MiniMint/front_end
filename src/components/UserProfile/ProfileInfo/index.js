@@ -29,19 +29,17 @@ const ProfileInfo = () => {
       .get("http://localhost:10011/profiles/" + profile.userId)
       .then((response) => {
         dispatch(userInfo(response.data));
+        if (profile.userId !== 0) {
+          console.log(profile);
+          if (response.data.name == "") {
+            navigate("/UpdatePage");
+          }
+        } else {
+          navigate("/");
+          dispatch(flagStatus("Please login before proceeding to profile"));
+        }
       });
-      console.log(profile.userId)
-    if (profile.userId !== 0) {
-
-      if (profile.name == "") navigate("/UpdatePage");
-
-    }
-
-    else {
-      navigate("/");
-      dispatch(flagStatus("Please login before proceeding to profile"));
-    }
-
+    console.log(profile.userId);
   }, []);
 
   if (!profile) return null;
