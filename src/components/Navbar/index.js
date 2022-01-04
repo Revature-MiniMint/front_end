@@ -11,6 +11,8 @@ import {
 import { faCommentDots, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { imgErrorHandler } from "../../imgErrorHandler";
 import "./style.css";
 
 const NavbarProfile = () => {
