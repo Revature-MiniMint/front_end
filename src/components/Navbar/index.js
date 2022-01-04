@@ -12,6 +12,7 @@ import { faCommentDots, faBell } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { imgErrorHandler } from "../../imgErrorHandler";
 
 const NavbarProfile = () => {
   const profile = useSelector((state) => state.profile);
@@ -26,7 +27,7 @@ const NavbarProfile = () => {
             src={process.env.PUBLIC_URL + "/img/profile.jpg"}
             width="20"
             height="20"
-            alt="profile"
+            alt="X"
           />
           )
       } else {
@@ -35,7 +36,8 @@ const NavbarProfile = () => {
             src={image}
             width="20"
             height="20"
-            alt="profile"
+            alt="X"
+            onError={imgErrorHandler}
           />
           )
       }
