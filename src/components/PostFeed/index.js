@@ -210,7 +210,7 @@ const PostFeed = () => {
 
             </form>
             <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
-                <label className='form-label'>Filter your previous orders</label> <br />
+                <label className='form-label'>Filter previous posts</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
                     {
