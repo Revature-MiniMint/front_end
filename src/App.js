@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
-          <Route path="/PostPage" element={<PostPage />} />
+          <Route path="/post/:id" element={<PostPage />} />
           <Route path="/CreatePostPage" element={<CreatePostPage />} />
           <Route path="/FeedPage" element={<FeedPage />} />
           <Route path="/PrivacyPage" element={<PrivacyPage />} />

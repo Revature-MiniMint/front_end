@@ -47,13 +47,13 @@ const CreatePost = () => {
 
                         </div>
                         <div className="col-md-8">
-                            <div className="card">
+                            <div className="post-card card">
                                 <div className="card-header">
                                     <img src={profile}></img>
                                     <h3 className="card-title">{postUser} Posts </h3>
                                     <span className="date" id='date-time'>{Date()}</span>
                                 </div>
-                                <div className="card-body">
+                                <div className="post-body card-body">
                                     <div>
                                         <form onSubmit={onPostHandler}>
                                             <div className="col-auto">

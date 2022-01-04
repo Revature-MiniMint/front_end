@@ -50,7 +50,7 @@ const AddComment = (props) => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <form className="add-com-btn" onSubmit={onSubmitHandler}>
         <input type="text" value={comment} onChange={onChangeHandler} />
         <input type="submit" value="Add Comment" />
       </form>

@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react'
 import FeedItem from './FeedItem';
 import { URL_PREFIX } from '../../url_constants';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
@@ -201,106 +203,74 @@ const PostFeed = () => {
     const today = new Date(todayRaw.getTime() - (myTimeZoneOffset * 60 * 1000));
     ///////////////////////////
     return (
-        <div>
-            <section>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-2">
-                        </div>
-                        <div className="col-md-8">
+        <>
+            <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
+                <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
+                <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
-                            <form className="text-center mb-4" onSubmit={searchSubmitHandler}>
-                                <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
-                                <button type="submit">Search!</button>
-                            </form>
-
-                            <div className="card">
-
-                                <form className="text-center mb-4" onSubmit={dateSubmitHandler}>
-                                    <div className="card-header" style={{ color: 'white' }}>
-                                        <label className='form-label'>Filter Posts</label> <br />
+            </form>
+            <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
+                <label className='form-label'>Filter your previous orders</label> <br />
+                <div className="btn-group " role="group"  onChange={dateChangeHandler}>
+                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
+                    {
+                        filterMethod === "BEFORE" ?
+                            <label className="btn btn-danger" htmlFor="btnradio1">Before</label>
+                            :
+                            <label className="btn btn-info" htmlFor="btnradio1">Before</label>
+                    }
 
 
-                                        <div className="btn-group " role="group" onChange={dateChangeHandler}>
-                                            <div className='filter1'>
-                                                <button type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" ></button>
-                                                {
-                                                    filterMethod === "BEFORE" ?
-                                                        <label className="btn btn-danger" htmlFor="btnradio1">Before</label>
-                                                        :
-                                                        <label className="btn btn-info" htmlFor="btnradio1">Before</label>
-                                                }
-                                            </div>
-                                            <div className='filter2'>
-                                                <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio2" value="AFTER" autoComplete="off" />
-                                                {
-                                                    filterMethod === "AFTER" ?
-                                                        <label className="btn btn-danger" htmlFor="btnradio2">After</label>
-                                                        :
-                                                        <label className="btn btn-info" htmlFor="btnradio2">After</label>
-                                                }
-                                            </div>
+                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio2" value="AFTER" autoComplete="off" />
+                    {
+                        filterMethod === "AFTER" ?
+                            <label className="btn btn-danger" htmlFor="btnradio2">After</label>
+                            :
+                            <label className="btn btn-info" htmlFor="btnradio2">After</label>
+                    }
 
-                                            <div className='filter3'>
-                                                <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio3" value="ALL" autoComplete="off" />
-                                                {
-                                                    filterMethod === "ALL" ?
-                                                        <label className="btn btn-danger" htmlFor="btnradio3">No Filter</label>
-                                                        :
-                                                        <label className="btn btn-info" htmlFor="btnradio3">No Filter</label>
-                                                }
-                                            </div>
+                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio3" value="ALL" autoComplete="off" />
+                    {
+                        filterMethod === "ALL" ?
+                            <label className="btn btn-danger" htmlFor="btnradio3">No Filter</label>
+                            :
+                            <label className="btn btn-info" htmlFor="btnradio3">No Filter</label>
+                    }
 
-                                        </div>
-
-
-
-                                    </div>
-                                    <br></br>
-                                    <input className="w-75 text-center" step="any" type="datetime-local" onChange={dateChangeHandler} defaultValue={today.toISOString().split('.')[0]} name="filter_date" />
-                                    <button type="submit">Go!</button>
-
-                                </form>
-
-                            </div>
-                            <br></br>
-                            <br></br>
-
-                            <div className='sort'>
-
-                                <button onClick={sortByTimeOldFirst}>Oldest</button>
-                                <button onClick={sortByTimeNewFirst}>Latest</button>
-                                <button onClick={sortByMostUpmints}>Upmint</button>
-                                <button onClick={sortByMostDownmints}>Downmint</button>
-                                <button onClick={() => filterByTimeAgo(1)}>Yesterday</button>
-                                <button onClick={() => filterByTimeAgo(7)}>Last Week</button>
-                                <button onClick={() => filterByTimeAgo(20)}>Last Month</button>
-                                <button onClick={() => filterByTimeAgo(365)}>Last Year</button>
-                            </div>
-                            <br></br>
-                            <div className="card justify-content-center">
-                                {posts.length === 0 ?
-
-                                    <h1> It's quiet in here. Make a post!</h1>
-
-                                    :
-                                    <div className="card-body">
-                                        <ul>
-                                            {
-                                                posts.map(post => {
-                                                    return <li key={post.id}> <FeedItem data={post} /></li>
-                                                })
-                                            }
-                                        </ul>
-                                    </div>
-                                }
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
-            </section>
-        </div>
+                <input className="w-75 text-center" step="any" type="datetime-local" onChange={dateChangeHandler} defaultValue={today.toISOString().split('.')[0]} name="filter_date" />
+                <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
+
+            </form>
+            <div className='filter-buttons'>
+            <button onClick={sortByTimeOldFirst}>Oldest</button>
+            <button onClick={sortByTimeNewFirst}>Newest</button>
+            <button onClick={sortByMostUpmints}>Most Upminted</button>
+            <button onClick={sortByMostDownmints}>Most Downminted</button>
+            <button onClick={() => filterByTimeAgo(1)}>Yesterday</button>   
+            <button onClick={() => filterByTimeAgo(7)}>Last Week</button>
+            <button onClick={() => filterByTimeAgo(20)}>Last Month</button>
+            <button onClick={() => filterByTimeAgo(365)}>Last Year</button>
+            </div>
+            <div className="container d-flex justify-content-center">
+                {posts.length === 0 ?
+
+                    <h1> It's quiet in here. Make a post!</h1>
+
+                    :
+                    <div className="">
+                        <ul>
+                        {
+                            posts.map(post => {
+                                return <li style={{ listStyleType: "none"}} key = {post.id}> <FeedItem data={post} /></li>
+                            })
+                        }
+                        </ul>
+                    </div>
+                }
+            </div>
+
+        </>
     );
 
 }

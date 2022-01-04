@@ -1,26 +1,17 @@
-/* .card{
-    font-size:medium;
-}
-
-.card-body{
-    font-size: medium;
-} */
-
-.card {
+.post-card.card {
     width: auto !important;
 }
 
-.card-header{
-    background-image: linear-gradient(#C21515, #C21515 50% );
-    color:#fff !important;
+.post-card .card-header{
+    background-color: transparent #C4C4C4;
+    color: #202020 !important;
 }
 
-.date{
+.post-card .date{
     font-size: medium;
     font-weight: 400;
 }
-
-.card-header img{
+.post-card .card-header img{
     width:40px;
     height: auto;
     margin-right: 5px;
@@ -28,7 +19,13 @@
     border-radius: 50%;
 }
 
-.btn:hover{
+.post-body .btn-danger {
+    background-color: #C21515;
+    border: none;
+    width: 100%;
+}
+
+.post-body .btn-danger:hover{
     background-color: #BADABF !important;
     transition: 0.3s;
     border: none;
@@ -45,14 +42,6 @@
 .text-center{
     color: #C21515;
 }
-
-/* 
-img {
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 100px;
-  } */
 
 .post-avatar img{
     border: 1px solid #C4C4C4;
@@ -107,10 +96,6 @@ img {
     overflow: hidden;
     text-overflow: ellipsis; 
     color: #202020;
-}
-
-.comment-display{
-
 }
 
 .pointer-border{
@@ -217,10 +202,6 @@ img {
     margin: 5px 0;
     overflow: auto;
     width: 100%;
-}
-
-p{
-    font-size: medium;
 }
 
 .clearfix::after {
