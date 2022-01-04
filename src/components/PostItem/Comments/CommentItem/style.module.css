@@ -2,3 +2,15 @@
     text-align: left;
     display: inline;
 }
+
+.delete {
+    background-color: #C21515;
+    color: white;
+    border: 1px solid #C21515;
+}
+
+.delete:hover {
+    background-color: #BADABF;
+    color: white;
+    border: 1px solid #BADABF;
+}

@@ -84,10 +84,10 @@ function LikeDislike(props) {
     }, [postLikes, props.data])
 
     // buttons to like and dislike a post
-    const elementUp = (<input height="120" type="image" onClick={onClickHandler} value="like" src={mintUpUnClicked} alt = 'upmint' draggable="false" />)
-    const elementUpClicked = (<input height="120" type="image" onClick={onClickHandler} value="cancel" src={mintUp} alt = 'upmint' draggable="false" />)
-    const elementDown = (<input height="120" type="image" onClick={onClickHandler} value="dislike" src={mintDownUnClicked} alt = 'downmint'draggable="false" />)
-    const elementDownClicked = (<input height="120" type="image" onClick={onClickHandler} value="cancel" src={mintDown} alt = 'downmint'draggable="false" />)
+    const elementUp = (<input height="50" type="image" onClick={onClickHandler} value="like" src={mintUpUnClicked} alt = 'upmint' draggable="false" />)
+    const elementUpClicked = (<input height="50" type="image" onClick={onClickHandler} value="cancel" src={mintUp} alt = 'upmint' draggable="false" />)
+    const elementDown = (<input height="50" type="image" onClick={onClickHandler} value="dislike" src={mintDownUnClicked} alt = 'downmint'draggable="false" />)
+    const elementDownClicked = (<input height="50" type="image" onClick={onClickHandler} value="cancel" src={mintDown} alt = 'downmint'draggable="false" />)
 
     return (
         <div>
