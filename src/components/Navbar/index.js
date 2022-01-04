@@ -44,13 +44,13 @@ const NavbarProfile = () => {
   }
 
   function nameCheck() {
-      if (profile.name == "") {
+      if (profile.alias == "") {
           return (
               "Login"
           )
       } else {
           return (
-            profile.name
+            profile.alias
           )
       }
   }
