@@ -32,7 +32,7 @@ const ProfilePic = () => {
           >
             <img
               //change to reference userId
-              src={PROFILE_PIC_URL_PREFIX + 2}
+              src={PROFILE_PIC_URL_PREFIX + profile.userId}
               alt=""
               className="avatar"
               onError={imgErrorHandler}
@@ -41,12 +41,11 @@ const ProfilePic = () => {
         </div>
         <div className="row">
           <p className="profile-alias">
-            {/* {profile.alias} */}
-            Mark
+            {profile.alias}
             </p>
           <p className="profile-username">
             <span>@</span>
-            {/* {profile.username} */}
+            {profile.userName} {/*This doesn't work*/}
             Mark 123
           </p>
         </div>
