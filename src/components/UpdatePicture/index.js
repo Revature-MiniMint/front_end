@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const UpdatePicture = () => {
-    // const dispatch = useDispatch();
-    const user = { userId: 2 };
-    // const user = useSelector((state) => state.user);
+    const user = useSelector((state) => state.user);
     const [image, setImage] = useState("https://minimint.s3.us-east-1.amazonaws.com/" + user.userId);
     function onChangeHandler(event) {
         let file = event.target.files[0];

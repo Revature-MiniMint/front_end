@@ -45,21 +45,6 @@ const UpdateForm = () => {
             ...state,
             [target.name]: target.value
         });
-        // if (target.name === "profilepic") {
-        //     let file = target.files[0];
-        //     file.arrayBuffer().then((arrayBuffer) => {
-        //         let blob = new Blob([new Uint8Array(arrayBuffer)], {type: file.type });
-        //         setState({
-        //             ...state,
-        //             [target.name]: blob
-        //         })
-        //     });
-        // } else {
-        //     setState({
-        //         ...state,
-        //         [target.name]: target.value
-        //     });
-        // }
     }
     function onSubmitHandler(event) {
         event.preventDefault();
@@ -71,18 +56,6 @@ const UpdateForm = () => {
                 dispatch(userInfo(response.data));
             })
             .catch(error => { console.error(error); })
-        // var formData = new FormData();
-        // formData.append("image", state.profilepic);
-        // axios.post("http://localhost:10011/profiles/" + state.id + "/profile_pic", formData, {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        // .then(response => {
-        //     console.log(response);
-        //     dispatch({ type: "userInfo", payload: state });
-        // })
-        // .catch(error => {console.error(error);})
         console.log(state)
     }
     function onInvalidHandler(event) {
@@ -97,18 +70,6 @@ const UpdateForm = () => {
                     <h4>Update Form</h4>
                     <p>Update your information below.</p>
                     <form onSubmit={onSubmitHandler}>
-                        {/* <div className="form-group mb-3">
-                        <div className='text-center'>
-                            <img id="image" src={URL.createObjectURL(state.profilepic)} alt="" style={{
-                                objectFit: 'fill',
-                                width: '300px',
-                                height: '300px',
-                                borderRadius: '50%',
-                            }}/>
-                        </div>
-                        <label className="form-label" htmlFor="profilepic">Profile Image</label>
-                        <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler}/></div> */}
-                        {/* </div><div className="col"> */}
                         <div className="form-group mb-3">
                             <label className="form-label" htmlFor="name">Full Name</label>
                             <input className="form-control" type="text" id="name" name="name" value={state.name} required onInvalid={onInvalidHandler} onChange={onChangeHandler} />
