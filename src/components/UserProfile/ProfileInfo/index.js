@@ -16,7 +16,12 @@ const ProfileInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const state = useSelector((state) => state);
+  useEffect(() => {
+    axios.get("http://localhost:10011/profiles/1").then((response) => {
+      dispatch(userInfo(response.data));
+    });
+  }, []);
+
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {
@@ -29,19 +34,17 @@ const ProfileInfo = () => {
       .get("http://localhost:10011/profiles/" + profile.userId)
       .then((response) => {
         dispatch(userInfo(response.data));
+        if (profile.userId !== 0) {
+          console.log(profile);
+          if (response.data.name == "") {
+            navigate("/UpdatePage");
+          }
+        } else {
+          navigate("/");
+          dispatch(flagStatus("Please login before proceeding to profile"));
+        }
       });
-      console.log(profile.userId)
-    if (profile.userId !== 0) {
-
-      if (profile.name == "") navigate("/UpdatePage");
-
-    }
-
-    else {
-      navigate("/");
-      dispatch(flagStatus("Please login before proceeding to profile"));
-    }
-
+    console.log(profile.userId);
   }, []);
 
   if (!profile) return null;
@@ -72,7 +75,7 @@ const ProfileInfo = () => {
         </div>
         <div className="row">
           <div className="col">
-            <p>{checking(profile.dob)}</p>
+            <p>{checking(profile.dob.substr(0,10))}</p>
           </div>
           <div className="col">
             <p>{checking(profile.gender)}</p>

@@ -46,7 +46,8 @@ const ProfilePic = () => {
             </p>
           <p className="profile-username">
             <span>@</span>
-            {profile.username}
+            {profile.userName} {/*This doesn't work*/}
+            Mark 123
           </p>
         </div>
       </div>

@@ -85,7 +85,7 @@ const UpdateForm = () => {
                 
                         <div className="form-group mb-3">
                             <label className="form-label" htmlFor="dob">Date of Birth</label>
-                            <input className="form-control" type="date" id="dob" name="dob" value={state.dob} onChange={onChangeHandler} />
+                            <input className="form-control" type="date" id="dob" name="dob" value={state.dob.substr(0,10)} onChange={onChangeHandler} />
                         </div>
                         <div className="form-check form-check-inline">
                             {gender_male_input}
