@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import ReactButton from "../../ReactButton";
 import LikeDislike from "../../Like_Dislike";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const FeedItem = (props) => {
   // time since the post was made:
@@ -39,7 +39,7 @@ const FeedItem = (props) => {
     setReactionsCount(tempReactionCount);
     setReactions(updatedReactions);
   }
-  
+
 
   useEffect(() => {
 
@@ -79,10 +79,10 @@ const FeedItem = (props) => {
     } else {
       setTimeSince(Math.floor(seconds / 2592000) + " months ago");
     }
-  },[props.data]);
-  
+  }, [props.data]);
+
   return (
-    <div>
+    <div className="feed-item">
       <div className="card rounded">
         <div className="card-header">
           <div className="row">
@@ -94,35 +94,39 @@ const FeedItem = (props) => {
                 height="60px"
               />
             </div>
-            <div className="col-sm-3">
+            <div className="col-sm-3 post-item-header">
               <div>{"user id: " + props.data.userId}</div>
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>
         </div>
-        <div className="card-body">
+        <div className="card-body post-item-body">
           <div className="jumbotron bg-light border">
-            <h1 className="display-5">{props.data.title}</h1>
+            <h1 className="display-6">{props.data.title}</h1>
             <hr className="my-4" />
             <div className="border content-box">
               <p>{props.data.description}</p>
             </div>
             <br />
             <div className="row">
-              <div className="col-sm-3">
+              <div className="col-sm-7 reactions">
                 <div>
-                  <ReactButton data = {props.data} counts = {reactionsCount} updateCount = {updateCount}/>
+                  <ReactButton data={props.data} counts={reactionsCount} updateCount={updateCount} />
                 </div>
               </div>
               {/* TODO: Route this to post item component: */}
-              <div className="col-sm-3">
-                <Link to = {`/post/${props.data.id}`}
+              <div className="col-sm-5 like-dislike">
+                <LikeDislike data={props.data} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12 view-post">
+                <Link to={`/post/${props.data.id}`}
                   className="btn btn-secondary btn-lg btn-block"
                 >
                   View Full Post
                 </Link>
               </div>
-              <LikeDislike data={props.data} />
             </div>
             <br />
           </div>

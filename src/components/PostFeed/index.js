@@ -262,7 +262,7 @@ const PostFeed = () => {
                         <ul>
                         {
                             posts.map(post => {
-                                return <li key = {post.id}> <FeedItem data={post} /></li>
+                                return <li style={{ listStyleType: "none"}} key = {post.id}> <FeedItem data={post} /></li>
                             })
                         }
                         </ul>
