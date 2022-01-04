@@ -145,12 +145,10 @@ const FeedItem = (props) => {
               </div>
               {/* TODO: Route this to post item component: */}
               <div className="col-sm-3">
-                <Link to = {`/PostPage/${props.data.id}`}>
-                <button
+              <Link to={`/post/${props.data.id}`}
                   className="btn btn-secondary btn-lg btn-block"
                 >
                   View Full Post
-                </button>
                 </Link>
               </div>
               <LikeDislike data={props.data} />

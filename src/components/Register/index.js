@@ -14,6 +14,12 @@ const Register = () => {
     userEmail: "",
     userPassword: "",
   };
+  
+  const [profile, setProfile] = useState({
+    id: 0,
+    email: "",
+    username: ""
+  })
 
   const [user, setUser] = useState(initialState);
 
@@ -54,6 +60,11 @@ const Register = () => {
       setErrorMsg("");
     }
   };
+
+  function renameKey(obj, oldKey, newKey) {
+    obj[newKey] = obj[oldKey]
+    delete obj[oldKey]
+  }
 
   function redirect() {
     navigate('/');
@@ -105,6 +116,14 @@ const Register = () => {
           clearState();
           setSubmitted(true);
           dispatch(loginUser(response.data));
+          setProfile(response.data)
+          console.log(response.data)
+          const arr = JSON.parse(response.data)
+          arr.forEach(obj => renameKey(obj, 'userEmail', 'email'))
+          arr.forEach(obj => renameKey(obj, 'userId', 'id'))
+          const profile = JSON.stringify(arr)
+          console.log(arr)
+          console.log(profile)
         })
         .catch((error) => {
           console.error(error);
@@ -112,6 +131,7 @@ const Register = () => {
           setErrorMsg("Username or email has already been registered.");
           console.log(error.response);
         });
+      
     } else {
       setSubmitted(false);
     }
