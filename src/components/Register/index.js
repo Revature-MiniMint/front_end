@@ -15,13 +15,19 @@ const Register = () => {
     userEmail: "",
     userPassword: "",
   };
-
-  var profile = {
-    username: "",
+  
+  const [profile, setProfile] = useState({
+    id: 0,
     email: "",
-    password: "",
-    alias: "",
-  };
+    username: ""
+  })
+
+  // var profile = {
+  //   username: "",
+  //   email: "",
+  //   password: "",
+  //   alias: "",
+  // };
 
   const [user, setUser] = useState(initialState);
 
@@ -61,6 +67,19 @@ const Register = () => {
       console.log("setSubmitted(true) setError(false)");
       setErrorMsg("");
     }
+  };
+
+  function renameKey(obj, oldKey, newKey) {
+    obj[newKey] = obj[oldKey]
+    delete obj[oldKey]
+  }
+
+  function redirect() {
+    navigate('/');
+
+    return (
+      <p>Account created successfully</p>
+    )
   };
 
   const displayMessage = () => {
@@ -125,6 +144,7 @@ const Register = () => {
           setErrorMsg("Username or email has already been registered.");
           console.log(error.response);
         });
+      
     } else {
       setSubmitted(false);
     }

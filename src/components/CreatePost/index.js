@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./post.css";
 import profile from "./profile.jpg";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
 import { imgErrorHandler } from "../../imgErrorHandler";
 
-const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;;
+const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;
 
 /* This component allows user to create
 a new post. */
@@ -13,11 +14,17 @@ const CreatePost = () => {
 
     /* The state of the form. */
     const [postDescription, setPostDescription] = useState("");
-    const[postTitle, setPostTitle] = useState("");
+    const [postTitle, setPostTitle] = useState("");
     const [postUser, setPostUser] = useState(0);
 
+    const info = useSelector((state) => state.profile);
+    const user = useSelector((state) => state.user);
+    const profile = {
+      ...info, ...user
+    }
+
     useEffect(() => {
-        setPostUser(1);
+        setPostUser(profile.userId);
     }, [])
 
     /* Submitting the post: */
