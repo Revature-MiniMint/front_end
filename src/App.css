@@ -83,7 +83,7 @@
 }
 
 /*Navbar Icons*/
-.svg-inline--fa {
+.nav-link .svg-inline--fa {
   color: #202020;
   text-align: center;
   text-decoration: none;
@@ -168,10 +168,11 @@ button[type="submit"]:focus,
 select:focus,
 .form-check-input:focus,
 .register-btn .btn-primary:focus,
-.login-form .btn:focus
+.login-form .btn:focus,
+input[type="datetime-local"]:focus
 {
-  border-color: rgba(194, 21, 21,0.8);
-  box-shadow: 0 1px 1px rgba(194, 21, 21, 0.075) inset, 0 0 8px rgba(194, 21, 21, 0.6);
+  border-color: rgba(36, 36, 36,0.8);
+  box-shadow: 0 1px 1px rgba(36, 36, 36, 0.075) inset, 0 0 8px rgba(36, 36, 36, 0.6);
   outline: 0 none;
 }
 
@@ -317,3 +318,65 @@ footer p {
 .register-return p>a:hover{
   color: #BADABF;
 }
+
+/*Feed Page*/
+/*search bar*/
+.search-post {
+  margin-top: 25px;
+}
+
+.search-post .svg-inline--fa,
+.filter-form .svg-inline--fa   {
+  color: white;
+}
+
+.search-post button,
+.filter-form button {
+  background-color: #202020;
+  border: 2px solid #202020;
+}
+.search-post button:hover,
+.filter-form button:hover {
+  background-color: #BADABF;
+  border: 2px solid #BADABF;
+}
+
+/*button group*/
+.btn-group .btn-danger {
+  background-color: #C21515 !important;
+  border: 1px solid #202020 !important;
+}
+
+.btn-group .btn-info {
+  background-color: #C4C4C4 !important;
+  border: 1px solid #202020 !important;
+}
+.btn-group .btn-info:hover {
+  color: white !important;
+}
+
+/*filter form*/
+.filter-form .form-label,
+.filter-form input[type="datetime-local"]{
+  color: #202020;
+}
+
+/*filter buttons*/
+.filter-buttons {
+  text-align: center;
+}
+
+.filter-buttons button {
+  background-color: #C21515;
+  color: white;
+  border: 1px solid #202020;
+  border-radius: 3px;
+}
+
+.filter-buttons button:hover {
+  background-color: #BADABF;
+  color: white;
+  border: 1px solid #BADABF;
+}
+
+
