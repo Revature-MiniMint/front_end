@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { URL_PREFIX } from "../../../../url_constants";
 import { useSelector } from "react-redux";
+import "./style.css";
 
 /* This comment is pretty simple... it
 // is an input box with a submit button

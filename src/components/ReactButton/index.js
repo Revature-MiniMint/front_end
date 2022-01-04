@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { URL_PREFIX } from '../../url_constants';
+import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 const URL_TO_POST_REACTIONS = `${URL_PREFIX}/reactions/`;

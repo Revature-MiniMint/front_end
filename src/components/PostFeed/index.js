@@ -4,6 +4,7 @@ import FeedItem from './FeedItem';
 import { URL_PREFIX } from '../../url_constants';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "./style.css";
 
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...

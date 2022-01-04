@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import "./style.css";
 
 const ProfilePic = () => {
   const info = useSelector((state) => state.profile);

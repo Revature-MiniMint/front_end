@@ -4,6 +4,7 @@ import Comments from "./Comments";
 import ReactButton from "../ReactButton";
 import { URL_PREFIX } from "../../url_constants";
 import LikeDislike from "../Like_Dislike";
+import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 
