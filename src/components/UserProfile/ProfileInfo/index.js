@@ -30,9 +30,10 @@ const ProfileInfo = () => {
       .then((response) => {
         dispatch(userInfo(response.data));
       });
+      console.log(profile.userId)
     if (profile.userId !== 0) {
 
-      if (profile.alias == "") navigate("/UpdatePage");
+      if (profile.name == "") navigate("/UpdatePage");
 
     }
 

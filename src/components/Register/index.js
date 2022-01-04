@@ -4,6 +4,7 @@ import { Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router";
+import { userInfo } from "../../profileSlice";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
@@ -115,6 +116,7 @@ const Register = () => {
             .post("http://localhost:10011/profiles/", profile)
             .then((response) => {
               console.log(response.data);
+              dispatch(userInfo(response.data))
             });
         })
         .catch((error) => {
