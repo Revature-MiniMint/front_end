@@ -112,7 +112,7 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
-                <hr></hr>
+                <hr />
                 <p>Don't have an account?</p>
 
                 <button type="submit" className="btn btn-regis" onClick={onClickHandler}>Create an Account</button>

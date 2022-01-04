@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import logo from './Logo3.png'
-import './register.css';
 import { Form, Button, Card, Row, Col, Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
@@ -88,7 +86,7 @@ const Register = () => {
           }}
         >
           You have successfully registered! You will be automatically redirected to log in.
-          
+
         </Alert>
       );
     }
@@ -124,106 +122,86 @@ const Register = () => {
   console.log("errorMsg = " + errorMsg);
 
   return (
-    <div>
-      <section>
-        <div className='container'>
-        <div className='row'>
-            <div className="login-info col-6">
-              <div>
-                <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
-                <h1 className="brand-name">
-                  MiniMint
-                </h1>
-                <br />
-                <div className="brand-motto">
-                  <h2>
-                  Join the awesome Batch<br></br>
-                  of Minty social media.
-                  </h2>
-                </div>
-              </div>
+    <div className="container">
+      <div className="row">
+        <div className="login-info col-6">
+          <div>
+            <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
+            <h1 className="brand-name">
+              MiniMint
+            </h1>
+            <br />
+            <div className="brand-motto">
+              <h2>
+                Join the awesome Batch<br></br>
+                of Minty social media.
+              </h2>
             </div>
-          <div className='col'>
-
-            <Form className='reg-form' noValidate validated={validated} onSubmit={registerHandler} >
-              <div className='register-text'>
-                <h3>Register</h3>
-                <h4>It's quick and easy</h4>
-              </div>
-              <hr></hr>
-              <Form.Group className="mb-3">
-                <Form.Label >Username </Form.Label>
-                <Form.Control
-                  type='text '
-                  placeholder='username'
-                  onChange={onChangeHandler}
-                  name='username'
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a username.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Email </Form.Label>
-                <Form.Control
-                  type='email'
-                  placeholder="example@mail.com"
-                  onChange={onChangeHandler}
-                  name='userEmail'
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a valid email.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group className="mb-3">
-                <Form.Label>Password </Form.Label>
-                <Form.Control
-                  type='password'
-                  placeholder="password"
-                  onChange={onChangeHandler}
-                  name="userPassword"
-                  required
-                />
-                <Form.Control.Feedback type="invalid">
-                  Please provide a password.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <div className="messages">
-                {displayMessage()}
-              </div>
-
-              <Form.Group >
-                <Button
-                  className="regis"
-                  onClick={checkFieldsHandler}
-                  type="submit"
-
-                // style={{ width: '100%', marginTop: '-12.125', marginRight: '160px', backgroundColor: '#C21515', border: 'none' }}
-                // onFocus={{ backgroundColor:'#BADABF' }}
-                >
-                  Register
-                </Button>
-              </Form.Group>
-              <hr></hr>
-              <Form.Group>
-                <Form className='mb-3 register-link'>
-                  <a href="/" className="stretched-link">Already Registered?</a>
-                </Form>
-              </Form.Group>
-            </Form>
-
-            {/* </Card.Body>
-                </Card> */}
           </div>
-
-          {/* <div className='col'>
-                
-            </div> */}
         </div>
-        </div >
-      </section>
+        <div className="col-6">
+          <Card className="register-form">
+            <div className="register-header">
+              <Card.Title>Register</Card.Title>
+              <h5>It's quick and easy</h5>
+              <hr></hr>
+            </div>
+            <Card.Body style={{ textAlign: "left" }}>
+              <Form noValidate validated={validated} onSubmit={registerHandler}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Username </Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="username"
+                    onChange={onChangeHandler}
+                    name="username"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a username.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Email </Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="example@mail.com"
+                    onChange={onChangeHandler}
+                    name="userEmail"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid email.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label>Password </Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="password"
+                    onChange={onChangeHandler}
+                    name="userPassword"
+                    required
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a password.
+                  </Form.Control.Feedback>
+                </Form.Group>
+                <div className="messages">{displayMessage()}</div>
+                <div className="register-btn">
+                  <Button onClick={checkFieldsHandler} type="submit">
+                    Register
+                  </Button>
+                </div>
+              <br />
+                <div className="register-return">
+                  <p>Already Registered? <a href="/">Login</a></p>
+                </div>
+              </Form>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 };
