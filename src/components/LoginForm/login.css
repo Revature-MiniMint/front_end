@@ -26,22 +26,12 @@
 }
 
 .login-form{
-    float: right;
     padding: 15px;
-    /* box-shadow: 5px 8px 8px #BADABF; */
     box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
     border-radius: 8px;
     width: 430px;
     overflow: auto;
     color: #C21515;
-}
-
-.card{
-    display: block;
-    box-shadow: 5px 8px 8px #BADABF;
-    border-radius: 8px;
-    width: 405px;
-    overflow: auto;
 }
 
 .btn-regis{
@@ -63,4 +53,10 @@
 .login-form .btn {
     background-color: #C21515;
     color: white;
+}
+
+.login-form p {
+    color: black;
+    text-align: center;
+    font-size: 20px;
 }

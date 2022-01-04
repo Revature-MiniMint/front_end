@@ -5,7 +5,6 @@ import NavbarProfile from "../../components/Navbar";
 const CreatePostPage = () => {
     return (
         <div>
-            <NavbarProfile />
             <CreatePost />
             <Footer />
         </div>

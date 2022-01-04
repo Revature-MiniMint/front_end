@@ -22,7 +22,11 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
+<<<<<<< HEAD
           <Route path="/PostPage/:id" element={<PostPage />} />
+=======
+          <Route path="/post/:id" element={<PostPage />} />
+>>>>>>> master
           <Route path="/CreatePostPage" element={<CreatePostPage />} />
           <Route path="/FeedPage" element={<FeedPage />} />
           <Route path="/PrivacyPage" element={<PrivacyPage />} />

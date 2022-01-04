@@ -1,8 +1,5 @@
 # Front End Documentation
-The front end holds the various pages for the MiniMint Project.
-These pages allow the user to login, register, post, and view 
-their profile. The posts a user makes can be liked, commented on
-by other users and reacted to.
+The front end holds the various pages for the MiniMint Project. These pages allow the user to login,register, post, and view their profile. The posts a user makes can be liked, commented on by other users and reacted to.
 
 ## Technologies Used
 ### React
@@ -31,17 +28,16 @@ by other users and reacted to.
 3. npm start
 
 ## Page Walkthrough 
-- Login page
+
+### Login page
 
 (insert a pic of the login page)
 
 (insert a pic of the register page)
 
--- Enter in your username and password to login or 
-enter in the appropiate information into the
-register page.
+Enter in your username and password to login or enter in the appropiate information into the register page.
 
-- Profile 
+### Profile 
 
 This contains a list of options to alter a users profile
 (show a picture of profile page)
@@ -60,18 +56,16 @@ This will lead to the user selecting one of the options
 
 (finshed image)
 
-- Posts
+### Posts
 
-Main page createpostpage
+Main page CreatePostPage
 
 (show page)
 
 Allows a user to make a post
 
 
-On other users posts you can filter, react,
-
-up and down mints
+On other users posts you can filter, react, up and down mints
 
 (show section of page)
 
