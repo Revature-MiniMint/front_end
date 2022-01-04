@@ -165,13 +165,15 @@ input[type="date"]:focus,
 input[type="email"]:focus,
 input[type="file"]:focus,
 button[type="submit"]:focus, 
+input[type="textarea"]:focus,
 select:focus,
 .form-check-input:focus,
 .register-btn .btn-primary:focus,
 .login-form .btn:focus,
-input[type="datetime-local"]:focus
+input[type="datetime-local"]:focus,
+.post-body textarea:focus
 {
-  border-color: rgba(36, 36, 36,0.8);
+  border-color: rgba(36, 36, 36,0.7);
   box-shadow: 0 1px 1px rgba(36, 36, 36, 0.075) inset, 0 0 8px rgba(36, 36, 36, 0.6);
   outline: 0 none;
 }
@@ -378,5 +380,7 @@ footer p {
   color: white;
   border: 1px solid #BADABF;
 }
+
+/*Post Item */
 
 
