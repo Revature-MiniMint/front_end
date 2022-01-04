@@ -50,63 +50,48 @@ const ProfileInfo = (props) => {
 
     return (
         <div className="container" style={{ textAlign: "left" }}>
-            <div className="col profile-info">
-                <div className="row">
-                    <div className="col profile-info-name">
-                        <p>
-                            {/* {checking(profile.name)}
-                             {checking(profile.userId)} */}
-                            {userInfo.alias}
-                        </p>
-                    </div>
-                </div>
-                <div className="row profile-info-gen">
-                    <div className="col">
-                        <p>
-                            {/* {checking(profile.dob)} */}
-                            <FontAwesomeIcon icon={faBirthdayCake} size="lg" />
-                            &nbsp; {userInfo.dob}
-                        </p>
-                    </div>
-                    <div className="col">
-                        <p>
-                            <FontAwesomeIcon icon={faMars} size="lg" />
-                            <FontAwesomeIcon icon={faVenus} size="lg" />
-                            {/* {checking(profile.gender)} */}
-                            &nbsp;
-                            {userInfo.gender}
-                        </p>
-                    </div>
-                </div>
-                <br />
-                <div className="row">
-                    <div>
-                        <p
-                            style={{
-                                height: "200px",
-                                width: "100%",
-                                marginBottom: "10px",
-                                boxSizing: "border-box",
-                                border: "0px",
-                                fontWeight: "normal",
-                                fontSize: "18px",
-                            }}
-                        >
-                            {/* {checking(profile.bio)} */}
-                            {userInfo.bio}
-                        </p>
-                    </div>
-                    <button
-                        type="button"
-                        className="btn contact-btn"
-                        style={{ marginBottom: "100px" }}
-                        mailto={checking(profile.userEmail)}
-                    >
-                        {userInfo.email}
-                    </button>
-                </div>
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <p>{checking(profile.name)}</p>
+              </div>
             </div>
+            <div className="row">
+              <div className="col">
+                <p>{checking(profile.dob)}</p>
+              </div>
+              <div className="col">
+                <p>{checking(profile.gender)}</p>
+              </div>
+            </div>
+            <br />
+            <div className="row">
+              <div>
+                <p
+                  style={{
+                    height: "200px",
+                    width: "100%",
+                    marginBottom: "10px",
+                    boxSizing: "border-box",
+                    border: "0px",
+                    fontWeight: "normal",
+                    fontSize: "18px",
+                  }}
+                >
+                  {checking(profile.bio)}
+                </p>
+              </div>
+              <button
+                type="button"
+                className="btn btn-danger"
+                style={{ marginBottom: "100px" }}
+                mailto={checking(profile.userEmail)}
+              >
+                Contact
+              </button>
+            </div>
+          </div>
         </div>
-    );
-};
+      );
+    };
 export default ProfileInfo;

@@ -76,7 +76,7 @@ const ProfileInfo = () => {
         </div>
         <div className="row">
           <div className="col">
-            <p>{checking(profile.dob)}</p>
+            <p>{checking(profile.dob.substr(0,10))}</p>
           </div>
           <div className="col">
             <p>{checking(profile.gender)}</p>
