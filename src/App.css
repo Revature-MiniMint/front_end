@@ -173,8 +173,8 @@ select:focus,
 input[type="datetime-local"]:focus,
 .post-body textarea:focus
 {
-  border-color: rgba(36, 36, 36,0.7);
-  box-shadow: 0 1px 1px rgba(36, 36, 36, 0.075) inset, 0 0 8px rgba(36, 36, 36, 0.6);
+  border-color: rgba(196, 196, 196,0.7);
+  box-shadow: 0 1px 1px rgba(196, 196, 196, 0.075) inset, 0 0 8px rgba(196, 196, 196, 0.6);
   outline: 0 none;
 }
 
@@ -206,6 +206,11 @@ footer p {
 }
 
 /*Settings menu*/
+.settings-menu {
+  margin: 5px;
+  width: 100%;
+}
+
 .settings-menu a {
   text-decoration: none;
   color: #202020;
@@ -282,12 +287,14 @@ footer p {
 .register-btn .btn-primary {
   width: 100%;
   background-color: #C21515;
+  border: 1px solid #C21515;
 
 }
 
 .register-btn .btn-primary:hover,
 .register-btn .btn-primary:focus {
   background-color: #BADABF;
+  border: 1px solid #BADABF;
 
 }
 

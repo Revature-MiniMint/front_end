@@ -2,7 +2,7 @@ import React from "react";
 
 const SettingsMenu = () => {
     return (
-        <div>
+        <div className="container">
             <br />
             <div className ="card settings-menu">
                 <ul className="list-group list-group-flush">
