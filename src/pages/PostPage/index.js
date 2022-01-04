@@ -3,12 +3,15 @@ import React from 'react'
 import PostItem from '../../components/PostItem';
 import { URL_PREFIX } from '../../url_constants';
 import {useState, useEffect} from 'react';
+import { useParams } from 'react-router';
 
 const PostPage = () => {
     const [post, setPost] = useState({});
-    useEffect(() => {
-        // TODO: Get this from route url
-        const postId = 1;
+    
+    let params = useParams();
+    useEffect(() => {   
+        // get the post id from params:
+        const postId = params.id;
         // URL_PREFIX is in src/url_constants.js
         axios.get(`${URL_PREFIX}/posts/${postId}`)
         .then(response => {
