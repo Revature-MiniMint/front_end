@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from "react-redux";
+import { imgErrorHandler } from '../../imgErrorHandler';
 
 const UpdatePicture = () => {
     const user = useSelector((state) => state.user);
@@ -32,10 +33,6 @@ const UpdatePicture = () => {
     function onLoadHandler(event) {
         console.log("image get success");
     }
-    function onErrorHandler(event) {
-        console.log("image get fail");
-        document.getElementById("image").setAttribute("src", "https://minimint.s3.us-east-1.amazonaws.com/2")
-    }
     return (
         <div className='container short-content'>
             <div className='row'>
@@ -51,7 +48,7 @@ const UpdatePicture = () => {
                                     width: '300px',
                                     height: '300px',
                                     borderRadius: '50%',
-                                }} onLoad={onLoadHandler} onError={onErrorHandler} />
+                                }} onError={imgErrorHandler} />
                             </div>
                             <label className="form-label" htmlFor="profilepic">Profile Image</label>
                             <input className="form-control" type="file" id="profilepic" name="profilepic" accept=".jpeg,.png" onChange={onChangeHandler} />

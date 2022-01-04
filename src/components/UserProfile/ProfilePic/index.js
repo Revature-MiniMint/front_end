@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
+import { imgErrorHandler } from "../../../imgErrorHandler";
 import axios from "axios";
 
 const ProfilePic = () => {
@@ -29,9 +31,11 @@ const ProfilePic = () => {
             className="center"
           >
             <img
-              src="https://minimint.s3.us-east-1.amazonaws.com/3"
+              //change to reference userId
+              src={PROFILE_PIC_URL_PREFIX + 2}
               alt=""
               className="avatar"
+              onError={imgErrorHandler}
             />
           </div>
         </div>
