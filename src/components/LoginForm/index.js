@@ -74,8 +74,7 @@ const LoginForm = () => {
       <section>
         <div className="container">
           <div className='row'>
-            <div className="col-1"></div>
-            <div className="login-info col-5">
+            <div className="login-info col-6">
               <div>
                 <img src={process.env.PUBLIC_URL + '/img/MiniMintLogo2.png'} alt="MiniMint Logo"></img>
                 <h1 className="brand-name">
@@ -85,13 +84,13 @@ const LoginForm = () => {
                 <div className="brand-motto">
                   <h2>
                     Some Mints a day<br></br>
-                    Helps keep the bored away.
+                    helps keep the bored away.
                   </h2>
                 </div>
               </div>
             </div>
 
-            <div className="col-5">
+            <div className="col-6">
               <br></br>
               <form className="login-form" onSubmit={onSubmitHandler}>
 
@@ -113,14 +112,13 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
-                <hr></hr>
-                <p>Not yet registered?</p>
+                <hr />
+                <p>Don't have an account?</p>
 
                 <button type="submit" className="btn btn-regis" onClick={onClickHandler}>Create an Account</button>
 
               </form>
             </div>
-            <div className="col-1"></div>
           </div>
         </div>
       </section>

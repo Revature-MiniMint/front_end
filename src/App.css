@@ -164,8 +164,12 @@ input[type="password"]:focus,
 input[type="date"]:focus,
 input[type="email"]:focus,
 input[type="file"]:focus,
+button[type="submit"]:focus, 
 select:focus,
-.form-check-input:focus{
+.form-check-input:focus,
+.register-btn .btn-primary:focus,
+.login-form .btn:focus
+{
   border-color: rgba(194, 21, 21,0.8);
   box-shadow: 0 1px 1px rgba(194, 21, 21, 0.075) inset, 0 0 8px rgba(194, 21, 21, 0.6);
   outline: 0 none;
@@ -252,4 +256,64 @@ footer p {
 
 .profile-info-gen .svg-inline--fa {
   padding-top: 5px;
+}
+
+/*Register Page*/
+.register-form.card {
+  margin-top: 30px;
+  box-shadow:	0 0.125rem 0.5rem rgba(0, 0, 0, .3), 0 0.0625rem 0.125rem rgba(0, 0, 0, .2);
+  border-radius: 8px;
+}
+.register-form.card {
+  width: 430px !important;
+  padding-top: 30px;
+}
+
+.register-return p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+
+}
+
+.register-btn .btn-primary {
+  width: 100%;
+  background-color: #C21515;
+
+}
+
+.register-btn .btn-primary:hover,
+.register-btn .btn-primary:focus {
+  background-color: #BADABF;
+
+}
+
+.register-header,
+.register-return {
+  text-align: center;
+}
+
+.register-header .card-title.h5 {
+  font-size: 40px;
+}
+
+.register-header h5 {
+  font-size: 22px;
+}
+
+.register-header hr,
+.login-form hr {
+  width: 90%;
+  margin: 15px auto;
+  color: #202020 !important;
+}
+
+.register-return p>a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #880F0F;
+}
+
+.register-return p>a:hover{
+  color: #BADABF;
 }
