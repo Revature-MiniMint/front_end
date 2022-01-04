@@ -1,42 +1,53 @@
 import React, { useEffect } from "react";
-import { faBirthdayCake, faVenus, faMars } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBirthdayCake,
+  faVenus,
+  faMars,
+} from "@fortawesome/free-solid-svg-icons";
 import "../style.css";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
+import { useNavigate } from "react-router";
 
 const ProfileInfo = () => {
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const state = useSelector((state) => state);
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {
-    ...info, ...user
-  }
+    ...info,
+    ...user,
+  };
 
   useEffect(() => {
-    axios.get("http://localhost:10011/profiles/" + user.userId).then((response) => {
-      dispatch(userInfo(response.data));
-    });
+    axios
+      .get("http://localhost:10011/profiles/" + profile.userId)
+      .then((response) => {
+        dispatch(userInfo(response.data));
+      });
+    if (profile.alias == "")
+      navigate("/UpdatePage");
   }, []);
 
   if (!profile) return null;
 
-  console.log(profile)
-  console.log(state)
+  console.log(profile);
+  console.log(state);
 
   function checking(x) {
-    if (
-      x == null
-    ) { 
+    if (x == null) {
       return (
-        <img width="50px" src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png" />
-      )
+        <img
+          width="50px"
+          src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png"
+        />
+      );
     } else {
-      return(x)
+      return x;
     }
   }
 
@@ -45,10 +56,7 @@ const ProfileInfo = () => {
       <div className="col">
         <div className="row">
           <div className="col">
-            <p>
-              {checking(profile.name)}
-              {checking(profile.userId)}
-            </p>
+            <p>{checking(profile.name)}</p>
           </div>
         </div>
         <div className="row">

@@ -30,7 +30,7 @@ const PostFeed = () => {
     /*
      * Sorts the current post array, oldest posts first.
      */
-    const sortByTimeOldFirst = () => { 
+    const sortByTimeOldFirst = () => {
 
         let sortedPosts = [...posts]; //Make a shallow copy
         sortedPosts.sort((post1, post2) => {
@@ -50,7 +50,7 @@ const PostFeed = () => {
     /*
      * Sorts the current post array, newest posts first.
      */
-    const sortByTimeNewFirst = () => { 
+    const sortByTimeNewFirst = () => {
 
         let sortedPosts = [...posts]; //Make a shallow copy
         sortedPosts.sort((post1, post2) => {
@@ -108,24 +108,24 @@ const PostFeed = () => {
     /*
      * Filters from all posts, displaying the posts created X days ago and later.
      */
-    const filterByTimeAgo = (numDays) => { 
+    const filterByTimeAgo = (numDays) => {
         //Set up the date using today
         let pastDate = new Date(Date.now() - (numDays * 24 * 60 * 60 * 1000)); //Go from ms to days
         //Check days prior
         axios.get(`${URL_PREFIX}/postfeed/datesearch/after/${pastDate.toISOString()}`) //Get all the post occurring after this date.
-        .then((resp) => {
-            setPosts(resp.data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+            .then((resp) => {
+                setPosts(resp.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     }
 
     /*
      * Updates the state holding the search bar's contents
      */
     const searchChangeHandler = (event) => { //For posts search bar
-        const {  value } = event.target;
+        const { value } = event.target;
         setSearchText(value);
     }
 
