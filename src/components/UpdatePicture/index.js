@@ -5,12 +5,12 @@ import { imgErrorHandler } from '../../imgErrorHandler';
 
 const UpdatePicture = () => {
     const user = useSelector((state) => state.user);
-    const [image, setImage] = useState("https://minimint.s3.us-east-1.amazonaws.com/" + user.userId);
+    var image = "https://minimint.s3.us-east-1.amazonaws.com/" + user.userId;
     function onChangeHandler(event) {
         let file = event.target.files[0];
         file.arrayBuffer().then((arrayBuffer) => {
             let blob = new Blob([new Uint8Array(arrayBuffer)], { type: file.type });
-            setImage(URL.createObjectURL(blob));
+            image = (URL.createObjectURL(blob));
         });
     }
     function onSubmitHandler(event) {
@@ -26,7 +26,8 @@ const UpdatePicture = () => {
         })
             .then(response => {
                 console.log(response);
-                setImage(response.data)
+                document.getElementById("image").src += "?" + new Date().getTime();
+                console.log(document.getElementById("image").src)
             })
             .catch(error => { console.error(error); })
     }
