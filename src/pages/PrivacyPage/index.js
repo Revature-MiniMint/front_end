@@ -3,10 +3,12 @@ import NavbarProfile from "../../components/Navbar";
 import PrivacyForm from "../../components/PrivacyForm";
 import Footer from "../../components/Footer";
 import SettingsMenu from "../../components/SettingsMenu";
+import UserCheck from "../../components/checkUser/userCheck";
 
 const PrivacyPage = () => {
     return (
         <>
+        <UserCheck/>
             <div className="row">
                 <div className="col-1"></div>
                 <div className="col-3">

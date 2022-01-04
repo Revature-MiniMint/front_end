@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./post.css";
 import profile from "./profile.jpg";
 import axios from "axios";
-import { URL_PREFIX } from "../../url_constants";
+import { useSelector } from "react-redux";
+import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
+import { imgErrorHandler } from "../../imgErrorHandler";
 
-const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;;
+const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;
 
 /* This component allows user to create
 a new post. */
@@ -15,8 +17,14 @@ const CreatePost = () => {
     const [postTitle, setPostTitle] = useState("");
     const [postUser, setPostUser] = useState(0);
 
+    const info = useSelector((state) => state.profile);
+    const user = useSelector((state) => state.user);
+    const profile = {
+      ...info, ...user
+    }
+
     useEffect(() => {
-        setPostUser(1);
+        setPostUser(profile.userId);
     }, [])
 
     /* Submitting the post: */
@@ -49,7 +57,7 @@ const CreatePost = () => {
                         <div className="col-md-8">
                             <div className="post-card card">
                                 <div className="card-header">
-                                    <img src={profile}></img>
+                                    <img src={PROFILE_PIC_URL_PREFIX + postUser} onError={imgErrorHandler}></img>
                                     <h3 className="card-title">{postUser} Posts </h3>
                                     <span className="date" id='date-time'>{Date()}</span>
                                 </div>
