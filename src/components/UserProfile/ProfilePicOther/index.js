@@ -1,22 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
 import { imgErrorHandler } from "../../../imgErrorHandler";
 import axios from "axios";
-import "./style.css";
+import { PROFILE } from "../../url_constants";
 
-const ProfilePic = () => {
+const ProfilePicOther = (props) => {
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
-  const profile = {
+  const viewerProfile = {
     ...info,
     ...user,
   };
 
-  if (!profile) return null;
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
+
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    dob: "",
+    gender: "",
+    bio: "",
+    email: ""
+  })
+
+  useEffect(() => {
+    console.log(props)
+    axios.post(`${PROFILE}/profiles/hidden/` + props.data.userId, viewerProfile.userId, { headers: headers })
+      .then((response) => {
+        setUserInfo(response.data);
+        console.log(response)
+      });
+  }, []);
+
+  if (!viewerProfile) return null;
 
   return (
-    <div className="container">
+    <div className="container" style={{ fontWeight: "bold" }}>
       <div className="profile-pic">
         <div className="row justify-content-center">
           <div
@@ -27,13 +49,13 @@ const ProfilePic = () => {
               height: "250px",
               overflow: "hidden",
               verticalAlign: "middle",
-              marginBottom: "20px",
+              marginBottom: "20px"
             }}
             className="center"
           >
             <img
               //change to reference userId
-              src={PROFILE_PIC_URL_PREFIX + profile.userId}
+              src={PROFILE_PIC_URL_PREFIX + props.data.userId}
               alt=""
               className="avatar"
               onError={imgErrorHandler}
@@ -47,16 +69,15 @@ const ProfilePic = () => {
         </div>
         <div className="row">
           <p className="profile-alias">
-            {profile.alias}
-            </p>
+            {userInfo.alias}
+          </p>
           <p className="profile-username">
-            <span>@</span>
-            {profile.username} {/*This doesn't work*/}
-            
+            <span></span>
+            {userInfo.userName} {/*This doesn't work*/}
           </p>
         </div>
       </div>
     </div>
   );
 };
-export default ProfilePic;
+export default ProfilePicOther;

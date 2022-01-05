@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { imgErrorHandler } from "../../imgErrorHandler";
+import "./style.css";
 
 const NavbarProfile = () => {
   const profile = useSelector((state) => state.profile);
@@ -89,7 +90,7 @@ const NavbarProfile = () => {
               <NavDropdown.Item to="/ProfilePage" as={Link}>
                 Your Profile
               </NavDropdown.Item>
-              <NavDropdown.Item to="/PrivacyPage" as={Link}>
+              <NavDropdown.Item to="/ProfilePicPage" as={Link}>
                 Settings
               </NavDropdown.Item>
               <NavDropdown.Item href="/">Logout</NavDropdown.Item>

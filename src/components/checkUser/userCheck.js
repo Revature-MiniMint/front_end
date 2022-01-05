@@ -15,6 +15,7 @@ const UserCheck = () => {
 
   useEffect(() => {
    
+    console.log(profile)
     if (profile.userId !== 0) {
 
     }

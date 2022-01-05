@@ -5,22 +5,19 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router";
 import { userInfo } from "../../profileSlice";
+import "./style.css";
+import { REGISTER_LOGIN , PROFILE } from "../../url_constants";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
   const navigate = useNavigate();
 
   const initialState = {
+    id: 0,
     username: "",
     userEmail: "",
     userPassword: "",
   };
-  
-  const [profile, setProfile] = useState({
-    id: 0,
-    email: "",
-    username: ""
-  })
 
   // var profile = {
   //   username: "",
@@ -104,8 +101,7 @@ const Register = () => {
             display: submitted ? "" : "none",
           }}
         >
-          You have successfully registered! You will be automatically redirected
-          to log in.
+          You have successfully registered! You may now log in.
         </Alert>
       );
     }
@@ -118,21 +114,24 @@ const Register = () => {
     const form = e.currentTarget;
     if (form.checkValidity() === true) {
       axios
-        .post("http://localhost:10001/user", user)
+        .post(`${REGISTER_LOGIN}/user`, user)
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.userId);
           clearState();
           setSubmitted(true);
           dispatch(loginUser(response.data));
-          profile = {
-            username: user.username,
-            email: user.userEmail,
-            password: user.userPassword,
-            alias: user.username,
+          let temp = {
+            id: response.data.userId,
+            username : user.username,
+            email : user.userEmail,
+            password : user.userPassword,
+            alias : user.username,
+            dob: "2000-01-01",
+            privacies: {privacyid:1}
           };
-          console.log(profile);
+          console.log(temp)
           axios
-            .post("http://localhost:10011/profiles/", profile)
+            .post(`${PROFILE}/profiles/`, temp)
             .then((response) => {
               console.log(response.data);
               dispatch(userInfo(response.data))

@@ -47,7 +47,7 @@ const FeedItem = (props) => {
 
   //User information, set top private by default
   const [userInfo, setUserInfo] = useState({
-    alias : "Private"
+    alias : ""
   })
 
   const info = useSelector((state) => state.profile);
@@ -63,9 +63,11 @@ const FeedItem = (props) => {
   }
 
   useEffect(() => {
+
     //Obtain data of commenter, will not display private info of another user
     axios.post(`${PROFILE}/profiles/hidden/` + props.data.userId, profile.userId, {headers:headers})
       .then(response => {
+        console.log(response)
         setUserInfo(response.data)
       })
       .catch((error) => {

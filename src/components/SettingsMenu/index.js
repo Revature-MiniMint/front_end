@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const SettingsMenu = () => {
     return (
-        <div>
+        <div className="container">
             <br />
             <div className ="card settings-menu">
                 <ul className="list-group list-group-flush">

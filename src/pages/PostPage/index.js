@@ -4,6 +4,7 @@ import PostItem from '../../components/PostItem';
 import { URL_PREFIX } from '../../url_constants';
 import {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
+import NavbarProfile from "../../components/Navbar";
 
 const PostPage = () => {
     const [post, setPost] = useState({});
@@ -21,6 +22,7 @@ const PostPage = () => {
     }, [])
     return (
         <div>
+            <NavbarProfile />
             {post.id && <PostItem data = {post}/>}
         </div>
     )

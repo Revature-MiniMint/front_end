@@ -4,6 +4,7 @@ import FeedItem from './FeedItem';
 import { URL_PREFIX } from '../../url_constants';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "./style.css";
 
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
@@ -204,13 +205,16 @@ const PostFeed = () => {
     ///////////////////////////
     return (
         <>
+            <div className="container">
             <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
                 <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
                 <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
             </form>
+            </div>
+            <div className="container">
             <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
-                <label className='form-label'>Filter your previous orders</label> <br />
+                <label className='form-label'>Filter previous posts</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
                     {
@@ -242,6 +246,7 @@ const PostFeed = () => {
                 <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
 
             </form>
+            </div>
             <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>

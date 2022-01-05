@@ -9,6 +9,7 @@ const CreatePostPage = () => {
     
     return (
         <div>
+            <NavbarProfile />
             <UserCheck/>
             <CreatePost />
             <Footer />

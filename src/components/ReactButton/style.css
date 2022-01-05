@@ -1,0 +1,18 @@
+/*reaction buttons*/
+.reactions button {
+    background-color: #C4C4C4;
+    border: 1px solid #202020;
+    padding: 8px;
+    border-radius: 3px;
+  }
+  
+  .reactions button:hover {
+    background-color: #BADABF;
+    border: 1px solid #BADABF;
+    color: white;
+  }
+  
+  .reactions .react-btn {
+    background-color: #C21515;
+    color: white;
+  }

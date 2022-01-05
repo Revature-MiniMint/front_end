@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { flagStatus } from "../../profileSlice";
 import { useNavigate } from "react-router-dom";
+import {REGISTER_LOGIN} from "../../url_constants";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const LoginForm = () => {
     e.stopPropagation();
     console.log(e);
     axios
-      .post("http://localhost:10001/user/login", user)
+      .post(REGISTER_LOGIN + "/user/login", user)
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));
@@ -85,8 +86,8 @@ const LoginForm = () => {
                 <br />
                 <div className="brand-motto">
                   <h2>
-                    Some Mints a day<br></br>
-                    helps keep the bored away.
+                    A few mints a day<br></br>
+                    keeps the boredem away.
                   </h2>
                 </div>
               </div>
@@ -114,7 +115,7 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
-                <h1>{flag}</h1>
+                <h1 className="flag">{flag}</h1>
                 <hr />
                 <p>Don't have an account?</p>
 

@@ -11,17 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
 import { flagStatus } from "../../../profileSlice";
 import { useNavigate } from "react-router";
+import "./style.css";
+import { PROFILE } from "../../url_constants";
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios.get("http://localhost:10011/profiles/1").then((response) => {
-      dispatch(userInfo(response.data));
-    });
-  }, []);
-
+  
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {
@@ -29,9 +25,16 @@ const ProfileInfo = () => {
     ...user,
   };
 
+  var dob = profile.dob
+  if(dob) {
+    dob = dob.substr(0,10)
+  } else {
+    dob = "2000-01-01"
+  }
+
   useEffect(() => {
     axios
-      .get("http://localhost:10011/profiles/" + profile.userId)
+      .get(`${PROFILE}/profiles/` + profile.userId)
       .then((response) => {
         dispatch(userInfo(response.data));
         if (profile.userId !== 0) {
@@ -53,12 +56,9 @@ const ProfileInfo = () => {
   // console.log(state);
 
   function checking(x) {
-    if (x == null) {
+    if (x == "") {
       return (
-        <img
-          width="50px"
-          src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png"
-        />
+        <p>Private</p>
       );
     } else {
       return x;
@@ -67,26 +67,26 @@ const ProfileInfo = () => {
 
   return (
     <div className="container" style={{ textAlign: "left" }}>
-      <div className="col">
+      <div className="col container profile-info">
         <div className="row">
-          <div className="col">
+          <div className="col profile-info-name">
             <p>{checking(profile.name)}</p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>{checking(profile.dob.substr(0,10))}</p>
+            <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(dob)}</p>
           </div>
           <div className="col">
-            <p>{checking(profile.gender)}</p>
+            <p><FontAwesomeIcon icon={faMars}/> {checking(profile.gender)}</p>
           </div>
         </div>
         <br />
         <div className="row">
-          <div>
+          <div className="profile-info-gen">
             <p
               style={{
-                height: "200px",
+                height: "100px",
                 width: "100%",
                 marginBottom: "10px",
                 boxSizing: "border-box",
@@ -100,11 +100,10 @@ const ProfileInfo = () => {
           </div>
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn contact-btn"
             style={{ marginBottom: "100px" }}
-            mailto={checking(profile.userEmail)}
           >
-            Contact
+            <a href={"mailto:" + checking(profile.userEmail)} target="_blank">Contact</a> 
           </button>
         </div>
       </div>
