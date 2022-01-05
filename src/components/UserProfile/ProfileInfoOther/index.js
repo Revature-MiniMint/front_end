@@ -5,13 +5,14 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
+import "./../ProfileInfo/style.css";
 
 const ProfileInfoOther = (props) => {
 
-    const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'JWT fefege...'
-    }
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
 
     const [userInfo, setUserInfo] = useState({
         name:"",
@@ -29,11 +30,11 @@ const ProfileInfoOther = (props) => {
             });
     }, []);
 
-    const info = useSelector((state) => state.profile);
-    const user = useSelector((state) => state.user);
-    const viewerProfile = {
-        ...info, ...user
-    }
+  const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const viewerProfile = {
+    ...info, ...user
+  }
 
     if (!userInfo) return null;
 
@@ -46,9 +47,17 @@ const ProfileInfoOther = (props) => {
             return (x)
         }
     }
+  }
 
-    return (
-        <div className="container" style={{ textAlign: "left" }}>
+  return (
+    <div className="container" style={{ textAlign: "left" }}>
+      <div className="col container profile-info">
+        <div className="row">
+          <div className="col profile-info-name">
+            <p>{checking(profile.name)}</p>
+          </div>
+        </div>
+        <div className="row">
           <div className="col">
             <div className="row">
               <div className="col">
@@ -90,7 +99,16 @@ const ProfileInfoOther = (props) => {
               </button>
             </div>
           </div>
+          <button
+            type="button"
+            className="btn contact-btn"
+            style={{ marginBottom: "100px" }}
+          >
+            <a href={"mailto:" + checking(profile.userEmail)} target="_blank">Contact</a>
+          </button>
         </div>
-      );
-    };
-export default ProfileInfoOther;
+      </div>
+    </div>
+  );
+
+export default ProfileInfo;

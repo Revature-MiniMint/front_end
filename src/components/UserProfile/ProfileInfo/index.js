@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
 import { flagStatus } from "../../../profileSlice";
 import { useNavigate } from "react-router";
+import "./style.css";
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
@@ -67,26 +68,26 @@ const ProfileInfo = () => {
 
   return (
     <div className="container" style={{ textAlign: "left" }}>
-      <div className="col">
+      <div className="col container profile-info">
         <div className="row">
-          <div className="col">
+          <div className="col profile-info-name">
             <p>{checking(profile.name)}</p>
           </div>
         </div>
         <div className="row">
           <div className="col">
-            <p>{checking(profile.dob.substr(0,10))}</p>
+            <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(profile.dob.substr(0,10))}</p>
           </div>
           <div className="col">
-            <p>{checking(profile.gender)}</p>
+            <p><FontAwesomeIcon icon={faVenus}/><FontAwesomeIcon icon={faMars}/> {checking(profile.gender)}</p>
           </div>
         </div>
         <br />
         <div className="row">
-          <div>
+          <div className="profile-info-gen">
             <p
               style={{
-                height: "200px",
+                height: "100px",
                 width: "100%",
                 marginBottom: "10px",
                 boxSizing: "border-box",
@@ -100,11 +101,10 @@ const ProfileInfo = () => {
           </div>
           <button
             type="button"
-            className="btn btn-danger"
+            className="btn contact-btn"
             style={{ marginBottom: "100px" }}
-            mailto={checking(profile.userEmail)}
           >
-            Contact
+            <a href={"mailto:" + checking(profile.userEmail)} target="_blank">Contact</a> 
           </button>
         </div>
       </div>

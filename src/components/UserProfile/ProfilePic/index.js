@@ -16,7 +16,7 @@ const ProfilePic = () => {
   if (!profile) return null;
 
   return (
-    <div className="container" style={{ fontWeight: "bold" }}>
+    <div className="container">
       <div className="profile-pic">
         <div className="row justify-content-center">
           <div
