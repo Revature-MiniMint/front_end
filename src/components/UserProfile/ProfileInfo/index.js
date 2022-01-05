@@ -33,7 +33,7 @@ const ProfileInfo = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:10011/profiles/" + profile.userId)
+      .get("http://localhost:20030/profiles/" + profile.userId)
       .then((response) => {
         dispatch(userInfo(response.data));
         if (profile.userId !== 0) {

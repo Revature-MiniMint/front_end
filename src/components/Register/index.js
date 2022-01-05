@@ -113,7 +113,7 @@ const Register = () => {
     const form = e.currentTarget;
     if (form.checkValidity() === true) {
       axios
-        .post("http://localhost:10001/user", user)
+        .post("http://localhost:20030/user", user)
         .then((response) => {
           console.log(response.data.userId);
           clearState();
@@ -130,7 +130,7 @@ const Register = () => {
           };
           console.log(temp)
           axios
-            .post("http://localhost:10011/profiles/", temp)
+            .post("http://localhost:20030/profiles/", temp)
             .then((response) => {
               console.log(response.data);
               dispatch(userInfo(response.data))

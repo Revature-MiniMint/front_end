@@ -19,7 +19,7 @@ const UpdatePicture = () => {
         var imagefile = document.getElementById('profilepic');
         formData.append("image", imagefile.files[0]);
         console.log(formData)
-        axios.post("http://localhost:10011/profiles/" + user.userId + "/profile_pic", formData, {
+        axios.post("http://localhost:20030/profiles/" + user.userId + "/profile_pic", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

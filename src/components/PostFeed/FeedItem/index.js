@@ -62,7 +62,7 @@ const FeedItem = (props) => {
     //Obtain data of commenter, will not display private info of another user
     console.log(props)
     console.log(viewerProfile)
-    axios.get("http://localhost:10011/profiles/" + props.data.userId, { headers: headers })
+    axios.get("http://localhost:20030/profiles/" + props.data.userId, { headers: headers })
       .then(response => {
         setPosterInfo(response.data)
       })

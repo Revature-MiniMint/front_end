@@ -64,7 +64,7 @@ const FeedItem = (props) => {
   useEffect(() => {
 
     //Obtain data of commenter, will not display private info of another user
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId, {headers:headers})
+    axios.post("http://localhost:20030/profiles/hidden/" + props.data.userId, profile.userId, {headers:headers})
       .then(response => {
         console.log(response)
         setUserInfo(response.data)

@@ -49,7 +49,7 @@ const LoginForm = () => {
     e.stopPropagation();
     console.log(e);
     axios
-      .post("http://localhost:10001/user/login", user)
+      .post("http://localhost:20030/user/login", user)
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));

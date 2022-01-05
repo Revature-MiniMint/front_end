@@ -16,7 +16,7 @@ const UpdateForm = () => {
  
     useEffect(() => {
         if (!profile.id) {
-        axios.get("http://localhost:10011/profiles/" + user.userId)
+        axios.get("http://localhost:20030/profiles/" + user.userId)
             .then(response => {
                 console.log(response.data);
                 setState(response.data);
@@ -51,7 +51,7 @@ const UpdateForm = () => {
         event.preventDefault();
         console.log(state);
         const { profilepic, ...profileinfo } = state;
-        axios.put("http://localhost:10011/profiles/" + user.userId, profileinfo)
+        axios.put("http://localhost:20030/profiles/" + user.userId, profileinfo)
             .then(response => {
                 console.log(response);
                 dispatch(userInfo(response.data));
