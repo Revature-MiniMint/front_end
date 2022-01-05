@@ -1,7 +1,7 @@
 import React from "react";
 import ProfilePicOther from "../../components/UserProfile/ProfilePicOther";
 import ProfileInfoOther from "../../components/UserProfile/ProfileInfoOther";
-import ProfilePosts from "../../components/UserProfile/ProfilePosts";
+import ProfilePostsOther from "../../components/UserProfile/ProfilePostsOther";
 import { useLocation } from "react-router";
 
 const ProfileOtherPage = () => {
@@ -24,7 +24,7 @@ const ProfileOtherPage = () => {
         </div>
       </div>
       <div className="row">
-        <ProfilePosts />
+        <ProfilePostsOther data={props.data} />
       </div>
     </div>
   );
