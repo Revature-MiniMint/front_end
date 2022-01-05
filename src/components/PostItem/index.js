@@ -112,7 +112,7 @@ const PostItem = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.get("http://localhost:10011/profiles/" + props.data.userId, 0, { headers: headers })
+    axios.get("http://localhost:20030/profiles/" + props.data.userId, 0, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
         console.log(response.data)

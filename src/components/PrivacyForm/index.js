@@ -23,7 +23,7 @@ const PrivacyForm = () => {
 
     // use effect test
     useEffect(() => {
-        axios.get("http://localhost:10011/privacy/" + profile.userId, privacy)
+        axios.get("http://localhost:20030/privacy/" + profile.userId, privacy)
         .then((response) => {
             setPrivacy(response.data);
         })
@@ -33,7 +33,7 @@ const PrivacyForm = () => {
     //update privacy
     function onSubmitHandler(e) {
         e.preventDefault()
-        axios.put('http://localhost:10011/privacy/' + profile.userId, privacy)
+        axios.put('http://localhost:20030/privacy/' + profile.userId, privacy)
         .then(response => {
             setPrivacy(response.data)
             console.log(response.data)

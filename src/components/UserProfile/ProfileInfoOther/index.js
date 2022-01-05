@@ -24,7 +24,7 @@ const ProfileInfoOther = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, viewerProfile.userId, { headers: headers })
+    axios.post("http://localhost:20030/profiles/hidden/" + props.data.userId, viewerProfile.userId, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
       });
