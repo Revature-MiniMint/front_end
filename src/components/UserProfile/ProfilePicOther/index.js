@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
 import { imgErrorHandler } from "../../../imgErrorHandler";
 import axios from "axios";
-import { PROFILE } from "../../url_constants";
+import { PROFILE } from "../../../url_constants";
 
 const ProfilePicOther = (props) => {
   const info = useSelector((state) => state.profile);

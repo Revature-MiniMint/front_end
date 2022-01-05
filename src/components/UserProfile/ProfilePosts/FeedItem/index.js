@@ -7,7 +7,7 @@ import LikeDislike from "../../../Like_Dislike";
 import { PROFILE_PIC_URL_PREFIX } from "../../../../url_constants";
 import { imgErrorHandler } from "../../../../imgErrorHandler";
 import {Link} from "react-router-dom";
-import { PROFILE } from "../../url_constants";
+import { PROFILE } from "../../../../url_constants";
 
 const FeedItem = (props) => {
   // time since the post was made:

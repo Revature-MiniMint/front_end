@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
 import "./../ProfileInfo/style.css";
-import { PROFILE } from "../../url_constants";
+import { PROFILE } from "../../../url_constants";
 
 const ProfileInfoOther = (props) => {
 
