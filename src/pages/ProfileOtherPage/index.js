@@ -26,6 +26,8 @@ const ProfileOtherPage = () => {
           </div>
         </div>
       </div>
+      
+      <br />
       <div className="row">
         <ProfilePostsOther data={props.data} />
       </div>

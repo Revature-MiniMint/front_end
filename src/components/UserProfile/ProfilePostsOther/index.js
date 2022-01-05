@@ -211,44 +211,8 @@ const ProfilePostsOther = (props) => {
     ///////////////////////////
     return (
         <>
-            <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
-                <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
-                <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
-
-            </form>
-            <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
-                <label className='form-label'>Filter your previous orders</label> <br />
-                <div className="btn-group " role="group"  onChange={dateChangeHandler}>
-                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
-                    {
-                        filterMethod === "BEFORE" ?
-                            <label className="btn btn-danger" htmlFor="btnradio1">Before</label>
-                            :
-                            <label className="btn btn-info" htmlFor="btnradio1">Before</label>
-                    }
-
-
-                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio2" value="AFTER" autoComplete="off" />
-                    {
-                        filterMethod === "AFTER" ?
-                            <label className="btn btn-danger" htmlFor="btnradio2">After</label>
-                            :
-                            <label className="btn btn-info" htmlFor="btnradio2">After</label>
-                    }
-
-                    <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio3" value="ALL" autoComplete="off" />
-                    {
-                        filterMethod === "ALL" ?
-                            <label className="btn btn-danger" htmlFor="btnradio3">No Filter</label>
-                            :
-                            <label className="btn btn-info" htmlFor="btnradio3">No Filter</label>
-                    }
-
-                </div>
-                <input className="w-75 text-center" step="any" type="datetime-local" onChange={dateChangeHandler} defaultValue={today.toISOString().split('.')[0]} name="filter_date" />
-                <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
-
-            </form>
+           
+            <br />
             <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>
