@@ -12,7 +12,7 @@ import { userInfo } from "../../../profileSlice";
 import { flagStatus } from "../../../profileSlice";
 import { useNavigate } from "react-router";
 import "./style.css";
-import { PROFILE } from "../../url_constants";
+import { PROFILE } from "../../../url_constants"
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
