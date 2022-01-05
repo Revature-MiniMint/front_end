@@ -135,13 +135,24 @@ const PostFeed = () => {
      */
     const searchSubmitHandler = (event) => { //Change the posts array on submit
         event.preventDefault(); //No page refresh
-        axios.get(`${URL_PREFIX}/postfeed/textsearch/${searchText}`)
+        if(`${searchText}` === '') {
+            axios.get(`${URL_PREFIX}/postfeed`)
             .then((response) => {
                 setPosts(response.data); //Set the state to this new array (unsorted)
             })
             .catch((error) => {
                 console.error(error)
             });
+        }
+        else {
+            axios.get(`${URL_PREFIX}/postfeed/textsearch/${searchText}`)
+                .then((response) => {
+                    setPosts(response.data); //Set the state to this new array (unsorted)
+                })
+                .catch((error) => {
+                    console.error(error)
+                });
+        }
     }
 
     /*
