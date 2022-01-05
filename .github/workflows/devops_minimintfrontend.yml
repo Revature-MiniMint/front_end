@@ -23,8 +23,9 @@ jobs:
 
       - name: npm install, build, and test
         run: |
+          unset CI
           npm install
-          CI=false npm run build --if-present
+          npm run build --if-present
           npm run test --if-present
 
       - name: Upload artifact for deployment job
