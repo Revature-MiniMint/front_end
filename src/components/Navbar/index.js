@@ -90,7 +90,7 @@ const NavbarProfile = () => {
               <NavDropdown.Item to="/ProfilePage" as={Link}>
                 Your Profile
               </NavDropdown.Item>
-              <NavDropdown.Item to="/PrivacyPage" as={Link}>
+              <NavDropdown.Item to="/ProfilePicPage" as={Link}>
                 Settings
               </NavDropdown.Item>
               <NavDropdown.Item href="/">Logout</NavDropdown.Item>

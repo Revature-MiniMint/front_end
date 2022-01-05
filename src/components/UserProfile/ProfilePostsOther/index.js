@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import FeedItem from './FeedItem';
 import { URL_PREFIX } from '../../../url_constants';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
@@ -207,12 +210,12 @@ const ProfilePostsOther = (props) => {
     ///////////////////////////
     return (
         <>
-            <form className="text-center mb-4" onSubmit={searchSubmitHandler}>
+            <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
                 <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
-                <button type="submit">Go!</button>
+                <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
             </form>
-            <form className="text-center mb-4" onSubmit={dateSubmitHandler}>
+            <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
                 <label className='form-label'>Filter your previous orders</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
@@ -242,9 +245,10 @@ const ProfilePostsOther = (props) => {
 
                 </div>
                 <input className="w-75 text-center" step="any" type="datetime-local" onChange={dateChangeHandler} defaultValue={today.toISOString().split('.')[0]} name="filter_date" />
-                <button type="submit">Go!</button>
+                <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
 
             </form>
+            <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>
             <button onClick={sortByMostUpmints}>Most Upminted</button>
@@ -253,6 +257,7 @@ const ProfilePostsOther = (props) => {
             <button onClick={() => filterByTimeAgo(7)}>Last Week</button>
             <button onClick={() => filterByTimeAgo(20)}>Last Month</button>
             <button onClick={() => filterByTimeAgo(365)}>Last Year</button>
+            </div>
             <div className="container d-flex justify-content-center">
                 {posts.length === 0 ?
 
