@@ -100,8 +100,7 @@ const Register = () => {
             display: submitted ? "" : "none",
           }}
         >
-          You have successfully registered! You will be automatically redirected
-          to log in.
+          You have successfully registered! You may now log in.
         </Alert>
       );
     }

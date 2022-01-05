@@ -58,6 +58,11 @@ const ProfilePicOther = (props) => {
               alt=""
               className="avatar"
               onError={imgErrorHandler}
+              style= {{
+                objectFit: "cover",
+                width: "100%",
+                height: "100%"
+              }}
             />
           </div>
         </div>
@@ -66,9 +71,8 @@ const ProfilePicOther = (props) => {
             {userInfo.alias}
           </p>
           <p className="profile-username">
-            <span>@</span>
+            <span></span>
             {userInfo.userName} {/*This doesn't work*/}
-            Mark 123
           </p>
         </div>
       </div>

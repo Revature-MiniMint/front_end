@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./style.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const PrivacyForm = () => {
     const [privacy, setPrivacy] = useState({
@@ -11,9 +13,17 @@ const PrivacyForm = () => {
         bio: ""
     })
 
+    const navigate = useNavigate();
+
+    const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const profile = {
+    ...info, ...user
+  }
+
     // use effect test
     useEffect(() => {
-        axios.get("http://localhost:10011/privacy/1", privacy)
+        axios.get("http://localhost:10011/privacy/" + profile.userId, privacy)
         .then((response) => {
             setPrivacy(response.data);
         })
@@ -23,11 +33,11 @@ const PrivacyForm = () => {
     //update privacy
     function onSubmitHandler(e) {
         e.preventDefault()
-        axios.put('http://localhost:10011/privacy/1', privacy)
+        axios.put('http://localhost:10011/privacy/' + profile.userId, privacy)
         .then(response => {
             setPrivacy(response.data)
             console.log(response.data)
-            window.location.pathname = ('/PrivacyPage')
+            navigate('/ProfilePage')
         })
         .catch(error => console.error(error))
     }
@@ -43,7 +53,7 @@ const PrivacyForm = () => {
         <div className="container short-content">
             <div className="row">
                 <br />
-                <div className="privacy-form">
+                <div className="privacy-form col-12">
                     <h4>Privacy Form</h4>
                     <p>Update your privacy settings below.</p>
 

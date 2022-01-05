@@ -1,8 +1,9 @@
 import React from "react";
 import ProfilePicOther from "../../components/UserProfile/ProfilePicOther";
 import ProfileInfoOther from "../../components/UserProfile/ProfileInfoOther";
-import ProfilePostsOther from "../../components/UserProfile/ProfilePostsOther";
+import ProfilePostsOther from "../../components/UserProfile/ProfilePosts";
 import { useLocation } from "react-router";
+import NavbarProfile from "../../components/Navbar";
 
 const ProfileOtherPage = () => {
 
@@ -11,6 +12,8 @@ const ProfileOtherPage = () => {
   console.log(props)
 
   return (
+    <>
+    <NavbarProfile />
     <div className="container">
       <br />
       <div className="profile">
@@ -23,11 +26,11 @@ const ProfileOtherPage = () => {
           </div>
         </div>
       </div>
-      <br />
       <div className="row">
         <ProfilePostsOther data={props.data} />
       </div>
     </div>
+    </>
   );
 };
 export default ProfileOtherPage;

@@ -16,13 +16,7 @@ import "./style.css";
 const ProfileInfo = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    axios.get("http://localhost:10011/profiles/" + profile.userId).then((response) => {
-      dispatch(userInfo(response.data));
-    });
-  }, []);
-
+  
   const info = useSelector((state) => state.profile);
   const user = useSelector((state) => state.user);
   const profile = {
@@ -76,7 +70,7 @@ const ProfileInfo = () => {
             <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(profile.dob.substr(0,10))}</p>
           </div>
           <div className="col">
-            <p><FontAwesomeIcon icon={faVenus}/><FontAwesomeIcon icon={faMars}/> {checking(profile.gender)}</p>
+            <p><FontAwesomeIcon icon={faMars}/> {checking(profile.gender)}</p>
           </div>
         </div>
         <br />

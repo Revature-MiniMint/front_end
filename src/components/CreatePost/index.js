@@ -50,6 +50,8 @@ const CreatePost = () => {
         navigate('/FeedPage');
     }
 
+    var today = new Date();
+
   return (
     <div>
             <section>
@@ -63,7 +65,7 @@ const CreatePost = () => {
                                 <div className="card-header">
                                     <img src={PROFILE_PIC_URL_PREFIX + postUser} onError={imgErrorHandler}></img>
                                     <h3 className="card-title">{profile.alias} </h3>
-                                    <span className="date" id='date-time'>{Date()}</span>
+                                    <span className="date" id='date-time'>{(today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear() + "    " + today.getHours() + ":" + today.getMinutes()}</span>
                                 </div>
                                 <div className="post-body card-body">
                                     <div>

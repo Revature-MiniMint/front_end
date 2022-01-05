@@ -41,7 +41,7 @@ const ProfileInfoOther = (props) => {
   function checking(x) {
     if (x == "") {
       return (
-        <img width="50px" src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png" />
+        <p>Private</p>
       )
     } else {
       return (x)
@@ -66,10 +66,10 @@ const ProfileInfoOther = (props) => {
             </div>
             <div className="row">
               <div className="col">
-                <p>{checking(userInfo.dob.substr(0, 10))}</p>
+                <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(userInfo.dob.substr(0, 10))}</p>
               </div>
               <div className="col">
-                <p>{checking(userInfo.gender)}</p>
+                <p><FontAwesomeIcon icon={faMars}/> {checking(userInfo.gender)}</p>
               </div>
             </div>
             <br />

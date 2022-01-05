@@ -27,7 +27,7 @@ const ProfilePic = () => {
               height: "250px",
               overflow: "hidden",
               verticalAlign: "middle",
-              marginBottom: "20px"
+              marginBottom: "20px",
             }}
             className="center"
           >
@@ -37,6 +37,11 @@ const ProfilePic = () => {
               alt=""
               className="avatar"
               onError={imgErrorHandler}
+              style= {{
+                objectFit: "cover",
+                width: "100%",
+                height: "100%"
+              }}
             />
           </div>
         </div>
@@ -45,8 +50,8 @@ const ProfilePic = () => {
             {profile.alias}
             </p>
           <p className="profile-username">
-            <span></span>
-            {profile.userName} {/*This doesn't work*/}
+            <span>@</span>
+            {profile.username} {/*This doesn't work*/}
             
           </p>
         </div>

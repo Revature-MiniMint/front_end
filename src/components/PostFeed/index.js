@@ -205,11 +205,14 @@ const PostFeed = () => {
     ///////////////////////////
     return (
         <>
+            <div className="container">
             <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
                 <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
                 <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
             </form>
+            </div>
+            <div className="container">
             <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
                 <label className='form-label'>Filter previous posts</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
@@ -243,6 +246,7 @@ const PostFeed = () => {
                 <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
 
             </form>
+            </div>
             <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>
