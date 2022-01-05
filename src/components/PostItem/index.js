@@ -112,10 +112,10 @@ const PostItem = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.post("http://localhost:10011/profiles/hidden" + props.data.userId, 0, { headers: headers })
+    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, 0, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
-        console.log(response)
+        console.log(response.data)
       });
   }, []);
 
@@ -127,7 +127,7 @@ const PostItem = (props) => {
           <div className="row">
             <div className="col-sm-1">
               <img
-                src={PROFILE_PIC_URL_PREFIX + userInfo.userId}
+                src={PROFILE_PIC_URL_PREFIX + userInfo.id}
                 alt="profile-pic"
                 className="rounded-circle "
                 height="60px"
@@ -136,7 +136,7 @@ const PostItem = (props) => {
               />
             </div>
             <div className="col-sm-3 post-item-header">
-              <div>{"user id: " + props.data.userId}</div>
+              <div>{userInfo.alias}</div>
               <div className="text-secondary">{timeSince}</div>
               <p>
                 On {prettyDate.getMonth() + 1}/{prettyDate.getDate()}/

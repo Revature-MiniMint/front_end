@@ -58,7 +58,7 @@ const CreatePost = () => {
                             <div className="post-card card">
                                 <div className="card-header">
                                     <img src={PROFILE_PIC_URL_PREFIX + postUser} onError={imgErrorHandler}></img>
-                                    <h3 className="card-title">{postUser} Posts </h3>
+                                    <h3 className="card-title">{profile.alias} </h3>
                                     <span className="date" id='date-time'>{Date()}</span>
                                 </div>
                                 <div className="post-body card-body">

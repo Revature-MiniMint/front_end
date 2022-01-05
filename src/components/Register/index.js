@@ -12,16 +12,11 @@ const Register = () => {
   const navigate = useNavigate();
 
   const initialState = {
+    id: 0,
     username: "",
     userEmail: "",
     userPassword: "",
   };
-  
-  const [profile, setProfile] = useState({
-    id: 0,
-    email: "",
-    username: ""
-  })
 
   // var profile = {
   //   username: "",
@@ -121,21 +116,23 @@ const Register = () => {
       axios
         .post("http://localhost:10001/user", user)
         .then((response) => {
-          console.log(response.data);
+          console.log(response.data.userId);
           clearState();
           setSubmitted(true);
           dispatch(loginUser(response.data));
-          profile = {
-            username: user.username,
-            email: user.userEmail,
-            password: user.userPassword,
-            alias: user.username,
+          let temp = {
+            id: response.data.userId,
+            username : user.username,
+            email : user.userEmail,
+            password : user.userPassword,
+            alias : user.username,
+            dob: "2000-01-01"
           };
-          console.log(profile);
+          console.log(temp)
           axios
-            .post("http://localhost:10011/profiles/", profile)
+            .post("http://localhost:10011/profiles/", temp)
             .then((response) => {
-              console.log(response.data +"Pizza");
+              console.log(response.data);
               dispatch(userInfo(response.data))
             });
         })

@@ -7,20 +7,14 @@ import { URL_PREFIX } from '../../../url_constants';
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
 */
-const ProfilePostsOther = () => {
+const ProfilePostsOther = (props) => {
 
     const [posts, setPosts] = useState([]);
     const [searchText, setSearchText] = useState(""); //search string for flitering the posts
     const [filterDate, setFilterDate] = useState(Date.now()); //The actual date being compared to all the posts' creation dates
     const [filterMethod, setFilterMethod] = useState("ALL"); //ALL = No filter, BEFORE = Get all posts made before the date, AFTER = Get all posts made affter the date
 
-    const info = useSelector((state) => state.profile);
-    const user = useSelector((state) => state.user);
-    const profile = {
-      ...info, ...user
-    }
-
-    const id = profile.userId;
+    const id = props.data.userId;
 
     useEffect(() => {
 
@@ -204,6 +198,8 @@ const ProfilePostsOther = () => {
         }
     }
 
+
+
     /////Calculation for the default value (the current date/time) for the time input field
     const todayRaw = new Date(Date.now());
     const myTimeZoneOffset = todayRaw.getTimezoneOffset();
@@ -267,7 +263,7 @@ const ProfilePostsOther = () => {
                         <ul>
                         {
                             posts.map(post => {
-                                return <li key = {post.id}> <FeedItem data={post} /></li>
+                                return <li style={{ listStyleType: "none"}} key = {post.id}> <FeedItem data={post} /></li>
                             })
                         }
                         </ul>

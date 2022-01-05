@@ -18,7 +18,7 @@ const ProfileInfo = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:10011/profiles/1").then((response) => {
+    axios.get("http://localhost:10011/profiles/" + profile.userId).then((response) => {
       dispatch(userInfo(response.data));
     });
   }, []);
@@ -56,10 +56,7 @@ const ProfileInfo = () => {
   function checking(x) {
     if (x == "") {
       return (
-        <img
-          width="50px"
-          src="https://cdn.pixabay.com/photo/2021/01/11/21/22/candy-5909726_1280.png"
-        />
+        <p>Private</p>
       );
     } else {
       return x;
