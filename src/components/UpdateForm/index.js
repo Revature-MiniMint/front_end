@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../profileSlice";
+import "./style.css";
 
 const UpdateForm = () => {
     const dispatch = useDispatch();

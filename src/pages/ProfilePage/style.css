@@ -1,0 +1,23 @@
+/*Profile*/
+.profile {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+  }
+
+/*Profile Pic Display*/
+.profile-pic {
+    padding: 20px;
+  }
+  
+  .profile-alias {
+    color: #202020;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .profile-username,
+  .profile-username span {
+    color: #202020;
+    font-size: 20px;
+    font-weight: normal;
+  }

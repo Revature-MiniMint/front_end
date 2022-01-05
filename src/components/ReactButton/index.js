@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { URL_PREFIX } from '../../url_constants';
+import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 const URL_TO_POST_REACTIONS = `${URL_PREFIX}/reactions/`;
@@ -70,7 +71,7 @@ const ReactButton = (props) => {
         <div>
             <button className='react-btn' onClick={() => {setShowReactions(!showReactions)}}>React</button>
             {showReactions ? <><button onClick={updateReaction} value="THUMBSUP">&#x1F44D; {props.counts.THUMBSUP}</button>
-            <button className = 'btn btn-primary' onClick={updateReaction} value="THUMBSDOWN">&#x1F44E; {props.counts.THUMBSDOWN}</button>
+            <button  onClick={updateReaction} value="THUMBSDOWN">&#x1F44E; {props.counts.THUMBSDOWN}</button>
             <button onClick={updateReaction} value="LAUGH">&#x1F923; {props.counts.LAUGH}</button>
             <button onClick={updateReaction} value="CRY">&#x1F622; {props.counts.CRY}</button>
             <button onClick={updateReaction} value="SMILE">&#x1F601; {props.counts.SMILE}</button>

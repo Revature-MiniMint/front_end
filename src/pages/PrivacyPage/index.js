@@ -8,7 +8,9 @@ import UserCheck from "../../components/checkUser/userCheck";
 const PrivacyPage = () => {
     return (
         <>
+        <NavbarProfile />
         <UserCheck/>
+        <div className="container">
             <div className="row">
                 <div className="col-1"></div>
                 <div className="col-3">
@@ -18,6 +20,7 @@ const PrivacyPage = () => {
                     <PrivacyForm />
                 </div>
                 <div className="col-2"></div>
+            </div>
             </div>
             <Footer />
         </>

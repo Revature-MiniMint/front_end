@@ -1,0 +1,15 @@
+/*Settings menu*/
+.settings-menu {
+    margin: 5px;
+    width: 100%;
+  }
+  
+  .settings-menu a {
+    text-decoration: none;
+    color: #202020;
+  }
+  
+  .settings-menu a:hover{
+    color: #BADABF;
+  
+  }

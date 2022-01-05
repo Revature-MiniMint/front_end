@@ -1,0 +1,42 @@
+
+/*Post Item */
+.post-item .card-header {
+    background-color: transparent #C4C4C4;
+  }
+  .post-item-header p{
+    font-size: 15px;
+  }
+  
+  .post-item-body .bg-light {
+    background-color: transparent #C4C4C4 !important;
+  }
+  
+  .post-item-body .content-box {
+    background-color: white;
+    width: 95%;
+    margin: auto;
+  }
+  
+  .post-item-body h1 {
+    color: #202020;
+    padding: 0px 10px;
+    margin: 0px 5px;
+    font-weight: 400;
+  }
+  
+  .post-item-body p {
+    font-size: 20px;
+  }
+  
+  .post-item-body .row {
+    flex-wrap: nowrap !important;
+  }
+  
+  .post-item-body .reactions {
+    padding: 0px 30px;
+  }
+  
+  .post-item-body .like-dislike {
+    text-align: right;
+    padding: 0px 30px;
+  }
