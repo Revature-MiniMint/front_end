@@ -24,6 +24,13 @@ const ProfileInfo = () => {
     ...user,
   };
 
+  var dob = profile.dob
+  if(dob) {
+    dob = dob.substr(0,10)
+  } else {
+    dob = "2000-01-01"
+  }
+
   useEffect(() => {
     axios
       .get("http://localhost:10011/profiles/" + profile.userId)
@@ -67,7 +74,7 @@ const ProfileInfo = () => {
         </div>
         <div className="row">
           <div className="col">
-            <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(profile.dob.substr(0,10))}</p>
+            <p><FontAwesomeIcon icon={faBirthdayCake}/> {checking(dob)}</p>
           </div>
           <div className="col">
             <p><FontAwesomeIcon icon={faMars}/> {checking(profile.gender)}</p>

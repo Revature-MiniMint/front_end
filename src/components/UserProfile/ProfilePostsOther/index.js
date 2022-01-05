@@ -20,6 +20,7 @@ const ProfilePostsOther = (props) => {
     const id = props.data.userId;
 
     useEffect(() => {
+        console.log(props)
 
         axios.get(`${URL_PREFIX}/postfeed/usersearch/${id}`)
             .then((response) => {

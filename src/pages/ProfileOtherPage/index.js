@@ -1,7 +1,7 @@
 import React from "react";
 import ProfilePicOther from "../../components/UserProfile/ProfilePicOther";
 import ProfileInfoOther from "../../components/UserProfile/ProfileInfoOther";
-import ProfilePostsOther from "../../components/UserProfile/ProfilePosts";
+import ProfilePostsOther from "../../components/UserProfile/ProfilePostsOther";
 import { useLocation } from "react-router";
 import NavbarProfile from "../../components/Navbar";
 

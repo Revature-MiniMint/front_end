@@ -58,14 +58,6 @@ const PrivacyForm = () => {
                     <p>Update your privacy settings below.</p>
 
                     <form onSubmit={onSubmitHandler}>
-                        {/* 
-                        Test onChange
-                        {console.log("name: " + privacy.name)}
-                        {console.log("dob: " + privacy.dob)}
-                        {console.log("gender: " + privacy.gender)}
-                        {console.log("bio: " + privacy.bio)}
-                        {console.log("email: "  + privacy.email)}
-                        {console.log("-------")} */}
                         <div className="form-check form-switch">
                             <label className="form-check-label" htmlFor="name"> Hide First & Last Name</label>
                             <input className="form-check-input" type="checkbox" id="name" name="name" checked={privacy.name} onChange={onChangeHandler} />
