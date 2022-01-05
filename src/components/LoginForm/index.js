@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { flagStatus } from "../../profileSlice";
 import { useNavigate } from "react-router-dom";
+import {REGISTER_LOGIN} from "../../url_constants";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const LoginForm = () => {
     e.stopPropagation();
     console.log(e);
     axios
-      .post("http://localhost:10001/user/login", user)
+      .post(REGISTER_LOGIN + "/user/login", user)
       .then((response) => {
         console.log(response.data);
         dispatch(loginUser(response.data));

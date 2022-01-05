@@ -6,6 +6,7 @@ import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router";
 import { userInfo } from "../../profileSlice";
 import "./style.css";
+import { REGISTER_LOGIN , PROFILE } from "../../url_constants";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
@@ -113,7 +114,7 @@ const Register = () => {
     const form = e.currentTarget;
     if (form.checkValidity() === true) {
       axios
-        .post("http://localhost:10001/user", user)
+        .post(`${REGISTER_LOGIN}/user`, user)
         .then((response) => {
           console.log(response.data.userId);
           clearState();
@@ -130,7 +131,7 @@ const Register = () => {
           };
           console.log(temp)
           axios
-            .post("http://localhost:10011/profiles/", temp)
+            .post(`${PROFILE}/profiles/`, temp)
             .then((response) => {
               console.log(response.data);
               dispatch(userInfo(response.data))

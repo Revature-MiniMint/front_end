@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import ReactButton from "../../ReactButton";
 import LikeDislike from "../../Like_Dislike";
-import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
+import { PROFILE, PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
 import { imgErrorHandler } from "../../../imgErrorHandler";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -62,7 +62,7 @@ const FeedItem = (props) => {
     //Obtain data of commenter, will not display private info of another user
     console.log(props)
     console.log(viewerProfile)
-    axios.get("http://localhost:10011/profiles/" + props.data.userId, { headers: headers })
+    axios.get(`${PROFILE}/profiles/` + props.data.userId, { headers: headers })
       .then(response => {
         setPosterInfo(response.data)
       })

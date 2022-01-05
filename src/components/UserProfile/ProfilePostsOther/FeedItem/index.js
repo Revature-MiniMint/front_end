@@ -7,6 +7,7 @@ import LikeDislike from "../../../Like_Dislike";
 import { PROFILE_PIC_URL_PREFIX } from "../../../../url_constants";
 import { imgErrorHandler } from "../../../../imgErrorHandler";
 import {Link} from "react-router-dom";
+import { PROFILE } from "../../url_constants";
 
 const FeedItem = (props) => {
   // time since the post was made:
@@ -64,7 +65,7 @@ const FeedItem = (props) => {
   useEffect(() => {
 
     //Obtain data of commenter, will not display private info of another user
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId, {headers:headers})
+    axios.post(`${PROFILE}/profiles/hidden/` + props.data.userId, profile.userId, {headers:headers})
       .then(response => {
         console.log(response)
         setUserInfo(response.data)

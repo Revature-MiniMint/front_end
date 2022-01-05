@@ -6,6 +6,7 @@ import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
 import { imgErrorHandler } from "../../imgErrorHandler";
 import LikeDislike from "../Like_Dislike";
 import "./style.css";
+import { PROFILE } from '../../url_constants';
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 
@@ -112,7 +113,7 @@ const PostItem = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.get("http://localhost:10011/profiles/" + props.data.userId, 0, { headers: headers })
+    axios.get(`${PROFILE}/profiles/` + props.data.userId, 0, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
         console.log(response.data)

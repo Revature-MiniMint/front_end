@@ -12,6 +12,7 @@ import { userInfo } from "../../../profileSlice";
 import { flagStatus } from "../../../profileSlice";
 import { useNavigate } from "react-router";
 import "./style.css";
+import { PROFILE } from "../../url_constants";
 
 const ProfileInfo = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const ProfileInfo = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:10011/profiles/" + profile.userId)
+      .get(`${PROFILE}/profiles/` + profile.userId)
       .then((response) => {
         dispatch(userInfo(response.data));
         if (profile.userId !== 0) {
