@@ -12,8 +12,6 @@ const ProfilePicOther = (props) => {
     ...user,
   };
 
-  if (!viewerProfile) return null;
-
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': 'JWT fefege...'
@@ -35,6 +33,8 @@ const ProfilePicOther = (props) => {
         console.log(response)
       });
   }, []);
+
+  if (!viewerProfile) return null;
 
   return (
     <div className="container" style={{ fontWeight: "bold" }}>
