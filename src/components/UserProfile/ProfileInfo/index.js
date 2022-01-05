@@ -55,7 +55,7 @@ const ProfileInfo = () => {
   // console.log(state);
 
   function checking(x) {
-    if (x == null) {
+    if (x == "") {
       return (
         <img
           width="50px"

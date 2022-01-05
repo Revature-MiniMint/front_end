@@ -5,6 +5,7 @@ import "./style.css";
 import ReactButton from "../../../ReactButton";
 import LikeDislike from "../../../Like_Dislike";
 import { PROFILE_PIC_URL_PREFIX } from "../../../../url_constants";
+import { imgErrorHandler } from "../../../../imgErrorHandler";
 import {Link} from "react-router-dom";
 
 const FeedItem = (props) => {
@@ -63,7 +64,7 @@ const FeedItem = (props) => {
   useEffect(() => {
 
     //Obtain data of commenter, will not display private info of another user
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId + 1, {headers:headers})
+    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, profile.userId, {headers:headers})
       .then(response => {
         console.log(response)
         setUserInfo(response.data)
@@ -112,25 +113,29 @@ const FeedItem = (props) => {
   },[props.data]);
   
   return (
-    <div>
+    <div className="feed-item">
       <div className="card rounded">
         <div className="card-header">
           <div className="row">
             <div className="col-sm-1">
+            <Link to={'/ProfilePageOther'} state={props}>
               <img
                 src={PROFILE_PIC_URL_PREFIX + props.data.userId}
                 alt="profile-pic"
                 className="rounded-circle "
                 height="60px"
+                width="60px"
+                onError={imgErrorHandler}
               />
+            </Link>
             </div>
-            <div className="col-sm-3">
+            <div className="col-sm-3 post-item-header">
               <div>{userInfo.alias}</div>
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>
         </div>
-        <div className="card-body">
+        <div className="card-body post-item-body">
           <div className="jumbotron bg-light border">
             <h1 className="display-5">{props.data.title}</h1>
             <hr className="my-4" />
@@ -139,20 +144,24 @@ const FeedItem = (props) => {
             </div>
             <br />
             <div className="row">
-              <div className="col-sm-3">
+              <div className="col-sm-7 reactions">
                 <div>
                   <ReactButton data = {props.data} counts = {reactionsCount} updateCount = {updateCount}/>
                 </div>
               </div>
               {/* TODO: Route this to post item component: */}
-              <div className="col-sm-3">
-              <Link to={`/post/${props.data.id}`}
+              <div className="col-sm-5 like-dislike">
+                <LikeDislike data={props.data} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12 view-post">
+                <Link to={`/post/${props.data.id}`}
                   className="btn btn-secondary btn-lg btn-block"
                 >
                   View Full Post
                 </Link>
               </div>
-              <LikeDislike data={props.data} />
             </div>
             <br />
           </div>

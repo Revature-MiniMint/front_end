@@ -134,7 +134,7 @@ const Register = () => {
           axios
             .post("http://localhost:10011/profiles/", profile)
             .then((response) => {
-              console.log(response.data);
+              console.log(response.data +"Pizza");
               dispatch(userInfo(response.data))
             });
         })

@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage";
 import NavbarProfile from "./components/Navbar";
 import ProfilePicPage from "./pages/ProfilePicPage";
 import RegisterPage from "./pages/RegisterPage";
+import ProfileOtherPage from "./pages/ProfileOtherPage";
 import CreatePost from "./components/CreatePost";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/FeedPage" element={<FeedPage />} />
           <Route path="/PrivacyPage" element={<PrivacyPage />} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
+          <Route path="/ProfilePageOther" element={<ProfileOtherPage />} />
           <Route path="/UpdatePage" element={<UpdatePage />} />
           <Route path="/UpdatePicture" element={<UpdatePicture />} />
           <Route path="/ProfilePicPage" element={<ProfilePicPage />} />
