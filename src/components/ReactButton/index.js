@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { URL_PREFIX } from '../../url_constants';
+import {useSelector} from 'react-redux';
 import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
@@ -16,6 +17,14 @@ async function retrieveReactionsOfPost(postId){
 
   /* This component contains the reaction buttons for a post: */
 const ReactButton = (props) => {
+
+    const info = useSelector((state) => state.profile);
+    const user = useSelector((state) => state.user);
+    const profile = {
+      ...info,
+      ...user,
+    };
+
 
     // whether or not we show reactions:
     const [showReactions, setShowReactions] = useState(false)
@@ -35,15 +44,17 @@ const ReactButton = (props) => {
 
     // update the post with the new reaction:
     const updateReaction = (event) =>{
+
+        var userIdLoggedIn = profile.userId;
     
         // get the reaction type for the current user:
-        const reactionForCurrentUser = reactions.find(reaction => reaction.userId === props.data.userId);
+        const reactionForCurrentUser = reactions.find(reaction => reaction.userId === userIdLoggedIn);
     
         // reaction data:
         const data = {
           postId: props.data.id,
-          userId: props.data.userId,
-          reaction: event.target.value
+          userId: userIdLoggedIn,
+          reaction: event.target.value,
         }
         
         // if this is the user's first reaction on this post:
