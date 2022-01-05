@@ -22,7 +22,7 @@ const NavbarProfile = () => {
   var image = "https://minimint.s3.us-east-1.amazonaws.com/" + user.userId;
 
   function pfpCheck() {
-      if (user.userId == 0) {
+      if (user.userId === 0) {
           return (
             <img
             src={process.env.PUBLIC_URL + "/img/profile.jpg"}
@@ -45,7 +45,7 @@ const NavbarProfile = () => {
   }
 
   function nameCheck() {
-      if (profile.alias == "") {
+      if (profile.alias === "") {
           return (
               "Login"
           )
