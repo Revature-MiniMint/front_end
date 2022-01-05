@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
 import { imgErrorHandler } from "../../../imgErrorHandler";
 import axios from "axios";
+import { PROFILE } from "../../url_constants";
 
 const ProfilePicOther = (props) => {
   const info = useSelector((state) => state.profile);
@@ -27,7 +28,7 @@ const ProfilePicOther = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, viewerProfile.userId, { headers: headers })
+    axios.post(`${PROFILE}/profiles/hidden/` + props.data.userId, viewerProfile.userId, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
         console.log(response)

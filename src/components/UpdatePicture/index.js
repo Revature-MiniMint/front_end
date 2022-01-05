@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useSelector } from "react-redux";
 import { imgErrorHandler } from '../../imgErrorHandler';
+import { PROFILE } from "../../url_constants";
 
 const UpdatePicture = () => {
     const user = useSelector((state) => state.user);
@@ -19,7 +20,7 @@ const UpdatePicture = () => {
         var imagefile = document.getElementById('profilepic');
         formData.append("image", imagefile.files[0]);
         console.log(formData)
-        axios.post("http://localhost:10011/profiles/" + user.userId + "/profile_pic", formData, {
+        axios.post(`${PROFILE}/profiles/` + user.userId + "/profile_pic", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

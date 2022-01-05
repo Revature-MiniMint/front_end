@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../profileSlice";
 import "./style.css";
+import { PROFILE } from "../../url_constants";
 
 const UpdateForm = () => {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const UpdateForm = () => {
  
     useEffect(() => {
         if (!profile.id) {
-        axios.get("http://localhost:10011/profiles/" + user.userId)
+        axios.get(`${PROFILE}/profiles/` + user.userId)
             .then(response => {
                 console.log(response.data);
                 setState(response.data);
@@ -51,7 +52,7 @@ const UpdateForm = () => {
         event.preventDefault();
         console.log(state);
         const { profilepic, ...profileinfo } = state;
-        axios.put("http://localhost:10011/profiles/" + user.userId, profileinfo)
+        axios.put(`${PROFILE}/profiles/` + user.userId, profileinfo)
             .then(response => {
                 console.log(response);
                 dispatch(userInfo(response.data));

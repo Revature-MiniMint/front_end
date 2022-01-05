@@ -3,6 +3,7 @@ import axios from "axios";
 import "./style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { PROFILE } from '../../url_constants';
 
 const PrivacyForm = () => {
     const [privacy, setPrivacy] = useState({
@@ -23,7 +24,7 @@ const PrivacyForm = () => {
 
     // use effect test
     useEffect(() => {
-        axios.get("http://localhost:10011/privacy/" + profile.userId, privacy)
+        axios.get(`${PROFILE}/privacy/` + profile.userId, privacy)
         .then((response) => {
             setPrivacy(response.data);
         })
@@ -33,7 +34,7 @@ const PrivacyForm = () => {
     //update privacy
     function onSubmitHandler(e) {
         e.preventDefault()
-        axios.put('http://localhost:10011/privacy/' + profile.userId, privacy)
+        axios.put(`${PROFILE}/privacy/` + profile.userId, privacy)
         .then(response => {
             setPrivacy(response.data)
             console.log(response.data)

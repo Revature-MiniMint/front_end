@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { userInfo } from "../../../profileSlice";
 import "./../ProfileInfo/style.css";
+import { PROFILE } from "../../url_constants";
 
 const ProfileInfoOther = (props) => {
 
@@ -24,7 +25,7 @@ const ProfileInfoOther = (props) => {
 
   useEffect(() => {
     console.log(props)
-    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, viewerProfile.userId, { headers: headers })
+    axios.post(`${PROFILE}/profiles/hidden/` + props.data.userId, viewerProfile.userId, { headers: headers })
       .then((response) => {
         setUserInfo(response.data);
       });
