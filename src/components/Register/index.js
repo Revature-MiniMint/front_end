@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router";
 import { userInfo } from "../../profileSlice";
+import "./style.css";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);

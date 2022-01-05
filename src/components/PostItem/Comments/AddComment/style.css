@@ -1,0 +1,12 @@
+/*Add comment */
+.add-com-btn input[type="submit"] {
+    background-color: #C21515;
+    color: white;
+    border: 2px solid #C21515;
+  }
+  
+  .add-com-btn input[type="submit"]:hover {
+    background-color: #BADABF;
+    color: white;
+    border: 2px solid #BADABF;
+  }

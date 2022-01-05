@@ -1,0 +1,56 @@
+/*Profile NavBar*/
+.profile-header{
+    text-align: center;
+  }
+  
+  .profile-header p {
+    font-size: 12px;
+  }
+  
+  .profile-header img {
+    border-radius: 50%;
+  }
+  
+  .me-auto {
+    text-align: center;
+  }
+  
+  #navbarScrollingDropdown::after{
+    display: none;
+  }
+  
+  .container {
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-link {
+    height: 50px;
+  }
+  
+  .dropdown-menu {
+    min-width: 8rem !important;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #BADABF !important;
+    color: white !important;
+    opacity: 0.8;
+  }
+  
+  .profile-header p {
+    color: #202020;
+  }
+  
+  /*Navbar Icons*/
+  .nav-link .svg-inline--fa {
+    color: #202020;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+  
+  .nav-link .svg-inline--fa:hover {
+    color: #BADABF;
+  }

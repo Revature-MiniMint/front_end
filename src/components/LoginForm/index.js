@@ -85,8 +85,8 @@ const LoginForm = () => {
                 <br />
                 <div className="brand-motto">
                   <h2>
-                    Some Mints a day<br></br>
-                    helps keep the bored away.
+                    A few mints a day<br></br>
+                    keeps the boredem away.
                   </h2>
                 </div>
               </div>

@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { imgErrorHandler } from "../../imgErrorHandler";
+import "./style.css";
 
 const NavbarProfile = () => {
   const profile = useSelector((state) => state.profile);

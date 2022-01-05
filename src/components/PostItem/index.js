@@ -5,6 +5,7 @@ import ReactButton from "../ReactButton";
 import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
 import { imgErrorHandler } from "../../imgErrorHandler";
 import LikeDislike from "../Like_Dislike";
+import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 
