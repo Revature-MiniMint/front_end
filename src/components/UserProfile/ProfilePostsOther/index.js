@@ -279,4 +279,4 @@ const ProfilePostsOther = () => {
     );
 
 }
-export default ProfilePosts;
+export default ProfilePostsOther;

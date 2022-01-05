@@ -45,9 +45,9 @@ const ProfilePic = () => {
             {profile.alias}
             </p>
           <p className="profile-username">
-            <span>@</span>
+            <span></span>
             {profile.userName} {/*This doesn't work*/}
-            Mark 123
+            
           </p>
         </div>
       </div>
