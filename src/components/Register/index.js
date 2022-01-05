@@ -126,7 +126,8 @@ const Register = () => {
             email : user.userEmail,
             password : user.userPassword,
             alias : user.username,
-            dob: "2000-01-01"
+            dob: "2000-01-01",
+            privacies: {privacyid:1}
           };
           console.log(temp)
           axios
