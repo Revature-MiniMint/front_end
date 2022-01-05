@@ -31,43 +31,50 @@ The front end holds the various pages for the MiniMint Project. These pages allo
 
 ### Login page
 
-(insert a pic of the login page)
+![login](https://user-images.githubusercontent.com/92759345/148290803-55215119-df39-4b17-8b59-0c97db0e65de.PNG)
 
-(insert a pic of the register page)
+
+![register](https://user-images.githubusercontent.com/92759345/148290847-66aa4710-a44e-49cf-bd50-d4289ac33028.PNG)
+
 
 Enter in your username and password to login or enter in the appropiate information into the register page.
 
 ### Profile 
 
 This contains a list of options to alter a users profile
-(show a picture of profile page)
+
 
 This will lead to the user selecting one of the options
 
 1. Profile Information page 
 
-(finshed image)
+![profile](https://user-images.githubusercontent.com/92759345/148292425-0c45e4a5-46b4-4b2b-ac6c-27cf272caf44.PNG)
+
 
 2. Profile Image 
 
-(finshed image)
+![profilepic](https://user-images.githubusercontent.com/92759345/148291268-10c6dc64-4465-4aad-8ea4-d845f50a7ae2.PNG)
+
 
 3. Privacy Tab
 
-(finshed image)
+![privacyform](https://user-images.githubusercontent.com/92759345/148291127-7bff3f75-eb2c-4dbb-9ddf-fc1a31cb309d.PNG)
+
 
 ### Posts
 
 Main page CreatePostPage
 
-(show page)
+![post](https://user-images.githubusercontent.com/92759345/148291809-c19eda34-3c96-497e-9ac2-cb89e3c813ab.PNG)
+
 
 Allows a user to make a post
 
 
 On other users posts you can filter, react, up and down mints
 
-(show section of page)
+![fullpost](https://user-images.githubusercontent.com/92759345/148291818-ef362ff3-6248-4a3e-9c89-c9d5e3810839.PNG)
+
 
 
 
