@@ -1,0 +1,27 @@
+.content-box{
+    padding:1.5em;
+}
+
+/*Post Feed Item*/
+.feed-item {
+    width: 1000px;
+  }
+  
+  .view-post {
+    text-align: right;
+    padding: 0px;
+  }
+  
+  .view-post .btn {
+    background-color: #C21515;
+    color: white;
+    border: 1px solid #C21515;
+    width: 250px;
+    margin-top: 20px;
+    margin-right: 10px;
+  }
+  
+  .view-post .btn:hover {
+    background-color: #BADABF;
+    border: 1px solid #BADABF;
+  }
