@@ -6,10 +6,11 @@ import { URL_PREFIX } from '../../../url_constants';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+
 /* This component renders gruops of posts depending on user's filters
  ex: newest, oldest, most upmints, etc...
 */
-const ProfilePosts = () => {
+const ProfilePostsOther = () => {
 
     const [posts, setPosts] = useState([]);
     const [searchText, setSearchText] = useState(""); //search string for flitering the posts
@@ -219,7 +220,7 @@ const ProfilePosts = () => {
 
             </form>
             <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
-                <label className='form-label'>Filter previous posts</label> <br />
+                <label className='form-label'>Filter your previous orders</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
                     {
@@ -283,4 +284,4 @@ const ProfilePosts = () => {
     );
 
 }
-export default ProfilePosts;
+export default ProfilePostsOther;

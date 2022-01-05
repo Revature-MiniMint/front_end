@@ -5,6 +5,7 @@ import ReactButton from "../ReactButton";
 import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
 import { imgErrorHandler } from "../../imgErrorHandler";
 import LikeDislike from "../Like_Dislike";
+import "./style.css";
 
 const URL_TO_GET_REACTIONS = `${URL_PREFIX}/reactions/postId/`;
 
@@ -96,6 +97,28 @@ const PostItem = (props) => {
     }
   }, [props.data]);
 
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
+
+  const [userInfo, setUserInfo] = useState({
+    name: "",
+    dob: "",
+    gender: "",
+    bio: "",
+    email: ""
+  })
+
+  useEffect(() => {
+    console.log(props)
+    axios.post("http://localhost:10011/profiles/hidden" + props.data.userId, 0, { headers: headers })
+      .then((response) => {
+        setUserInfo(response.data);
+        console.log(response)
+      });
+  }, []);
+
   let prettyDate = new Date(props.data.creationDate);
   return (
     <div className="container post-item">
@@ -104,7 +127,7 @@ const PostItem = (props) => {
           <div className="row">
             <div className="col-sm-1">
               <img
-                src={PROFILE_PIC_URL_PREFIX + props.data.userId}
+                src={PROFILE_PIC_URL_PREFIX + userInfo.userId}
                 alt="profile-pic"
                 className="rounded-circle "
                 height="60px"

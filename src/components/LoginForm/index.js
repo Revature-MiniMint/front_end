@@ -85,8 +85,8 @@ const LoginForm = () => {
                 <br />
                 <div className="brand-motto">
                   <h2>
-                    Some Mints a day<br></br>
-                    helps keep the bored away.
+                    A few mints a day<br></br>
+                    keeps the boredem away.
                   </h2>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
-                <h1>{flag}</h1>
+                <h1 className="flag">{flag}</h1>
                 <hr />
                 <p>Don't have an account?</p>
 

@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginUser } from "../../userSlice";
 import { useNavigate } from "react-router";
 import { userInfo } from "../../profileSlice";
+import "./style.css";
 
 const Register = () => {
   const [validated, setValidated] = useState(false);
@@ -134,7 +135,7 @@ const Register = () => {
           axios
             .post("http://localhost:10011/profiles/", profile)
             .then((response) => {
-              console.log(response.data);
+              console.log(response.data +"Pizza");
               dispatch(userInfo(response.data))
             });
         })

@@ -46,7 +46,7 @@ const FeedItem = (props) => {
 
   //User information, set top private by default
   const [userInfo, setUserInfo] = useState({
-    alias : "Private"
+    alias : ""
   })
 
   const info = useSelector((state) => state.profile);

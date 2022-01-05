@@ -39,7 +39,7 @@ const Comment = (props) => {
     return (
         <div className = {styles.comment}>
             {props.comment.description} by {props.comment.author}
-            <button className={styles.delete} onClick = {deleteComment}>X</button>
+            {/* <button className={styles.delete} onClick = {deleteComment}>X</button> */}
             <br/>
             {/* Reply Form: */}
             <AddReply replies = {replies} setReplies = {setReplies} postId = {props.postId} commentId = {props.comment.id}/>

@@ -5,6 +5,8 @@ import LikeDislike from "../../Like_Dislike";
 import { PROFILE_PIC_URL_PREFIX } from "../../../url_constants";
 import { imgErrorHandler } from "../../../imgErrorHandler";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const FeedItem = (props) => {
   // time since the post was made:
@@ -42,8 +44,29 @@ const FeedItem = (props) => {
     setReactions(updatedReactions);
   }
 
+  const [posterInfo, setPosterInfo] = useState({})
+  const info = useSelector((state) => state.profile);
+  const user = useSelector((state) => state.user);
+  const viewerProfile = {
+    ...info, ...user
+  }
+
+  //Used to pass a single digit through to the backend
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+  }
 
   useEffect(() => {
+
+    //Obtain data of commenter, will not display private info of another user
+    axios.post("http://localhost:10011/profiles/hidden/" + props.data.userId, viewerProfile.userId, { headers: headers })
+      .then(response => {
+        setPosterInfo(response.data)
+      })
+      .catch((error) => {
+        console.error(error); //Print error to console
+      })
 
     setReactions(props.data.reactionList);
 
@@ -89,6 +112,7 @@ const FeedItem = (props) => {
         <div className="card-header">
           <div className="row">
             <div className="col-sm-1">
+            <Link to={'/ProfilePageOther'} state={props}>
               <img
                 src={PROFILE_PIC_URL_PREFIX + props.data.userId}
                 alt="profile-pic"
@@ -97,9 +121,10 @@ const FeedItem = (props) => {
                 width="60px"
                 onError={imgErrorHandler}
               />
+            </Link>
             </div>
             <div className="col-sm-3 post-item-header">
-              <div>{"user id: " + props.data.userId}</div>
+              <div>{posterInfo.alias}</div>
               <div className="text-secondary">{timeSince}</div>
             </div>
           </div>

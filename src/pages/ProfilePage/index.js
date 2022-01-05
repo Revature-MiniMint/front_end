@@ -2,6 +2,7 @@ import React from "react";
 import ProfilePic from "../../components/UserProfile/ProfilePic";
 import ProfileInfo from "../../components/UserProfile/ProfileInfo";
 import ProfilePosts from "../../components/UserProfile/ProfilePosts";
+import "./style.css";
 
 const ProfilePage = () => {
 
@@ -18,6 +19,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+      <br />
       <div className="row">
         <ProfilePosts />
       </div>
