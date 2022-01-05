@@ -213,13 +213,13 @@ const ProfilePosts = () => {
     ///////////////////////////
     return (
         <>
-            <form className="text-center mb-4 seach-post" onSubmit={searchSubmitHandler}>
+            <form className="text-center mb-4 search-post" onSubmit={searchSubmitHandler}>
                 <input className="w-50" type="text" onChange={searchChangeHandler} placeholder="Search for a post..." name="searchbar" />
                 <button type="submit"><FontAwesomeIcon icon={faSearch} /></button>
 
             </form>
-            <form className="filter-font text-center mb-4" onSubmit={dateSubmitHandler}>
-                <label className='form-label'>Filter your previous orders</label> <br />
+            <form className="filter-form text-center mb-4" onSubmit={dateSubmitHandler}>
+                <label className='form-label'>Filter previous posts</label> <br />
                 <div className="btn-group " role="group"  onChange={dateChangeHandler}>
                     <input type="radio" style={{ display: "none" }} className="btn-check" name="filter_method" id="btnradio1" value="BEFORE" autoComplete="off" />
                     {
@@ -251,6 +251,7 @@ const ProfilePosts = () => {
                 <button type="submit"><FontAwesomeIcon icon={faSearch}/></button>
 
             </form>
+            <div className='filter-buttons'>
             <button onClick={sortByTimeOldFirst}>Oldest</button>
             <button onClick={sortByTimeNewFirst}>Newest</button>
             <button onClick={sortByMostUpmints}>Most Upminted</button>
@@ -259,6 +260,7 @@ const ProfilePosts = () => {
             <button onClick={() => filterByTimeAgo(7)}>Last Week</button>
             <button onClick={() => filterByTimeAgo(20)}>Last Month</button>
             <button onClick={() => filterByTimeAgo(365)}>Last Year</button>
+            </div>
             <div className="container d-flex justify-content-center">
                 {posts.length === 0 ?
 

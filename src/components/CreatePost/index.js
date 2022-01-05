@@ -5,13 +5,15 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { URL_PREFIX, PROFILE_PIC_URL_PREFIX } from "../../url_constants";
 import { imgErrorHandler } from "../../imgErrorHandler";
+import { useNavigate } from "react-router";
 
 const URL_TO_POST = `${URL_PREFIX}/postfeed/addnew`;
 
 /* This component allows user to create
 a new post. */
 const CreatePost = () => {
-
+    const navigate = useNavigate();
+    
     /* The state of the form. */
     const [postDescription, setPostDescription] = useState("");
     const [postTitle, setPostTitle] = useState("");
@@ -28,8 +30,8 @@ const CreatePost = () => {
     }, [])
 
     /* Submitting the post: */
-    const onPostHandler = () => {
-
+    const onPostHandler = (e) => {
+        e.preventDefault();
         var date = new Date(Date.now());
 
         const postDetails = {
@@ -44,6 +46,8 @@ const CreatePost = () => {
         axios.post(URL_TO_POST, postDetails)
         .then(response => {})
         .catch(error => console.error(error))
+        
+        navigate('/FeedPage');
     }
 
   return (

@@ -114,7 +114,7 @@ const LoginForm = () => {
                 </div>
 
                 <button className="btn col-12" type="submit">Log In</button>
-                <h1>{flag}</h1>
+                <h1 className="flag">{flag}</h1>
                 <hr />
                 <p>Don't have an account?</p>
 
