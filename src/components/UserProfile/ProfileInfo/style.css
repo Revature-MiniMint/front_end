@@ -1,0 +1,23 @@
+/*Profile Info */
+.container.profile-info {
+    margin-top: 30px;
+  }
+  .profile-info p{
+    color: #202020;
+  }
+  
+  .profile-info-name p {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .profile-info-gen p{
+    font-size: 20px;
+    text-align: left;
+    padding: 2px;
+  }
+  
+  .profile-info-gen .svg-inline--fa {
+    padding-top: 5px;
+  }

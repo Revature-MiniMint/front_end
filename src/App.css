@@ -79,14 +79,6 @@
   text-align: left;
 }
 
-/*Update Profile Info */
-.update-form {
-  border: 1px solid #dee2e6;
-  padding: 15px;
-  margin: 5px;
-  border-radius: 10px;
-}
-
 /*Universal styling for focus input type*/
 input[type="text"]:focus, 
 input[type="password"]:focus,
@@ -100,7 +92,8 @@ select:focus,
 .register-btn .btn-primary:focus,
 .login-form .btn:focus,
 input[type="datetime-local"]:focus,
-.post-body textarea:focus
+.post-body textarea:focus,
+.btn.contact-btn:focus
 {
   border-color: rgba(196, 196, 196,0.7);
   box-shadow: 0 1px 1px rgba(196, 196, 196, 0.075) inset, 0 0 8px rgba(196, 196, 196, 0.6);
@@ -110,49 +103,4 @@ input[type="datetime-local"]:focus,
 /*applied to componenet pages when content too short */
 .short-content {
   min-height: 400px;
-}
-
-/*Profile*/
-.profile {
-  border: 1px solid #dee2e6;
-  border-radius: 10px;
-}
-
-/*Profile Pic Display*/
-.profile-pic {
-  padding: 20px;
-}
-
-.profile-alias {
-  color: #202020;
-  font-size: 20px;
-}
-
-.profile-username {
-  color: #C4C4C4;
-  font-size: 20px;
-}
-
-/*Profile Info */
-.profile-info {
-  padding: 10px;
-}
-.profile-info p{
-  color: #202020;
-}
-
-.profile-info-name p {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: left;
-}
-
-.profile-info-gen p{
-  font-size: 20px;
-  text-align: left;
-  padding: 2px;
-}
-
-.profile-info-gen .svg-inline--fa {
-  padding-top: 5px;
 }
