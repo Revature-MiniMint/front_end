@@ -64,6 +64,7 @@ const FeedItem = (props) => {
     console.log(viewerProfile)
     axios.get("http://localhost:10011/profiles/" + props.data.userId, { headers: headers })
       .then(response => {
+        console.log(response.data);
         setPosterInfo(response.data)
       })
       .catch((error) => {
